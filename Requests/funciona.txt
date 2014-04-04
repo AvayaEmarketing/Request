@@ -1,0 +1,70 @@
+<%@ WebHandler Language="C#" Class="AjaxFileUploader" %>
+ 
+using System;
+using System.Web;
+using System.Data;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Data.SqlClient;
+ 
+public class AjaxFileUploader : IHttpHandler
+{
+ 
+    public void ProcessRequest(HttpContext context)
+    {
+        //context.Response.ContentType = "text/plain";
+        //context.Response.Write("Hello World");
+        if (context.Request.Files.Count > 0)
+        {
+            string path = context.Server.MapPath("~/uploads");
+             
+            if (!Directory.Exists(path))
+              Directory.CreateDirectory(path);
+            
+            var file = context.Request.Files[0];
+            if (file.FileName != "")
+            {
+                string fileName;
+ 
+                if (HttpContext.Current.Request.Browser.Browser.ToUpper() == "IE")
+                {
+                    string[] files = file.FileName.Split(new char[] { '\\' });
+                    fileName = files[files.Length - 1];
+                }
+                else
+                {
+                    string date = DateTime.Now.ToString("ddMMyyyyhhmmss");
+                    fileName = date + "-" + file.FileName;
+                }
+                string strFileName = fileName;
+                fileName = Path.Combine(path, fileName);
+                file.SaveAs(fileName);
+ 
+                SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.AppSettings["connectionstring"].ToString());
+                con.Open();
+                SqlCommand cmd = new SqlCommand("insert into Image_Table(Image_Name,Image_Path)values(@filename,@filepath)", con);
+                cmd.Parameters.AddWithValue("@filename", strFileName);
+                cmd.Parameters.AddWithValue("@filepath", fileName);
+                cmd.ExecuteNonQuery();
+ 
+                string msg = "{";
+                msg += string.Format("error:'{0}',\n", string.Empty);
+                msg += string.Format("msg:'{0}'\n", strFileName);
+                msg += "}";
+                context.Response.Write(msg);
+ 
+            }
+        }
+ 
+    }
+ 
+    public bool IsReusable
+    {
+        get
+        {
+            return false;
+        }
+    }
+ 
+}

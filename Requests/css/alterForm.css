@@ -1,0 +1,473 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/**FORM FOR AVAYA EVOLUTIONS CHILE**/
+table, table td tr, table tbody tr td {
+	border: medium none;
+	border-collapse: collapse;
+	font-size: 11px !important;
+	padding: 1px 5px;
+	vertical-align: middle;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+	background-color: #E8E8E8 !important;
+	border-style: none !important;
+	height: 25px;
+	margin-bottom: 0;
+	margin-right: 0;
+	margin-top: 4px;
+	padding: 0;
+	width: 230px;
+}
+label.desc, legend.desc {
+	border: medium none;
+	color: #222222;
+	display: block;
+	float: left;
+	font-size: 11px !important;
+	font-weight: bold;
+	line-height: 150%;
+	margin: 0;
+	padding: 0 10px 3px 0;
+	text-align: right;
+	white-space: normal;
+	width: 90px;
+}
+form li {
+	padding: 1px !important;
+}
+form li.section h3#title61 {
+	border-top: medium none !important;
+	color: #555555;
+	display: block !important;
+	font-size: 0.8em !important;
+	font-weight: normal;
+	left: 185px;
+	margin: 15px 0;
+	position: relative;
+	width: 230px;
+}
+.wufoo label.desc, .wufoo legend.desc {
+	font-size: 11px !important;
+	font-style: normal;
+}
+form li.section h3#title61 a {
+	color: #CC0000;
+}
+textarea {
+ background:#E8E8E8 !important border: 1px solid #CCCCCC;
+	min-height: 50px;
+}
+input#saveForm {
+	background: url("http://avaya-evolutions.com/Net/images/arrow_lat_active.gif") no-repeat scroll 85% 50% #CC0000;
+	border: medium none;
+	color: #FFFFFF;
+	cursor: pointer;
+	float: left;
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	height: 40px;
+	margin: 20px 8%;
+	padding: 10px 30px 10px 20px;
+	width: 115px;
+}
+/*input#saveForm {
+  background: url("http://avaya-evolutions.com/Net/images/arrow_lat_active.gif") no-repeat scroll 85% 50% #CC0000;
+  border: medium none;
+  color: #FFFFFF;
+  cursor: pointer;
+  float: left;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  margin: 20px 10%;
+  padding: 10px 30px 10px 20px;
+  width: 95px;
+}*/
+.notranslate.thirdRow #Field74.textarea.small {
+	height: 80px !important;
+	width: 260px !important;
+	float: left !important;
+}
+textarea.textarea, .wufoo textarea.textarea, html.embed body#public.noI div#container.ltr form#form7.wufoo ul li#fo7li74.notranslate div textarea#Field74.field {
+	max-width: 50% !important;
+	min-width: 40% !important;
+	width: 295px !important;
+	background:#E8E8E8 !important
+}
+html.embed body#public.noI div#container.ltr form#form21.wufoo ul li#fo21li73.notranslate.firstRow.receiveForm div textarea#Field73.field {
+	max-width: 63% !important;
+	max-height:30px !important;
+}
+select {
+	float: left !important;
+	height: 25px !important;
+	margin: 0 !important;
+	padding-bottom: 1px !important;
+	padding-top: 1px !important;
+	width: 210px !important;
+}
+li.buttons {
+	bottom:0px;
+	left: 250px;
+	position: relative;
+}
+li#fo1li61.notranslate.section {
+	position: relative;
+	top: 50px;
+}
+header, form li div label, form li span label, .wufoo .section h3/*, .wufoo .captcha, #payment .paging-context*/ {
+	display:none !important;
+}
+/**ALIGNMENT**/
+
+.firstRow, .secRow {
+	max-width: 49%;
+	width: 49%;
+}
+.firstRow {
+	float:left;
+	margin-right:1px;
+}
+.secRow {
+	clear: none;
+	float: right;
+}
+.thirdRow {
+	width:100% !important;/*float:left;
+	clear:both;*/
+}
+.thirdRow label {
+	width:49%;
+}
+.thirdRow.prime label {
+	width: 120px !important;
+}
+form.wufoo.topLabel.page1 ul, .fstThR {
+	margin-top:15px;
+}
+.thirdRow.fstThR {
+	float:left;
+}
+.noI form li, .altInstruct form li {
+	width: 100% !important;
+}
+.wufoo .thirdRow label.desc, .wufoo .thirdRow legend.desc {
+	font-size: 11px !important;
+	font-style: normal;
+	padding-top: 5px;
+}
+/**OVERWRITTE ERROR STYLES**/
+
+#errorLi {
+	background: none repeat scroll 0 0 transparent;
+	border: medium none;
+	border-radius: 0 0 0 0;
+	margin: 15px auto;
+	padding: 0;
+	text-align: center;
+	width: 99%;
+	display:none;
+}
+form li.error {
+	background-color: #FFEDED !important;
+	display: block !important;
+	margin-bottom: 3px !important;
+}
+form li.error .desc, form p.error {
+	color: #BB0000 !important;
+}
+form li.error p.error {
+	display: none;
+}
+/**/
+
+.comments label {
+	width:49%;
+	float:left;
+	text-align:right;
+}
+.comments div {
+	width:49%;
+	float:right;
+}
+.comments div textarea {
+	height: 100px !important;
+	width: 120px !important;
+	border:1px solid #ccc !important;
+	background:#E8E8E8 !important
+}
+.secRow.comments label {
+	width:90px;
+	float:left;
+	text-align:right;
+}
+.secRow.comments div {
+	width:65%;
+	float:left;
+}
+.secRow.comments div textarea {
+	height: 100px !important;
+	width: 100px !important;
+	border:1px solid #ccc !important;
+}
+/**/
+
+li.notranslate.thirdRow.grayComments textarea.textarea {
+	background: none scroll #E8E8E8 !important;
+}
+/**SPECIAL DIET CHECBOXES*/
+
+form li.secRow.specialDiet div label, form li.secRow.specialDiet span label {
+	display: block !important;
+	font-size: 12px;
+	padding-top: 3px;
+}
+/**MEDIAQUERIES**/
+
+@media only screen and (min-device-width: 240px) and (max-device-width: 320px) {
+ #form1 ul, #wufoo-form, #wufoo-form iframe.iframeFormer {
+ width:300px !important;
+ max-width:300px !important;
+}
+.registerTitle {
+ width:60%;
+}
+.firstRow, .secRow {
+ width:100%;
+}
+.firstRow, .secRow, .thirdRow {
+ clear:both;
+ float: left;
+}
+.thirdRow, .thirdRow label {
+ width: 100% !important;
+}
+.thirdRow label {
+ text-align:left;
+}
+#fo1li37.notranslate.secRow {
+ position: relative;
+ top: 50px !important;
+}
+#fo1li69.notranslate.firstRow {
+ position: relative;
+ top: -45px !important;
+}
+.thirdRow .wufoo li div, .thirdRow .wufoo li span, .thirdRow .wufoo li div label, .thirdRow .wufoo li span label {
+ float: none;
+}
+.noI form li, .altInstruct form li {
+ clear: both;
+ float: left;
+ width: 280px !important;
+}
+.thirdRow.fstThR {
+ clear: none;
+ float: none;
+ width: 90%;
+}
+.thirdRow.fstThR {
+ float: none;
+}
+.noI form li, .altInstruct form li {
+ width: 30% !important;
+}
+label.desc, legend.desc {
+ float: left !important;
+ font-size: 11px !important;
+ width: 200px !important;
+ text-align: left !important;
+}
+form li.buttons {
+ clear: both;
+ float: left !important;
+ left: 0 !important;
+ padding: 10px 1%;
+ position: relative;
+ width: 50px !important;
+}
+ input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+ width:200px;
+}
+li.buttons {
+ left: 0px;
+}
+}
+@media only screen and (max-device-width: 480px) {
+#wufoo-form, #wufoo-form iframe.iframeFormer {
+ width:320px;
+}
+.registerTitle {
+ width:60%;
+}
+.firstRow {
+ float: none;
+ margin-right: 1px;
+}
+.secRow {
+ clear:both;
+ float: left;
+}
+#fo1li37.notranslate.secRow {
+ position: relative;
+ top: 50px !important;
+}
+#fo1li69.notranslate.firstRow {
+ position: relative;
+ top: -45px !important;
+}
+.thirdRow .wufoo li div, .thirdRow .wufoo li span, .thirdRow .wufoo li div label, .thirdRow .wufoo li span label {
+ float: none;
+}
+.noI form li, .altInstruct form li {
+ width: 90% !important;
+}
+.thirdRow.fstThR {
+ clear: none;
+ float: none;
+ width: 100%;
+}
+label.desc, legend.desc {
+ float: left !important;
+ font-size: 11px !important;
+ width: 200px !important;
+ text-align: left !important;
+}
+li.buttons {
+ left:0px !important;
+}
+ input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+ width:200px;
+}
+li.buttons {
+ left: 0px;
+}
+.comments div {
+ float: left !important;
+ width:100% !important;
+}
+li.buttons {
+ bottom: 0;
+ left: 40%;
+ position: relative;
+}
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+ body#public {
+ max-width:600px;
+ max-height:570px;
+}
+ input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select {
+ width: 150px;
+ max-width: 150px;
+ float:left;
+}
+textarea.textarea, .wufoo textarea.textarea, html.embed body#public.noI div#container.ltr form#form7.wufoo ul li#fo7li74.notranslate div textarea#Field74.field {
+ max-width: 50% !important;
+ min-width: 40% !important;
+ width: 295px !important;
+ float:right;
+}
+.notranslate.thirdRow #Field74.textarea.small {
+margin-left: -10px !important;
+}
+.notranslate.thirdRow #Field74.textarea.small {
+height: 80px !important;
+width: 260px !important;
+margin-left: 20px !important;
+float: left !important;
+}
+form li.secRow.specialDiet div label, form li.secRow.specialDiet span label {
+display: block !important;
+font-size: 7px;
+padding-top: 3px;
+}
+}
+/*@media all and (min-width:770px) {
+ input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, select {
+ width: 230px !important;
+ max-width: 230px !important;
+ float:left;
+}
+}*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+/* will be red only in google chrome */
+ #form1 ul, #wufoo-form, #wufoo-form iframe.iframeFormer {
+ (-bracket-:hack;
+ width:100% !important;
+ max-width:100% !important;
+}
+.firstRow, .secRow {
+ (-bracket-:hack;
+ max-width: 49%;
+ width: 49%;
+}
+.firstRow {
+ (-bracket-:hack;
+ float:left;
+ margin-right:1px;
+}
+.secRow {
+ (-bracket-:hack;
+ clear: none;
+ float: right;
+}
+.thirdRow {
+ (-bracket-:hack;
+ width:100% !important;/*float:left;
+	clear:both;*/
+}
+.thirdRow label {
+ (-bracket-:hack;
+ width:49%;
+}
+.thirdRow.prime label {
+ (-bracket-:hack;
+ width: 120px !important;
+}
+form.wufoo.topLabel.page1 ul, .fstThR {
+ (-bracket-:hack;
+ margin-top:15px;
+}
+.thirdRow.fstThR {
+ (-bracket-:hack;
+ float:left;
+}
+.noI form li, .altInstruct form li {
+ (-bracket-:hack;
+ width: 100% !important;
+}
+.wufoo .thirdRow label.desc, .wufoo .thirdRow legend.desc {
+ (-bracket-:hack;
+ font-size: 11px !important;
+ font-style: normal;
+ padding-top: 5px;
+}
+label.desc, legend.desc {
+ (-bracket-:hack;
+ float:left !important;
+}
+.firstRow, .secRow, .thirdRow {
+ (-bracket-:hack;
+}
+#fo1li37.notranslate.secRow {
+ (-bracket-:hack;
+ position: relative;
+ top: 0px;
+}
+#fo1li69.notranslate.firstRow {
+ (-bracket-:hack;
+ position: relative;
+ top: 0px;
+}
+li.buttons {
+ (-bracket-:hack;
+ left:250px;
+}
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea, .home .total .contenido .col_izq .cont_calendario .informacion2 .registerFull form input, input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea {
+ (-bracket-:hack;
+ width:220px !important;
+}
+}

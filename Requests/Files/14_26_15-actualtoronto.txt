@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<META NAME="WT.si_n" CONTENT="Responder"/>
+<META NAME="WT.si_x" CONTENT="1"/>
+<title>Avaya Evolutions™ Toronto - VIP Lunch Event Registration</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+<meta property="og:title" content="Avaya Evolutions™ Monterrey"/>
+<meta property="og:image" content="http://avaya-evolutions.com/images/fb/avaya-fbIcon.jpg"/>
+<meta property="og:site_name" content="Avaya Evolutions™ Panamá"/>
+<meta property="og:description" content="Be a part of Avaya Evolutions&#x2122; Toronto next January 21st, 2014 at Metro Toronto Convention Centre, 255 Front Street West,Toronto, Ontario. Register now!" />
+<meta property='og:url' expr:content='http://avaya-evolutions.com/monterrey/' />
+<link rel=”image_src” type="image/jpg" href="http://avaya-evolutions.com/images/avaya-fbIcon.jpg" />
+<link rel="icon" type="image/png" href="../imagen.png" />
+<link rel="icon" type="image/png" href="../imagen.png" />
+<link rel="stylesheet" href="../stylesheets/foundation.min.css">
+<link rel="stylesheet" href="../stylesheets/app.css">
+<link rel="stylesheet" href="../stylesheets/estilos.css">
+<link rel="stylesheet" href="../stylesheets/usa-styles.css">
+<link rel="stylesheet" href="../javascripts/countdown.js">
+<link rel="stylesheet" href="../javascripts/jScrollTouch.js">
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="../stylesheets/ie8.css"><![endif]-->
+<!-- TO FORCE HTML5 IN IE8-->
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<!---->
+<script src="../javascripts/modernizr.foundation.js"></script>
+<script src="../javascripts/jquery.js"></script>
+<script src="../javascripts/foundation.min.js"></script>
+<script src="../javascripts/marketing_docs.js"></script>
+<script type='text/javascript'>
+   $(window).load(function() {
+       $('#featuredContent').orbit({ fluid: '13x3' });
+       $('#featuredContentb').orbit({ fluid: '13x6' ,advanceSpeed: 10000 });
+       $('#featuredContentc').orbit({ fluid: '16x6',advanceSpeed: 1500});
+   });
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-39468145-1']);
+  _gaq.push(['_setDomainName', 'avaya-evolutions.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<script type="text/javascript">
+    (function(a,b,c,d){
+    a='//tags.tiqcdn.com/utag/avaya/main/prod/utag.js';
+    b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+    a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+    })();
+</script>
+<!--<script>
+function mostrarReferencia(){
+if (document.fContact.Conocido[1].checked == true) {
+document.getElementById('register_sponsor').style.display='block';
+} else {
+document.getElementById('register_sponsor').style.display='none';
+}
+}
+-->
+</script>
+<style type="text/css">
+<!--
+.timer {
+	display:none;
+}
+-->
+#wufoo-form iframe.iframeFormer {
+	min-height: 380px !important;
+}
+/**/
+
+.bannerUnity {
+	border: 1px solid #CCCCCC;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 2px 2px 2px #CCCCCC;
+	margin: 1% auto 5%;
+	width: 100%;
+}
+#wufoo-form iframe.iframeFormer {
+	border: medium none;
+	margin: 0 5%;
+	max-width: 90%;
+	min-height: 560px;
+	text-align: center;
+	width: 100% !important;
+}
+</style>
+</head>
+<body id="chileBody">
+<script src='//tealium.hs.llnwd.net/o43/utag/avaya/main/prod/utag.js'></script>
+<!-- header logo -->
+<div class="row" >
+  <div class="twelve columns logoImg">
+    <div>
+      <!--<a href="http://www.avaya.com/" target="_blank" class="avayaHeaderLink"></a><a href="http://avaya-evolutions.com/" target="_blank" class="evolutionsHeaderLink"></a>-->
+      <img src="../images/header.jpg" alt="Header" width="1005" height="145" border="0"/></div>
+  </div>
+  <div class="twelve columns" id="barTop">
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name"> <a href="http://www.avaya.com/" class="avaya-links-title"> Avaya.com Links &raquo; </a></li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+      <section>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider hide-for-small" style="background-color:#c5c5c5;"></li>
+          <li > <a target="_blank" href="http://www.avaya.com/ca-en/products/" style="color:#404040 !important;">Products & Services</a></li>
+          <li class="divider hide-for-small" style="background-color:#c5c5c5;"></li>
+          <li > <a target="_blank" href="http://www.avaya.com/ca-en/how-to-buy/" style="color:#404040 !important;">How to Buy</a></li>
+          <li class="divider hide-for-small" style="background-color:#c5c5c5; " ></li>
+          <li > <a target="_blank" href="http://www.avaya.com/ca-en/partners/" style="color:#404040 !important;">Partners</a></li>
+          <li class="divider hide-for-small" style="background-color:#c5c5c5;"></li>
+          <li > <a target="_blank" href="http://support.avaya.com/" style="color:#404040 !important;">Support</a></li>
+          <li class="divider hide-for-small" style="background-color:#c5c5c5;"></li>
+        </ul>
+        <!-- Right Nav Section -->
+        <!-- 01 -->
+        <ul class="right" id="contactlink">
+          <li class="has-dropdown" style="width:49px; background-image:url(../images/social_04_eng.gif); background-repeat:no-repeat; height:30px \0/; background-color:none  \0/;/* ie8 hack */"> <a href="#" name="Contact"> </a>
+            <ul class="dropdown" style="background-color:#efefed; position: absolute; right: 0;">
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040;" href="http://www.avaya.com/ca-en/partner-locator/">Find a Partner </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040;" href="http://www.avaya.com/ca-en/contacts/">More Contacts </a></li>
+              <li style="background-color:#efefed; color:#404040; padding-left:8px; padding-right:6px; padding-top:5px; font-size:11px;">1-855-386-5886 </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="divider hide-for-small"></div>
+        <!-- 02 -->
+        <ul class="right" id="followlink">
+          <li class="has-dropdown" style="width:49px; background-image:url(../images/social_03_eng.gif); background-repeat:no-repeat; height:30px \0/; background-color:none  \0/;/* ie8 hack */ "> <a href="#" name="Followus"> </a>
+            <ul class="dropdown" style="background-color:#efefed;">
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="https://www.facebook.com/AvayaCanada">Facebook </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="http://www.linkedin.com/groups/Avaya-Americas-2979135?gid=2979135&trk=hb_side_ga">LinkedIn </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href=" https://twitter.com/avaya_Canada">Twitter </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="http://www.youtube.com/Avayainteractive">YouTube </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="http://www.blogavaya.com/blog/en">AvayaBlog </a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- 03 -->
+        <!-- <ul class="right" style="background-color:#FFF">
+          <li class="has-dropdown" style="width:49px; background-image:url(../images/social_02_eng.gif); background-repeat:no-repeat; height:30px \0/; background-color:none  \0/;/* ie8 hack */"> <a href='javascript:window.print(); void 0;' name="print"> </a> </li>
+        </ul>-->
+        <!-- 04 -->
+        <ul class="right" id="sharelink">
+          <li class="has-dropdown" style="width:49px; background-image:url(../images/social_01_eng.gif); background-repeat:no-repeat; height:30px \0/; background-color:none  \0/;/* ie8 hack */"> <a href="#" name="share"></a>
+            <ul class="dropdown" style="background-color:#efefed">
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_self" style="background-color:#efefed; color:#404040" href="mailto: ?Subject=Avaya Evolutions Tour&body=This site could be of interest to you, please visit:  http://avaya-evolutions.com">Email</a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Favaya-evolutions.com%2Ftoronto">Facebook </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="https://twitter.com/share?text=%23AvayaEvolutions%20Discover%20Connect%20Collaborate%20http://avaya-evolutions.com/%20via%20@AvayaToronto">Twitter </a></li>
+              <li style="background-color:#efefed; border-bottom: #FFF thin solid"> <a target="_blank" style="background-color:#efefed; color:#404040" href="http://www.linkedin.com/groups/Avaya-Americas-2979135?gid=2979135&trk=hb_side_ga">LinkedIn </a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+</div>
+<li class="active" id="vertExTab" style="display: block;">
+  <div class="row"><br>
+    <br>
+    <div class="eleven columns" style="margin-left:4%;">
+      <h4>Avaya Evolutions&trade; Toronto: VIP Lunch Registration</h4>
+      <div class="registerTitle"> Please fill out the registration form below and click SUBMIT once complete.<br>
+        <strong style="color:#F00">*</strong> Designates a required field.</div>
+      <div id="wufoo-form" class="vipLunch usaForm">
+        <iframe allowTransparency="true" frameborder="0" scrolling="no" class="iframeFormer" wmode="transparent" src="http://avayaevolutions.wufoo.com/embed/m6nnm3w0s2ukc0//http/true?wmode=transparent"></iframe>
+        <div class="buttonRegRight"><strong>Register today for Avaya Evolutions™ Toronto.<br>
+          <br>
+          &nbsp;</strong>&nbsp;<strong><a href="http://avaya-evolutions.com/toronto/tor_register.html" title="Register Now" target="_blank">Click here</a></strong></div>
+        <div class="note-register-cal"> By registering, I accept the <a id="Terms" href="http://avaya-evolutions.com/release-terms.html" data-reveal-id="Policy">Authorization for Use of Information, Voice, Video and Image</a></div>
+      </div>
+    </div>
+    <div id="Policy" class="reveal-modal" style="width:80%; margin-left:-40%;" > <a class="close-reveal-modal">&#215;</a>
+      <h2 style="text-align: left; text-transform:uppercase; font-size:1.8em;">STATEMENT TO THE AUTHORIZATION FOR USE OF IMAGE AND/OR SOUND</h2>
+      I hereby grant Avaya Inc. its affiliates and subsidiaries ("Avaya"), the use of my image in photographs, video clips and / or the sound of my voice on audio tracks, in whatever format, singularly or in conjunction with other photographs, videos and / or sound recordings ("Collateral"), along with my name and title for advertising, publicity, commercial or other business purposes.<br>
+      <br>
+      I agree the Collateral to be registered as intellectual property of Avaya, and that they can be reproduced or reused by Avaya in any media once accepted in this statement. I agree that I will not receive compensation, under any circumstances, for my participation. I also agree that the Collateral may be reproduced and presented by Avaya without liability, without need for revision or further consent from me, or any financial compensation.<br>
+      <br>
+      I agree that my image and / or sound may be edited, copied, displayed, published or distributed in websites internal and / or external Avaya graphic material, or any other advertising medium at the discretion of Avaya.<br>
+      <br>
+      Hereby, I release Avaya, its affiliates, directors, officers, contractors, grantees, representatives, agents and employees from any liability, claim or legal action which Avaya, its representatives or any other person acting on behalf of Avaya, have or may have as a result of this authorization. I will not present any claim or legal action against Avaya in relation to the rights granted in this permission, provided the use of the Collateral by Avaya is made in accordance with the rights granted herein.<br>
+      <br>
+      I certify that I have full legal authority to declare under my name what the above refers to. It also shows that I have read the above statement, authorization and agreement, and confirm that I understand its legal scope. <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</li>
+<!-- linea -->
+<div class="row">
+  <div class="twelve columns" style="background-image:url(../images/lin.gif); height:20px; background-repeat:repeat-x"> </div>
+  <br>
+  <br>
+</div>
+<!-- footer 
+<div class="row">
+  <div class="four columns">
+    <div class="counterClock"> Toronto &nbsp;
+      <script language="JavaScript">		
+                        TargetDate = "01/21/2014 8:00 AM";
+                        BackColor = "white";
+                        ForeColor = "#c60011";
+                        CountActive = true;
+                        CountStepper = -1;
+                        LeadingZero = true;
+                        DisplayFormat = "%%D%% : &nbsp;  %%H%% : &nbsp;  %%M%% : &nbsp; %%S%% ";
+                    </script>
+      <script language="JavaScript" src="../javascripts/countdown.js"></script>
+      <p class="counterData" id="counterToronto"> Days &nbsp;&nbsp; Hours &nbsp;&nbsp; Mins &nbsp;&nbsp; Secs</p>
+    </div>
+  </div>
+  <!-- 02 
+  <div class="three columns"><a href="tor_register.html" title="Register" target="_self" class="buttonRegister">Register</a></div>
+  <!-- 03 
+  <div class="three columns moreInfo"><strong style="color:#CC0000"> For more information:</strong><br>
+<img src="../images/contact.png" width="13" height="13"/>1 – 855 – EVOLUTN <br><img src="../images/contact.png" width="13" height="13"/>(1-855-386-5886)  <br>
+
+    <img src="../images/email.png" width="13" height="13"/><a href="mailto:callme@avaya.com" target="_self">callme@avaya.com</a> </div>
+  <!-- 04 
+  <div class="two columns" ><a  href="tor_award.html"><img width="148" height="87" src="../images/premio.png" id="prizeImg" alt="award"/></a> </div>
+</div>
+<!-- footer -->
+<footer class="row" >
+  <div class="twelve columns" id="footer">
+    <div class="footerTextInfo"><a href="sf_terms.html" style="color:#333">Terms of Use Privacy Statement </a>© 2013 Avaya Inc. All Rights Reserved.</div>
+    <div class="socials-icons"> <a target="_blank" href="http://www.facebook.com/AvayaCanada"><img alt="" src="../images/facebook.png" width="16" height="16"/></a> <a target="_blank" href="http://www.twitter.com/avaya_Canada"><img alt=""  src="../images/twitter.png" width="16" height="16"/></a> <a target="_blank" href="http://www.youtube.com/Avayainteractive"><img alt=""  src="../images/youtube.png" width="16" height="16"/></a> <a target="_blank" href="http://www.linkedin.com/groups/Avaya-Americas-2979135?gid=2979135&trk=hb_side_g"><img alt=""  src="../images/linkedin.png" width="16" height="16"/></a> <a target="_blank" href="http://www.flickr.com/photos/avaya"><img alt=""  src="../images/flickr.png" width="16" height="16" /></a><a target="_blank" href="http://www.blogavaya.com/blog/en/" id="blogLink"><img alt=""  src="../images/blog.png" width="16" height="16" /></a><a target="_blank" href="mailto:callme@avaya.com"><img alt=""  src="../images/mail.png" width="16" height="16" /></a></div>
+  </div>
+</footer>
+</body>

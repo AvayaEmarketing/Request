@@ -685,6 +685,23 @@ public partial class solicitante : System.Web.UI.Page
             return result;
         }
 
+        //Función que permite obtener el nombre del usuario solicitante
+        [WebMethod(EnableSession = true)]
+        public static string obtenerNombreUsuario ( )
+        {
+            string result = "";
+            var sessionUsuario = HttpContext.Current.Session;
+            if (sessionUsuario["id"] == null)
+            {
+                result = "fail";
+            }
+            else
+            {
+                result = sessionUsuario["name"].ToString();
+            }
+            return result;
+        }
+
         
         [WebMethod(EnableSession = true)]
         public static string cerrarSession()

@@ -92,14 +92,16 @@
                     <ul class="nav">
                         <li><a href="#" id="new_solicit">New Request</a></li>
                         <li><a href="#" id="my_solicits">My Requests</a></li>
-                        <li class="dropdown">
-                            <a href="sol_details.aspx" class="dropdown-toggle" data-toggle="dropdown" id="my_profile">My Profile&nbsp;&nbsp;<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="sol_details.aspx" id="information">Information</a></li>
-                                <li><a href="#" id="exit">Exit</a></li>
-                            </ul>
-                         </li>
+                        <li><a href="sol_details.aspx" id="information">My Profile</a></li>
+                        <li><a href="#" id="exit">Exit</a></li>
+                        <%--<li class="dropdown">--%>
+                            <%--<a href="sol_details.aspx" class="dropdown-toggle" data-toggle="dropdown" id="my_profile">My Profile&nbsp;&nbsp;<b class="caret"></b></a>--%>
+                            <%--<ul class="dropdown-menu">--%>
+                                
+                            <%--</ul>--%>
+                         <%--</li>--%>
                     </ul>
+                    
                 </div>
 
                
@@ -274,7 +276,8 @@
 
                 <div class="row-fluid">
                     <div class="span12">
-                        <h2>My Requests</h2>
+                        <div><h2>My Requests</h2><div id="userName" align="right"></div></div>
+                        
         
 
         <table id="datatables" cellpadding="0" cellspacing="0" border="0" style="width: 100%; text-align: center; visibility: hidden" class="table table-striped table-bordered">

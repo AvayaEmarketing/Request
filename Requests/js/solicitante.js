@@ -200,6 +200,8 @@ $(document).ready(function () {
 	  );
 
     cargarDatos();
+    obtenerNombreUsuario();
+    $("#my_solicits").css({ "background-color": "#8e040a", "color": "#fff" });
 
     $("#fileToUpload").change(function () {
         if (this.value != "") {
@@ -496,4 +498,25 @@ function downloadURL(url, carpeta) {
 
 function AjaxtoPDFFailed(result) {
     alert(result.status + ' ' + result.statusText);
+}
+
+function obtenerNombreUsuario() {
+    var rta = 0;
+    $.ajax({
+        type: "POST",
+        url: "solicitante.aspx/obtenerNombreUsuario",
+        dataType: "text",
+        contentType: "application/json; charset=utf-8",
+        data: '{}',
+        dataType: "json",
+        success: function (result) {
+            if (result.d === "fail") {
+                document.location.href = "admin.aspx";
+            } else {
+                //$(document.body).show();
+                $("#userName").html("<h3>Welcome: "+result.d+"</h3>");
+            }
+        }
+    });
+    return false;
 }

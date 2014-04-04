@@ -85,6 +85,10 @@ $(document).ready(function () {
         cerrarSession();
     });
 
+   
+    $("#information").css({ "background-color": "#8e040a", "color": "#fff" });
+        
+
 });
 
 function cerrarSession() {

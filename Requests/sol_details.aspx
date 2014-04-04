@@ -91,13 +91,15 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a href="solicitante.aspx" id="my_solicits">My Requests</a></li>
-                        <li class="dropdown">
+                        <li><a href="sol_details.aspx" id="information">My Profile</a></li>
+                        <li><a href="#" id="exit">Exit</a></li>
+                        <%--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="my_profile">My Profile&nbsp;&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="sol_details.aspx" id="information">Information</a></li>
                                 <li><a href="#" id="exit">Exit</a></li>
                             </ul>
-                         </li>
+                         </li>--%>
                     </ul>
                 </div>
 
@@ -130,49 +132,49 @@
                             <div class="control-group">
                                 <label class="control-label" for="user_id"><span style="color: #cc0000;">*</span>User:</label>
                                 <div class="controls">
-                                    <input id="user_id" type="text" placeholder="User Id" readonly="readonly" />
+                                    <input id="user_id" type="text" placeholder="User Id" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="role"><span style="color: #cc0000;">*</span>Role:</label>
                                 <div class="controls">
-                                    <input id="role" type="text" placeholder="Role" readonly="readonly" />
+                                    <input id="role" type="text" placeholder="Role" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="Firstname"><span style="color: #cc0000;">*</span>Firstname:</label>
                                 <div class="controls">
-                                    <input id="Firstname" type="text" placeholder="Firstname" readonly="readonly" />
+                                    <input id="Firstname" type="text" placeholder="Firstname" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="Lastname"><span style="color: #cc0000;">*</span>Lastname:</label>
                                 <div class="controls">
-                                    <input id="Lastname" type="text" placeholder="Lastname" readonly="readonly" />
+                                    <input id="Lastname" type="text" placeholder="Lastname" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="Email"><span style="color: #cc0000;">*</span>Email:</label>
                                 <div class="controls">
-                                    <input id="Email" type="text" placeholder="Email" readonly="readonly" />
+                                    <input id="Email" type="text" placeholder="Email" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="Address"><span style="color: #cc0000;">*</span>Address:</label>
                                 <div class="controls">
-                                    <input id="Address" type="text" placeholder="Address" readonly="readonly" />
+                                    <input id="Address" type="text" placeholder="Address" disabled />
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="Phone"><span style="color: #cc0000;">*</span>Phone:</label>
                                 <div class="controls">
-                                    <input id="Phone" type="text" placeholder="Phone" readonly="readonly" />
+                                    <input id="Phone" type="text" placeholder="Phone" disabled />
                                 </div>
                             </div>
 

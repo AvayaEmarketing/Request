@@ -137,7 +137,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
+                            <%--<div class="control-group">
                                 <label class="control-label" for="document_type"><span style="color: #cc0000;">*</span>Document Type:</label>
                                 <div class="controls">
                                     <select id="document_type">
@@ -148,6 +148,17 @@
                                         <option value="4">URL</option>
                                         <option value="5">Presentation</option>
                                         <option value="6">Image</option>
+                                    </select>
+                                </div>
+                            </div>--%>
+
+                            <div class="control-group">
+                                <label class="control-label" for="document_type"><span style="color: #cc0000;">*</span>Document Type:</label>
+                                <div class="controls">
+                                    <select id="document_type">
+                                        <option value="" selected="selected"></option>
+                                        <option value="1" >Copy (Max 300 characters)</option>
+                                        <option value="3">Office Document (Word,Power Point,..)+PDF</option>
                                     </select>
                                 </div>
                             </div>
@@ -162,7 +173,8 @@
                             <div class="control-group" id="copy" style="display:none;">
                                 <label class="control-label" for="copy_field">Type or Paste your Copy:</label>
                                 <div class="controls">
-                                    <textarea id="copy_field" rows="7" ></textarea>
+                                    <textarea id="copy_field" rows="7" onkeyup="countChar(this)" ></textarea>
+                                    <div id="charCount"></div>
                                 </div>
                             </div>
 
@@ -181,6 +193,13 @@
                                 </div>
                             </div>
 
+                            <div class="control-group">
+                                <label class="control-label" for="observations"><span style="color: #cc0000;">*</span>Observations:</label>
+                                <div class="controls">
+                                    <textarea id="observations" rows="7" placeholder="put here all your observations"></textarea>
+                                </div>
+                            </div>
+
 
                             <div class="control-group">
                                 <label class="control-label" for="original_language"><span style="color: #cc0000;">*</span>Original Language:</label>
@@ -190,13 +209,12 @@
                                         <option value="Spanish">Spanish</option>
                                         <option value="English">English</option>
                                         <option value="Portuguese">Portuguese</option>
-                                        <option value="French">French</option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="control-group">
-                                <label class="control-label" for="translate_language"><span style="color:#cc0000;">*</span>Desired Language:</label>
+                                <label class="control-label" for="translate_language"><span style="color:#cc0000;">*</span>Desired Language(s):</label>
                                 <div id="translate_language" class="controls">
                                     <label class="checkbox">
                                       <input type="checkbox" name="translate"  value="Spanish">Spanish
@@ -207,16 +225,14 @@
                                     <label class="checkbox">
                                       <input type="checkbox" name="translate"  value="Portuguese">Portuguese
                                     </label>
-                                    <label class="checkbox">
-                                      <input type="checkbox" name="translate"  value="French">French
-                                    </label>
+                                    
                                 </div>
                             </div>
 
                             <div class="control-group">
                                 <label class="control-label" for="desired_date"><span style="color: #cc0000;">*</span>Desired Date:</label>
                                 <div id="datetimepicker3" class="controls">
-                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="desired_date" />
+                                    <input data-format="dd/MM/yyyy" type="text" id="desired_date" />
                                     <span class="add-on">
                                         <i data-date-icon="icon-calendar"></i>
                                     </span>
@@ -243,12 +259,7 @@
                                 </div>
                             </div>
 
-                            <div class="control-group">
-                                <label class="control-label" for="observations"><span style="color: #cc0000;">*</span>Observations:</label>
-                                <div class="controls">
-                                    <textarea id="observations" rows="7" placeholder="put here all your observations"></textarea>
-                                </div>
-                            </div>
+                            
 
                             <div class="control-group">
                                 <div class="controls">

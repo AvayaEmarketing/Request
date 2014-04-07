@@ -313,10 +313,11 @@ $(document).ready(function () {
     
 
     var date = new Date();
-    date.setDate(date.getDate());
+    date.setDate(date.getDate()+2);
 
     $('#datetimepicker3').datetimepicker({
-        startDate: date
+        startDate: date,
+        pickTime: false
     });
 
     $("#exit").click(function () {
@@ -520,3 +521,15 @@ function obtenerNombreUsuario() {
     });
     return false;
 }
+
+//función que permite contar el número de caracteres digitados en una caja de texto o texarea
+function countChar(val) {
+    var len = val.value.length;
+    if (len >= 300) {
+        $('#charCount').css('color', '#cc0000');
+        $('#charCount').text(' you have reached the limit');
+    } else {
+        $('#charCount').text(300 - len);
+        $('#charCount').css('color', 'green');
+    }
+};

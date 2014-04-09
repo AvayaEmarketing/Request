@@ -91,13 +91,15 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li><a href="traductor.aspx" id="my_solicits">My Translations</a></li>
-                        <li class="dropdown">
+                        <li><a href="trad_details.aspx" id="information">My Profile</a></li>
+                        <li><a href="#" id="exit">Exit</a></li>
+                        <%--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="my_profile">My Profile&nbsp;&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="trad_details.aspx" id="information">Information</a></li>
                                 <li><a href="#" id="exit">Exit</a></li>
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->

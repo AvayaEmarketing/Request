@@ -515,7 +515,7 @@ function obtenerNombreUsuario() {
                 document.location.href = "admin.aspx";
             } else {
                 //$(document.body).show();
-                $("#userName").html("<h3>Welcome: "+result.d+"</h3>");
+                $("#userName").html("<h4>Welcome: "+result.d+"</h4>");
             }
         }
     });
@@ -532,4 +532,4 @@ function countChar(val) {
         $('#charCount').text(300 - len);
         $('#charCount').css('color', 'green');
     }
-};
+}

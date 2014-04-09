@@ -87,7 +87,9 @@ function registrarInfo(formulario) {
     } else {
         revisor = formulario.revisor;
     }
-    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revision': formulario.revision , 'revisor':revisor};
+    //var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revision': formulario.revision , 'revisor':revisor};
+    //se eliminó el campo de "Require revisión" por lo tanto no se envía como parámetro y queda cono NULL en la tabla
+    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revisor': revisor };
     $.ajax({
         type: "POST",
         url: "trad_req_detail.aspx/putData",
@@ -236,7 +238,7 @@ $(document).ready(function () {
     });
 
     $("#s_Translate").click(function () {
-        translate();
+        stranslate();
     });
 
     $("#Register_p").click(function () {
@@ -289,7 +291,8 @@ $(document).ready(function () {
     date.setDate(date.getDate());
         
     $('#datetimepicker3').datetimepicker({
-        startDate: date
+        startDate: date,
+        pickTime: false
     });
 
     $("#Download").click(function () {
@@ -402,7 +405,7 @@ function getRequestData(id) {
     return false;
 }
 
-function translate() {
+function stranslate() {
     var id = QueryString.id;
     getRequestData(id);
     if ((T_send_feedback === "") || (T_send_feedback == null)) {
@@ -499,9 +502,9 @@ function feedback() {
 
 function review() {
     var id = QueryString.id;
-    if ((T_send_feedback === "") || (T_send_feedback == null)) {
-        message("Please send the Feedback first", "Send Review", "danger");
-    } else {
+    //if ((T_send_feedback === "") || (T_send_feedback == null)) {
+    //    message("Please send the Feedback first", "Send Review", "danger");
+    //} else {
         if (T_requiere_revision == "NO") {
             message("This translation don't requires review", "Send Review", "danger");
         } else {
@@ -517,7 +520,7 @@ function review() {
                 $("#review").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
             }
         }
-    }
+    //}
 
 };
 
@@ -641,11 +644,11 @@ function getRequest(id) {
                 estado = item.estado;
                 RT_send_review = item.RT_send_review;
                 if (estado == 1) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a></li><li><a href=\"#\" id=\"c_Request\" onClick=\"c_Request();\">Cancel Request</a></li>");
                 } else if ((estado == 2)|| (estado == 12)) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"translate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
                 } else if (estado == 11) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"translate()\">Send Translate</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li>");
                 } else if (estado == 7) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                 }
@@ -804,7 +807,7 @@ function validar(obj) {
     var respuesta = 0;
     for (var i in obj) {
         if (obj[i] == null || obj[i].length < 1 || /^\s+$/.test(obj[i])) {
-            if (i == "revisor") {
+            if (i == "revisor" || i == "revision") {
                 respuesta = respuesta + 0;
                 $("#" + i).css('background', '#FFF');
             } else {
@@ -996,3 +999,44 @@ function ajaxFileUpload(filename,id,formulario) {
     return false;
 
 }
+
+//funcion ajax que permite realizar el llamado a servicio cancelRequest realizando la cancelacion de una solicitud por parte del traductor
+function c_Request() {
+
+    BootstrapDialog.show({
+        cssClass: 'type-danger',
+        title: 'Cancel Request',
+        message: 'Are you sure to Cancel this request?',
+        buttons: [{
+            label: 'YES',
+            cssClass: 'btn-danger',
+            action: function () {
+                var id = QueryString.id;
+                var datae = { 'id': id };
+                $.ajax({
+                    type: "POST",
+                    url: "trad_req_detail.aspx/cancelRequest",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(datae),
+                    dataType: "json",
+                    success: function (resultado) {
+                        if (resultado.d === "ok") {
+                            document.location.href = "traductor.aspx";
+                        } else {
+                            message("Error:  Please contact with the administrator", "Error", "danger");
+                        }
+                    }
+                });
+                return false;
+            }
+        }, {
+            label: 'NO',
+            action: function (dialogItself) {
+                dialogItself.close();
+            }
+        }]
+
+    });
+
+}
+

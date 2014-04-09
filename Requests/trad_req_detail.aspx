@@ -82,14 +82,16 @@
                             <ul class="dropdown-menu" id="menu_actions">      
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li><a href="trad_details.aspx" id="information">My Profile</a></li>
+                                <li><a href="#" id="exit">Exit</a></li>
+                        <%--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="profile">My Profile&nbsp;&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="trad_details.aspx" id="information">Information</a></li>
                                 <li><a href="#" id="exit">Exit</a></li>
 
                             </ul>
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
 
@@ -304,11 +306,12 @@
                                     <option value="" selected="selected"></option>
                                     <option value="2">Aceptada</option>
                                     <option value="3">En espera</option>
+                                    <option value="4">Denegada</option>
                                 </select>
                             </div>
                         </div>
-
-                        <div class="control-group">
+                        <%--Se elimina el campo para omitir el paso--%>
+                        <%--<div class="control-group">
                             <label class="control-label" for="revision"><span style="color: #cc0000;">*</span>Requires a review?:</label>
                             <div class="controls">
                                 <select id="revision">
@@ -317,7 +320,7 @@
                                     <option value="NO">NO</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <div class="control-group" id="revisor_box" style="display:none;">
                             <label class="control-label" for="estado_feed"><span style="color: #cc0000;">*</span>Select the Reviser:</label>

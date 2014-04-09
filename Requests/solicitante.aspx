@@ -284,10 +284,20 @@
             <div class="span9">
 
                 <hr style="margin-top: 0;">
+                <table  width="100%">
+                  <tr>
+                    <td><div><h2>My Requests</h2> </div></td>
+                    <td><div id="userName" align="right"></div></td>
+                  </tr>
+                  <tr rowspan="0">
+                      <td></td>
+                    <td align="right"><img src="images/profile.jpg" /></td>
+                  </tr>
+                 </table>
 
                 <div class="row-fluid">
                     <div class="span12">
-                        <div><h2>My Requests</h2><div id="userName" align="right"></div></div>
+                        
                         
         
 

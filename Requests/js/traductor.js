@@ -204,6 +204,7 @@ $(document).ready(function () {
 	  );
             
     cargarDatos();
+    obtenerNombreUsuario();
 
     $("#toExcel").click(function () {
         exportarTabla("XLS");
@@ -463,4 +464,27 @@ $(document).ready(function () {
 
     function AjaxtoPDFFailed(result) {
         alert(result.status + ' ' + result.statusText);
+    }
+
+
+//Funcion que permite obtener el nombre de usuario del traductor
+    function obtenerNombreUsuario() {
+        var rta = 0;
+        $.ajax({
+            type: "POST",
+            url: "traductor.aspx/obtenerNombreUsuario",
+            dataType: "text",
+            contentType: "application/json; charset=utf-8",
+            data: '{}',
+            dataType: "json",
+            success: function (result) {
+                if (result.d === "fail") {
+                    document.location.href = "admin.aspx";
+                } else {
+                    //$(document.body).show();
+                    $("#userName").html("<h3>Welcome: " + result.d + "</h3>");
+                }
+            }
+        });
+        return false;
     }

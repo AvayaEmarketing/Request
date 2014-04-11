@@ -1,0 +1,329 @@
+﻿/* Estilos Utilizados en el Formulario de Email */
+ @font-face {
+    font-family: 'webfontregular';
+    src: url('avaya-webfont.eot');
+    src: url('avaya-webfont.eot?#iefix') format('embedded-opentype'),
+         url('avaya-webfont.woff') format('woff'),
+         url('avaya-webfont.ttf') format('truetype'),
+         url('avaya-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+    .myFields #enviar {
+        width:70px;
+        height: 23px;
+        color:#FFF;
+        border: 0;
+        background-color: #5f798f;
+	    font-size: 11px;
+	    margin: 20px 0;
+    }
+     
+    .myFields #enviar:hover {
+        background-color: #cc0000;
+	    color:#FFF;
+    }
+     
+          
+    .myFields #closeForm {
+	    font-size: 13px;
+        position:absolute;
+	    text-align: right;
+        width: 23px;
+		left:93%;
+        cursor:pointer;
+    }
+     
+     
+    #contentForm p {
+	    position:absolute;
+	    font-size: 18px;
+		top: 5px;
+		color:#cc0000;
+	}
+
+    #contentForm label {
+	    width:120px;
+	}
+
+    #contentForm1 label {
+	    width:120px;
+	}
+
+    .cerrarM {
+        width:23px;
+        height:21px;
+    }
+
+	
+	/* Update Events */
+	.myFields #enviar1 {
+        width:70px;
+        height: 23px;
+        color:#FFF;
+        border: 0;
+        background-color:#5f798f;
+	    font-size: 11px;
+	    margin: 20px 0;
+    }
+     
+    .myFields #enviar1:hover {
+        background-color: #cc0000;
+	    color:#FFF;
+    }
+     
+          
+    .myFields #closeForm1 {
+	    font-size: 13px;
+        position:absolute;
+	    text-align: right;
+        width: 23px;
+		left:93%;
+        cursor:pointer;
+    }
+     
+     
+    #contentForm1 p {
+	    position:absolute;
+	    font-size: 18px;
+		top: 5px;
+		color:#cc0000;
+	}
+	
+	/* Delete Events */
+	.myFields #enviar2 {
+        width:70px;
+        height: 23px;
+        color:#FFF;
+        border: 0;
+        background-color: #5f798f;
+	    font-size: 11px;
+	    margin: 20px 0;
+    }
+     
+    .myFields #enviar2:hover {
+        background-color:  #cc0000;
+	    color:#FFF;
+    }
+     
+          
+    .myFields #closeForm2 {
+	    font-size: 13px;
+        position:absolute;
+	    text-align: right;
+        width: 23px;
+		left:93%;
+        cursor:pointer;
+    }
+     
+     
+    #contentForm2 p {
+	    position:absolute;
+	    font-size: 18px;
+		top: 5px;
+		color:#cc0000;
+	}
+
+    #content {
+        text-align:center;
+        position:absolute;
+        top:80px;
+        width:100%;
+    }
+
+    #content .upload {
+        width:500px;
+        height:680px;
+        margin-left:auto;
+        margin-right:auto;
+        -moz-box-shadow: 0px 2px 10px rgba(0,0,0,0.25);
+        -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.25);
+        box-shadow:0px 2px 10px rgba(0,0,0,0.25);
+
+    }
+
+
+        #closeForm3 {
+           font-family:'webfontregular';
+	       font-size:13px;
+           position:relative;
+           top:5px;
+           width:3%;
+           left:97%;
+           cursor:pointer;
+        }
+
+        #contentForm3 {
+           position:relative;
+           top:6px;
+           width: 97%;
+           margin-left:15px;
+        }
+
+        #contentForm3 label {
+            width:250px;
+        }
+
+        #contentForm3 select {
+            width:380px;
+        }
+
+        #contentForm3 .sel {
+            font-family:'webfontregular';
+	        font-size:13px;
+        }
+
+        #contentForm3 p {
+            font-family:'webfontregular';
+	        
+        }
+
+        #contentForm3 input {
+            width:365px;
+        }
+
+        #contentForm3 textarea {
+            width:365px;
+        }
+
+        #contentForm3 #btnUploadPodCast {
+            width:120px;
+            height: 23px;
+            color:#FFF;
+            border: 0;
+            background-color: #5f798f;
+	        font-size: 11px;
+	        margin: 20px 0;
+        }
+
+        #contentForm3 #btnUploadPodCast:hover {
+            background-color:  #cc0000;
+	        color:#FFF;
+        }
+
+        #contentForm3 #btnCancelPodCast {
+            width:120px;
+            height: 23px;
+            color:#FFF;
+            border: 0;
+            background-color: #5f798f;
+	        font-size: 11px;
+	        margin: 20px 0;
+            margin-bottom:20px;
+        }
+
+        #contentForm3 #btnCancelPodCast:hover {
+            background-color:  #cc0000;
+	        color:#FFF;
+        }
+
+       
+
+        #closeForm4 {
+           font-family:'webfontregular';
+	       font-size:13px;
+           position:relative;
+           top:5px;
+           width:3%;
+           left:97%;
+           cursor:pointer;
+        }
+
+        #contentForm4 {
+           position:relative;
+           top:6px;
+           width:97%;
+           margin-left:15px;
+        }
+
+        #contentForm4 label {
+            width:250px;
+        }
+
+        #contentForm4 select {
+            width:380px;
+        }
+
+        #contentForm4 .sel {
+            font-family:'webfontregular';
+	        font-size:13px;
+        }
+
+        #contentForm4 p {
+            font-family:'webfontregular';
+	        
+        }
+
+        #contentForm4 input {
+            width:365px;
+        }
+
+        #contentForm4 textarea {
+            width:365px;
+        }
+
+        #contentForm4 #btnModifyPodCast {
+            width:120px;
+            height: 23px;
+            color:#FFF;
+            border: 0;
+            background-color: #5f798f;
+	        font-size: 11px;
+	        margin: 20px 0;
+        }
+
+        #contentForm4 #btnModifyPodCast:hover {
+            background-color:  #cc0000;
+	        color:#FFF;
+        }
+
+        #contentForm4 #btnCancelPodCast2 {
+            width:120px;
+            height: 23px;
+            color:#FFF;
+            border: 0;
+            background-color: #5f798f;
+	        font-size: 11px;
+	        margin: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        #contentForm4 #btnCancelPodCast2:hover {
+            background-color:  #cc0000;
+	        color:#FFF;
+        }
+
+       
+
+        .myFields #enviar4 {
+            width:70px;
+            height: 23px;
+            color:#FFF;
+            border: 0;
+            background-color: #5f798f;
+	        font-size: 11px;
+	        margin: 20px 0;
+        }
+     
+        .myFields #enviar4:hover {
+            background-color:  #cc0000;
+	        color:#FFF;
+        }
+
+        #closeForm5 {
+	        font-size: 13px;
+            position:absolute;
+	        text-align: right;
+            width: 3%;
+		    left:93%;
+            cursor:pointer;
+        }
+
+        #contentForm5 p {
+            position: absolute;
+            font-size: 18px;
+            top: 5px;
+            color: #cc0000;
+        }
+

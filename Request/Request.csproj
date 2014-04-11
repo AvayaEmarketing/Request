@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7F03350-B220-42E6-BE5A-8CA819B24484}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Request</RootNamespace>
+    <AssemblyName>Request</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin.aspx" />
+    <Content Include="App_Data\Cala_Web.mdf" />
+    <Content Include="App_Data\Cala_Web_log.ldf">
+      <DependentUpon>Cala_Web.mdf</DependentUpon>
+    </Content>
+    <Content Include="Corrections\15_40_14-estilos.css" />
+    <Content Include="css\admin.css" />
+    <Content Include="css\alterForm.css" />
+    <Content Include="css\bootstrap-datetimepicker.css" />
+    <Content Include="css\bootstrap-dialog.css" />
+    <Content Include="css\bootstrap-responsive.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap_dt.css" />
+    <Content Include="css\calendar.css" />
+    <Content Include="css\colorbox.css" />
+    <Content Include="css\docs.css" />
+    <Content Include="css\DT_bootstrap.css" />
+    <Content Include="css\events.css" />
+    <Content Include="css\fonts\avaya-webfont.svg" />
+    <Content Include="css\fonts\icomoon.dev.svg" />
+    <Content Include="css\fonts\icomoon.svg" />
+    <Content Include="css\fonts\proximanova-light_0-webfont.svg" />
+    <Content Include="css\fonts\proximanova-regular_0-webfont.svg" />
+    <Content Include="css\images\backgroundhead.png" />
+    <Content Include="css\images\back_disabled.png" />
+    <Content Include="css\images\back_enabled.png" />
+    <Content Include="css\images\back_enabled_hover.png" />
+    <Content Include="css\images\forward_disabled.png" />
+    <Content Include="css\images\forward_enabled.png" />
+    <Content Include="css\images\forward_enabled_hover.png" />
+    <Content Include="css\images\prettyLoader.gif" />
+    <Content Include="css\images\prettyLoader.png" />
+    <Content Include="css\images\sort_asc.png" />
+    <Content Include="css\images\sort_asc_disabled.png" />
+    <Content Include="css\images\sort_both.png" />
+    <Content Include="css\images\sort_desc.png" />
+    <Content Include="css\images\sort_desc_disabled.png" />
+    <Content Include="css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\index0048.css" />
+    <Content Include="css\jquery-ui-1.8.11.custom.css" />
+    <Content Include="css\jquery-ui-1.9.2.custom.css" />
+    <Content Include="css\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="css\jquery.dataTables_themeroller.css" />
+    <Content Include="css\jquery.weekcalendar.css" />
+    <Content Include="css\jQueryUI.css" />
+    <Content Include="css\prettify.css" />
+    <Content Include="css\prettyLoader.css" />
+    <Content Include="css\regEvent.css" />
+    <Content Include="css\register.css" />
+    <Content Include="css\report.css" />
+    <Content Include="css\solicitante.aspx" />
+    <Content Include="css\style.css" />
+    <Content Include="css\survey-page.css" />
+    <Content Include="css\thanks.css" />
+    <Content Include="css\thanks.html" />
+    <Content Include="css\theme.css" />
+    <Content Include="Files\08_30_42-bdd_abm.txt" />
+    <Content Include="Files\08_48_57-bdd_abm.txt" />
+    <Content Include="Files\10_46_34-bdd_abm.txt" />
+    <Content Include="Files\11_16_33-bdd_abm.txt" />
+    <Content Include="Files\15_11_16-bdd_abm.txt" />
+    <Content Include="Files\15_28_26-bdd_abm.txt" />
+    <Content Include="Files\15_37_52-bdd_abm.txt" />
+    <Content Include="Files\16_30_49-bdd_abm.txt" />
+    <Content Include="Files\16_44_12-bdd_abm.txt" />
+    <Content Include="images\ajax-loader.gif" />
+    <Content Include="images\apple-touch-icon-114-precomposed.png" />
+    <Content Include="images\apple-touch-icon-144-precomposed.png" />
+    <Content Include="images\apple-touch-icon-57-precomposed.png" />
+    <Content Include="images\apple-touch-icon-72-precomposed.png" />
+    <Content Include="images\avaya-logo-mobile.jpg" />
+    <Content Include="images\avaya-logo.jpg" />
+    <Content Include="images\avaya.png" />
+    <Content Include="images\back-form.png" />
+    <Content Include="images\background.png" />
+    <Content Include="images\backgroundform.png" />
+    <Content Include="images\backgroundhead.png" />
+    <Content Include="images\btn.png" />
+    <Content Include="images\dark_wood.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\emarketing.png" />
+    <Content Include="images\eye.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\glyphicons-halflings.png" />
+    <Content Include="images\header.png" />
+    <Content Include="images\hoverinput.png" />
+    <Content Include="images\icon.jpg" />
+    <Content Include="images\idiomas.png" />
+    <Content Include="images\logo-request.png" />
+    <Content Include="images\logos-EA-Avaya.png" />
+    <Content Include="images\logos.png" />
+    <Content Include="images\nuves.png" />
+    <Content Include="images\pdf.png" />
+    <Content Include="images\personas.png" />
+    <Content Include="images\prettyLoader.gif" />
+    <Content Include="images\prettyLoader.png" />
+    <Content Include="images\profile.jpg" />
+    <Content Include="images\redes.png" />
+    <Content Include="images\redes2.png" />
+    <Content Include="images\slide-bg.png" />
+    <Content Include="images\social\blog-mobile.png" />
+    <Content Include="images\social\blog.png" />
+    <Content Include="images\social\facebook-mobile.png" />
+    <Content Include="images\social\facebook.png" />
+    <Content Include="images\social\flickr-mobile.png" />
+    <Content Include="images\social\flickr.png" />
+    <Content Include="images\social\linkedin-mobile.png" />
+    <Content Include="images\social\linkedin.png" />
+    <Content Include="images\social\twitter-mobile.png" />
+    <Content Include="images\social\twitter.png" />
+    <Content Include="images\social\youtube-mobile.png" />
+    <Content Include="images\social\youtube.png" />
+    <Content Include="images\tick.png" />
+    <Content Include="images\top.png" />
+    <Content Include="images\Translation-solcials_01.png" />
+    <Content Include="images\Translation-solcials_02.png" />
+    <Content Include="images\twitterIcon.png" />
+    <Content Include="images\wballesteros.jpg" />
+    <Content Include="images\xls.png" />
+    <Content Include="index.html" />
+    <Content Include="js\ajaxfileupload.js" />
+    <Content Include="js\app.js" />
+    <Content Include="js\application.js" />
+    <Content Include="js\audiojs\audio.min.js" />
+    <Content Include="js\audiojs\audiojs.swf" />
+    <Content Include="js\audiojs\player-graphics.gif" />
+    <Content Include="js\audioplayer.js" />
+    <Content Include="js\bootstrap-affix.js" />
+    <Content Include="js\bootstrap-alert.js" />
+    <Content Include="js\bootstrap-button.js" />
+    <Content Include="js\bootstrap-carousel.js" />
+    <Content Include="js\bootstrap-collapse.js" />
+    <Content Include="js\bootstrap-datetimepicker.js" />
+    <Content Include="js\bootstrap-dialog.js" />
+    <Content Include="js\bootstrap-dropdown.js" />
+    <Content Include="js\bootstrap-modal.js" />
+    <Content Include="js\bootstrap-popover.js" />
+    <Content Include="js\bootstrap-scrollspy.js" />
+    <Content Include="js\bootstrap-tab.js" />
+    <Content Include="js\bootstrap-tooltip.js" />
+    <Content Include="js\bootstrap-transition.js" />
+    <Content Include="js\bootstrap-typeahead.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\calendar.js" />
+    <Content Include="js\dataTables.editor.js" />
+    <Content Include="js\date.js" />
+    <Content Include="js\DT_bootstrap.js" />
+    <Content Include="js\google-code-prettify\prettify.css" />
+    <Content Include="js\google-code-prettify\prettify.js" />
+    <Content Include="js\holder\holder.js" />
+    <Content Include="js\html5shiv.js" />
+    <Content Include="js\jquery-migrate-1.2.1.js" />
+    <Content Include="js\jquery-ui-1.8.11.custom.min.js" />
+    <Content Include="js\jquery-ui-1.8.4.custom.min.js" />
+    <Content Include="js\jquery-ui-i18n.js" />
+    <Content Include="js\jquery.dataTables.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.scrollTo.js" />
+    <Content Include="js\jquery.sha256.js" />
+    <Content Include="js\jquery.weekcalendar.js" />
+    <Content Include="js\jQueryUI.js" />
+    <Content Include="js\json2.js" />
+    <Content Include="js\jstz.js" />
+    <Content Include="js\jstz.min.js" />
+    <Content Include="js\LoginAjax.js" />
+    <Content Include="js\lte-ie7.js" />
+    <Content Include="js\messi.js" />
+    <Content Include="js\modernizr-2.6.2.js" />
+    <Content Include="js\mystyle.js" />
+    <Content Include="js\nl-NL.js" />
+    <Content Include="js\prettyLoader.js" />
+    <Content Include="js\print.js" />
+    <Content Include="js\register.js" />
+    <Content Include="js\reloj.js" />
+    <Content Include="js\respond.src.js" />
+    <Content Include="js\revisor.js" />
+    <Content Include="js\rev_details.js" />
+    <Content Include="js\rev_req_detail.js" />
+    <Content Include="js\run_prettify.js" />
+    <Content Include="js\solicitante.js" />
+    <Content Include="js\sol_details.js" />
+    <Content Include="js\sol_req_details.js" />
+    <Content Include="js\traductor.js" />
+    <Content Include="js\trad_details.js" />
+    <Content Include="js\trad_req_detail.js" />
+    <Content Include="js\underscore-min.js" />
+    <Content Include="mails\generic_mail.html" />
+    <Content Include="mails\solicitante.html" />
+    <Content Include="mails\solicitud_a_traductor.html" />
+    <Content Include="register.aspx" />
+    <Content Include="Requests.csproj" />
+    <Content Include="Request_details.aspx" />
+    <Content Include="Reviews\16_36_09-bdd_abm.txt" />
+    <Content Include="Reviews\16_46_34-estilos.css" />
+    <Content Include="revisor.aspx" />
+    <Content Include="rev_details.aspx" />
+    <Content Include="rev_req_detail.aspx" />
+    <Content Include="solicitante.aspx" />
+    <Content Include="sol_details.aspx" />
+    <Content Include="sol_req_detail.aspx" />
+    <Content Include="tmpls\day.html" />
+    <Content Include="tmpls\events-list.html" />
+    <Content Include="tmpls\modal.html" />
+    <Content Include="tmpls\month-day.html" />
+    <Content Include="tmpls\month.html" />
+    <Content Include="tmpls\week-days.html" />
+    <Content Include="tmpls\week.html" />
+    <Content Include="tmpls\year-month.html" />
+    <Content Include="tmpls\year.html" />
+    <Content Include="traductor.aspx" />
+    <Content Include="trad_details.aspx" />
+    <Content Include="trad_req_detail.aspx" />
+    <Content Include="Translations\08_32_17-estilos.css" />
+    <Content Include="Translations\08_50_07-estilos.css" />
+    <Content Include="Translations\10_47_28-estilos.css" />
+    <Content Include="Translations\11_17_31-bdd_abm.txt" />
+    <Content Include="Translations\15_13_35-estilos.css" />
+    <Content Include="Translations\16_31_49-estilos.css" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AjaxFileUploader.ashx.cs">
+      <DependentUpon>AjaxFileUploader.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxFileUploader2.ashx.cs">
+      <DependentUpon>AjaxFileUploader2.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxFileUploader3.ashx.cs">
+      <DependentUpon>AjaxFileUploader3.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxFileUploader4.ashx.cs">
+      <DependentUpon>AjaxFileUploader4.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="DescargarArchivo.ashx.cs">
+      <DependentUpon>DescargarArchivo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Request_details.aspx.cs">
+      <DependentUpon>Request_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="revisor.aspx.cs">
+      <DependentUpon>revisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rev_details.aspx.cs">
+      <DependentUpon>rev_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rev_req_detail.aspx.cs">
+      <DependentUpon>rev_req_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="solicitante.aspx.cs">
+      <DependentUpon>solicitante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sol_details.aspx.cs">
+      <DependentUpon>sol_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sol_req_detail.aspx.cs">
+      <DependentUpon>sol_req_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="traductor.aspx.cs">
+      <DependentUpon>traductor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trad_details.aspx.cs">
+      <DependentUpon>trad_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="trad_req_detail.aspx.cs">
+      <DependentUpon>trad_req_detail.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AjaxFileUploader.ashx" />
+    <Content Include="AjaxFileUploader2.ashx" />
+    <Content Include="AjaxFileUploader3.ashx" />
+    <Content Include="AjaxFileUploader4.ashx" />
+    <Content Include="css\fonts\avaya-webfont.eot" />
+    <Content Include="css\fonts\avaya-webfont.ttf" />
+    <Content Include="css\fonts\avaya-webfont.woff" />
+    <Content Include="css\fonts\icomoon.eot" />
+    <Content Include="css\fonts\icomoon.ttf" />
+    <Content Include="css\fonts\icomoon.woff" />
+    <Content Include="css\fonts\proximanova-light_0-webfont.eot" />
+    <Content Include="css\fonts\proximanova-light_0-webfont.ttf" />
+    <Content Include="css\fonts\proximanova-light_0-webfont.woff" />
+    <Content Include="css\fonts\proximanova-regular_0-webfont.eot" />
+    <Content Include="css\fonts\proximanova-regular_0-webfont.ttf" />
+    <Content Include="css\fonts\proximanova-regular_0-webfont.woff" />
+    <Content Include="css\images\Sorting icons.psd" />
+    <Content Include="css\images\Thumbs.db" />
+    <Content Include="DescargarArchivo.ashx" />
+    <Content Include="Errores\Error.log" />
+    <Content Include="ExcelFiles\20140124044001ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140124044652ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140124045651ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303082555ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303082743ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083145ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083518ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083649ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083736ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083745ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303083828ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303084005ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303084118ExcelFiles.xls" />
+    <Content Include="ExcelFiles\20140303084640ExcelFiles.xls" />
+    <Content Include="Files\08_48_03-Hoja_de_Vida_William_Ballesteros.docx" />
+    <Content Include="Files\08_51_10-Hoja_de_Vida_William_Ballesteros.docx" />
+    <Content Include="Files\08_56_34-Hoja_de_Vida_William_Ballesteros.docx" />
+    <Content Include="Files\08_57_53-Hoja_de_Vida_William_Ballesteros.docx" />
+    <Content Include="Files\09_27_05-Cotizacion Concejo Paipa.docx" />
+    <Content Include="Files\11_02_19-2-18-14_Avaya_Innov_online-survey_v2.docx" />
+    <Content Include="Files\15_29_12-Hoja_de_Vida_William_Ballesteros.docx" />
+    <Content Include="Files\15_30_02-2014_02_24_WilliamBallesteros.pptx" />
+    <Content Include="images\social\Thumbs.db" />
+    <Content Include="images\Thumbs.db" />
+    <Content Include="less\calendar.less" />
+    <Content Include="less\day.less" />
+    <Content Include="less\events.less" />
+    <Content Include="less\grid.less" />
+    <Content Include="less\month.less" />
+    <Content Include="less\theme.less" />
+    <Content Include="less\variables.less" />
+    <Content Include="less\week.less" />
+    <Content Include="Reviews\08_45_46-Cotizacion Concejo Paipa.docx" />
+    <Content Include="Reviews\08_52_55-Cotizacion Concejo Paipa.docx" />
+    <Content Include="Reviews\10_48_13-Cotizacion Concejo Paipa.docx" />
+    <Content Include="Reviews\11_18_11-Cotizacion Concejo Paipa.docx" />
+    <Content Include="Reviews\15_51_25-2014_02_24_WilliamBallesteros.pptx" />
+    <Content Include="Translations\09_41_24-Manual Agenda ATF.docx" />
+    <Content Include="Translations\11_22_58-20140211034653Excel_File.xls" />
+    <Content Include="Translations\12_36_52-20140211034653Excel_File.xls" />
+    <Content Include="Translations\16_45_26-20140211034653Excel_File.xls" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6248/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

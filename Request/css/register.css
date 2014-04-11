@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* CSS Document */
+
+  @font-face {
+                font-family: 'proxima_novalight';
+                src: url('css/fonts/proximanova-light_0-webfont.eot');
+                src: url('css/fonts/proximanova-light_0-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('css/fonts/proximanova-light_0-webfont.woff') format('woff'),
+                     url('css/fonts/proximanova-light_0-webfont.ttf') format('truetype'),
+                     url('css/fonts/proximanova-light_0-webfont.svg#proxima_novalight') format('svg');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+            @font-face {
+                font-family: 'proxima_nova_rgregular';
+                src: url('css/fonts/proximanova-regular_0-webfont.eot');
+                src: url('css/fonts/proximanova-regular_0-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('css/fonts/proximanova-regular_0-webfont.woff') format('woff'),
+                     url('css/fonts/proximanova-regular_0-webfont.ttf') format('truetype'),
+                     url('css/fonts/proximanova-regular_0-webfont.svg#proxima_nova_rgregular') format('svg');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+			
+			@font-face {
+    font-family: 'webfontregular';
+    src: url('fonts/avaya-webfont.eot');
+    src: url('fonts/avaya-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/avaya-webfont.woff') format('woff'),
+         url('fonts/avaya-webfont.ttf') format('truetype'),
+         url('fonts/avaya-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+        body {
+            position:absolute;
+            width:100%;
+            background-color: #ffffff;
+              color: #5a5a5a;
+			  font-family:webfontregular;
+        }
+
+        #content {
+            width:800px;
+            margin-left:auto;
+            margin-right:auto;
+			background:url(../images/Fondo.jpg);
+			background-repeat:no-repeat;
+			z-index:1;
+			font-family:webfontregular;
+			
+			
+        }
+
+        #imagenheader {
+            width:720px;
+          	margin:0 auto 0 auto;
+			padding-top:25px;
+			
+        }
+
+        #textfoot {
+           clear:both;
+           color:#888;
+           font-size:11px;
+           margin-bottom:-2px;
+           padding:0 0 0 0;
+		   font-family:webfontregular;
+        }
+		
+
+#content #texto {
+	background-color: #FFF;
+	width: 720px;
+	margin: 0 auto 0 auto;
+	z-index: 2;
+	height:100%;
+	top: -20px;
+	position: relative;
+	font-family:webfontregular;
+	}
+#content #registro {
+	width: 720px;
+	margin: 0 auto 0 auto;
+	z-index: 2;
+	height:100%;
+	top: -20px;
+	position: relative;
+	font-family:webfontregular;
+}
+#content #footer {
+	width: 720px;
+	margin: 0 auto 0 auto;
+	height:100%;
+	top: -20px;
+	position: relative;
+	font-family:webfontregular;
+}

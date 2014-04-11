@@ -1,0 +1,150 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@font-face {
+    font-family: 'webfontregular';
+    src: url('fonts/avaya-webfont.eot');
+    src: url('fonts/avaya-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/avaya-webfont.woff') format('woff'),
+         url('fonts/avaya-webfont.ttf') format('truetype'),
+         url('fonts/avaya-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+    @font-face {
+                font-family: 'proxima_novalight';
+                src: url('css/fonts/proximanova-light_0-webfont.eot');
+                src: url('css/fonts/proximanova-light_0-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('css/fonts/proximanova-light_0-webfont.woff') format('woff'),
+                     url('css/fonts/proximanova-light_0-webfont.ttf') format('truetype'),
+                     url('css/fonts/proximanova-light_0-webfont.svg#proxima_novalight') format('svg');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+            @font-face {
+                font-family: 'proxima_nova_rgregular';
+                src: url('css/fonts/proximanova-regular_0-webfont.eot');
+                src: url('css/fonts/proximanova-regular_0-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('css/fonts/proximanova-regular_0-webfont.woff') format('woff'),
+                     url('css/fonts/proximanova-regular_0-webfont.ttf') format('truetype'),
+                     url('css/fonts/proximanova-regular_0-webfont.svg#proxima_nova_rgregular') format('svg');
+                font-weight: normal;
+                font-style: normal;
+
+            }
+
+        .links {
+	height: 40px;
+	width: 300px;
+	color: white;
+	background-color: #990000;
+	cursor: pointer;
+	z-index: 3;
+	vertical-align:middle;
+        }
+		
+		
+
+
+        body {
+            position:absolute;
+           
+            width:100%;
+            background-color: #ffffff;
+              color: #5a5a5a;
+              font-family: webfontregular;
+        }
+
+        #content {
+            width:800px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        #imagenheader {
+            width:400px;
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+
+
+#content {
+	position: absolutee;
+	margin:0 auto 0 auto;
+	z-index: 1;
+	background-image: url(../images/Fondo.jpg);
+}
+#content #header {
+	width: 720px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding-top: 35px;
+	
+}
+#content #contenido {
+	background-color: #FFF;
+	width: 720px;
+	margin: 0 auto 0 auto;
+	top:-15px;
+	position:relative;
+	font-family:webfontregular;
+	
+	
+}
+
+
+
+
+#content #contenido #descargarICS {
+	font-size: 16px;
+	font-family: webfontregular;
+	text-align: center;
+	padding-top:20px;
+	height:40px;
+		border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+
+		}
+		
+		#content #contenido #descargarICS:hover {
+	background-color:#5f798f;
+	color:#FFF; 
+	font-size:16px;
+	font-family:webfontregular;+		border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+	
+	#content #contenido #linkwebinar {
+	ffont-size: 16px;
+	font-family: webfontregular;
+	text-align: center;
+	padding-top:20px;
+	height:40px;
+	float:right;
+	top:-20px;
+		border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	}
+	
+	#content #contenido #linkwebinar:hover {
+	background-color:#5f798f;
+	color:#FFF; 
+	font-size:16px;
+	font-family:webfontregular;+		border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+}
+#content #footer {
+	width: 720px;
+	margin:0 auto 0 auto;
+		top:-40px;
+	position:relative;
+	
+}

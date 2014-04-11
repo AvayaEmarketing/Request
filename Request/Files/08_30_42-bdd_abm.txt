@@ -1,0 +1,122 @@
+-- phpMyAdmin SQL Dump
+-- version 2.8.2
+-- http://www.phpmyadmin.net
+-- 
+-- Servidor: localhost
+-- Tiempo de generación: 11-02-2014 a las 14:42:40
+-- Versión del servidor: 5.5.32
+-- Versión de PHP: 5.1.4
+-- 
+-- Base de datos: `abm`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `articulo`
+-- 
+
+CREATE TABLE `articulo` (
+  `cod_alsacia` int(9) NOT NULL,
+  `marca` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `articulo`
+-- 
+
+INSERT INTO `articulo` VALUES (60, 'bateria toshiba 25 amp');
+INSERT INTO `articulo` VALUES (65, 'bateria bosh 25 amp');
+
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `linea`
+-- 
+
+CREATE TABLE `linea` (
+  `cod_linea` int(9) NOT NULL,
+  `NombreLinea` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `linea`
+-- 
+
+INSERT INTO `linea` VALUES (50, 'baterias');
+INSERT INTO `linea` VALUES (55, 'neumaticos');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `marcavehiculo`
+-- 
+
+CREATE TABLE `marcavehiculo` (
+  `cod_marca` int(9) NOT NULL,
+  `marca` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `marcavehiculo`
+-- 
+
+INSERT INTO `marcavehiculo` VALUES (2, 'fiat');
+INSERT INTO `marcavehiculo` VALUES (3, 'nissan');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `modelovehiculo`
+-- 
+
+CREATE TABLE `modelovehiculo` (
+  `cod_marca` int(9) NOT NULL,
+  `cod_modelo` int(9) NOT NULL,
+  `NombreModelo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `modelovehiculo`
+-- 
+
+INSERT INTO `modelovehiculo` VALUES (2, 1, 'palio 2.0');
+INSERT INTO `modelovehiculo` VALUES (3, 2, '350 z');
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `rel_articulolinea`
+-- 
+
+CREATE TABLE `rel_articulolinea` (
+  `cod_linea` int(9) NOT NULL,
+  `cod_alsacia` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `rel_articulolinea`
+-- 
+
+INSERT INTO `rel_articulolinea` VALUES (50, 60);
+INSERT INTO `rel_articulolinea` VALUES (55, 65);
+
+-- --------------------------------------------------------
+
+-- 
+-- Estructura de tabla para la tabla `rel_articulomarca`
+-- 
+
+CREATE TABLE `rel_articulomarca` (
+  `cod_alsacia` int(9) NOT NULL,
+  `cod_marca` int(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- 
+-- Volcar la base de datos para la tabla `rel_articulomarca`
+-- 
+
+INSERT INTO `rel_articulomarca` VALUES (60, 2);
+INSERT INTO `rel_articulomarca` VALUES (65, 3);

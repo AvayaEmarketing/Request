@@ -264,6 +264,7 @@
                             <tbody id="tbody">
                             </tbody>
                         </table>
+                        <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="reject_request">Reject Request</button>
                         <br />
                         <br />
                         <h2>FeedBack Information</h2>
@@ -326,6 +327,7 @@
                         <div class="control-group">
                             <div class="controls">
                                 <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="send_feedback">Send</button>
+                                
                             </div>
                         </div>
 
@@ -613,6 +615,50 @@
             </div>
         </div>
     </div>
+
+    <!-- Cancelar/Rechazar una solicitud -->
+    <div class="container" id="rechazar" style="display: none;">
+        <div class="row-fluid">
+		
+            <div class="span9">
+                <hr style="margin-top: 0;">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h2>Translation Details</h2>
+                        <table class="table table-striped table-bordered dataTable" style="width: 100%; text-align: center; visibility: visible;" border="0" cellspacing="0" cellpadding="0">
+                            <thead id="thead5">
+                                <tr role="row">
+                                    <th>Translation Name</th>
+                                    <th>State</th>
+                                    <th>Original Language</th>
+                                    <th>Translate Language</th>
+                                    <th>Register Date</th>
+                                    <th>Desired Date</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody5">
+                            </tbody>
+                        </table>
+                        <br />
+                        <br />
+                        <h2>Write the reasons for rejection</h2> 
+                        <div class="control-group">
+                            <label class="control-label" for="priority_comment"><span style="color: #cc0000;">*</span>Observations:</label>
+                            <div class="controls">
+                                <textarea id="reject_observations" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="xxx">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- FIN Cancelar/Rechazar una solicitud -->
     <!-- /.container -->
 
     <!-- Footer
@@ -658,6 +704,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="js/bootbox.js"></script>
     
     <script type="text/javascript" src="js/bootstrap-dialog.js"></script>
     <script type="text/javascript" src="js/mystyle.js"></script>
@@ -669,7 +716,6 @@
     <script type="text/javascript" src="js/DT_bootstrap.js"></script>
     <script type="text/javascript" src="js/trad_req_detail.js"></script>
     <!--[if lte IE 7]><script src="assets/js/lte-ie7.js"></script><![endif]-->
-
    
 </body>
 </html>

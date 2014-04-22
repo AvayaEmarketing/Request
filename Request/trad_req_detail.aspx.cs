@@ -993,6 +993,25 @@ public partial class trad_req_detail : System.Web.UI.Page
                 WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
             }
         }
+        //mensaje de notificacion de rechazo de solicitud
+        else if (tipo_envio == "cancel")
+        {
+            title = "You have a new notification";
+            data = "<p>Your translation has been rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p><br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests site";
+
+            correo = getCorreo(solicitante);
+            plantilla = getContenidoMail(title, data, message);
+            try
+            {
+                rta_mail = SendMail(correo, "e-marketing@avaya.com", title, plantilla);
+            }
+            catch (Exception ex)
+            {
+                rta_mail = "error" + ex;
+                WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
+            }
+        }
         return rta_mail;
     }
 
@@ -1141,36 +1160,114 @@ public partial class trad_req_detail : System.Web.UI.Page
 
     //CancelRequest permite cambiar el estado de una solicitud a "4" -> Denegada
     [WebMethod]
-    public static string cancelRequest ( int id )
+    public static string putDataCancel ( int solicit_id, int solicitante_id, int responsable, int estado, string S_document_type, string S_document_name, string S_original_language, string S_translate_language, string S_solicit_priority, string S_priority_comment, string S_observations, string S_register_date, string S_desired_date, string S_Key_name, string estimated_date, string observations_feedback, int estado_feed, int revisor )
     {
         string result = "";
+        DateTime datt = DateTime.Now;
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
 
-        string strSQL = "update Translate_Solicits set estado = 4 where solicit_id = @solicit_id";
+        string strSQL = "SELECT CURRENT_TIMESTAMP AS registerDate";
         SqlCommand cmd = new SqlCommand(strSQL, con);
-        cmd.Parameters.Add("@solicit_id", SqlDbType.Int);
-
-        cmd.Parameters["@solicit_id"].Value = id;
-
         try
         {
             con.Open();
-            cmd.ExecuteScalar();
+            datt = (DateTime) cmd.ExecuteScalar();
             con.Close();
-            result = "ok";
         }
         catch (Exception ex)
         {
-            result = "fail";
-            WriteError(ex.Message, "trad_req_detail.aspx", "cancelRequest");
+            WriteError(ex.Message, "trad_req_detail.aspx", "putData");
         }
         finally
         {
             con.Close();
         }
-        return result;
-    }
 
+        estimated_date = estimated_date.Replace("/", "-");
+        DateTime dt2 = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+
+        string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones, T_send_feedback, S_visible,S_Fecha_modificacion,S_revisor) VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@feedback,@S_visible,@fecha_m, @revisor)";
+
+        SqlCommand cmd2 = new SqlCommand(stmt, con);
+        cmd2.Parameters.Add("@solicit_id", SqlDbType.Int);
+        cmd2.Parameters.Add("@translation_name", SqlDbType.VarChar, 200);
+        cmd2.Parameters.Add("@solicitante", SqlDbType.Int);
+        cmd2.Parameters.Add("@traductor", SqlDbType.Int);
+        cmd2.Parameters.Add("@state", SqlDbType.Int);
+        cmd2.Parameters.Add("@document_type", SqlDbType.Int);
+        cmd2.Parameters.Add("@original_language", SqlDbType.VarChar, 50);
+        cmd2.Parameters.Add("@translate_language", SqlDbType.VarChar, 50);
+        cmd2.Parameters.Add("@prioridad", SqlDbType.VarChar, 10);
+        cmd2.Parameters.Add("@priority_comment", SqlDbType.VarChar, 500);
+        cmd2.Parameters.Add("@comments", SqlDbType.VarChar, 500);
+        cmd2.Parameters.Add("@register_date", SqlDbType.VarChar, 60);
+        cmd2.Parameters.Add("@register_date2", SqlDbType.DateTime);
+        cmd2.Parameters.Add("@desired_date", SqlDbType.VarChar, 60);
+        cmd2.Parameters.Add("@desired_date2", SqlDbType.DateTime);
+        cmd2.Parameters.Add("@document_name", SqlDbType.VarChar, 150);
+        cmd2.Parameters.Add("@estimated_date", SqlDbType.VarChar, 60);
+        cmd2.Parameters.Add("@estimated_date2", SqlDbType.DateTime);
+        cmd2.Parameters.Add("@T_observation", SqlDbType.VarChar, 500);
+        //cmd2.Parameters.Add("@T_revision", SqlDbType.VarChar, 4);
+        cmd2.Parameters.Add("@feedback", SqlDbType.VarChar, 4);
+        cmd2.Parameters.Add("@S_visible", SqlDbType.VarChar, 4);
+        cmd2.Parameters.Add("@fecha_m", SqlDbType.DateTime);
+        cmd2.Parameters.Add("@revisor", SqlDbType.Int);
+
+        cmd2.Parameters["@solicit_id"].Value = solicit_id;
+        cmd2.Parameters["@translation_name"].Value = S_Key_name;
+        cmd2.Parameters["@solicitante"].Value = solicitante_id;
+        cmd2.Parameters["@traductor"].Value = responsable;
+        cmd2.Parameters["@state"].Value = "4";
+        cmd2.Parameters["@document_type"].Value = S_document_type;
+        cmd2.Parameters["@original_language"].Value = S_original_language;
+        cmd2.Parameters["@translate_language"].Value = S_translate_language;
+        cmd2.Parameters["@prioridad"].Value = S_solicit_priority;
+        cmd2.Parameters["@priority_comment"].Value = S_priority_comment;
+        cmd2.Parameters["@comments"].Value = S_observations;
+        cmd2.Parameters["@register_date"].Value = S_register_date;
+        cmd2.Parameters["@register_date2"].Value = S_register_date;
+        cmd2.Parameters["@desired_date"].Value = S_desired_date;
+        cmd2.Parameters["@desired_date2"].Value = S_desired_date;
+        cmd2.Parameters["@document_name"].Value = S_document_name;
+        cmd2.Parameters["@estimated_date"].Value = "";
+        cmd2.Parameters["@estimated_date2"].Value = "";
+        cmd2.Parameters["@T_observation"].Value = observations_feedback;
+        //cmd2.Parameters["@T_revision"].Value = revision;
+        cmd2.Parameters["@feedback"].Value = "";
+        cmd2.Parameters["@S_visible"].Value = "YES";
+        cmd2.Parameters["@fecha_m"].Value = datt;
+        cmd2.Parameters["@revisor"].Value = revisor;
+
+        try
+        {
+            con.Open();
+            cmd2.ExecuteScalar();
+            result = "ok";
+            con.Close();
+
+        }
+        catch (Exception ex)
+        {
+            result = "fail";
+            WriteError(ex.Message, "trad_req_detail.aspx", "putDataCancel");
+        }
+        finally
+        {
+            con.Close();
+        }
+
+        if (result == "ok")
+        {
+            //Si requiere revision, enviar correo al revisor
+            //updateEstadoSolicitante(solicit_id, solicitante_id, responsable, 1);
+            //Enviar correo a solicitante
+            sendMails(solicit_id, S_Key_name, solicitante_id, "", S_original_language, S_translate_language, "cancel", revisor);
+        }
+        return result;
+
+    }
 }
 

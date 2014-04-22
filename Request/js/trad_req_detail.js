@@ -41,6 +41,28 @@ function message(texto, titulo, tipo) {
     return false;
 }
 
+function messageForm(texto, titulo, tipo) {
+    var id = QueryString.id;
+    BootstrapDialog.show({
+        //type: 'BootstrapDialog.TYPE_' + tipo,
+        title: titulo,
+        message: $(texto),
+        cssClass: 'type-' + tipo,
+        buttons: [{
+            label: 'Confirm',
+            id:'cancel_request_trad',
+            action: function (dialogItself) {
+                var reject_reasons = $("#reject_reasons").val();
+                var formulario = getForm(id);
+                c_Request(reject_reasons,formulario);
+                   // dialogItself.close();
+            },
+            cssClass: 'btn-danger'
+            }]
+    });
+    return false;
+}
+
 var myApp;
 myApp = myApp || (function () {
     var pleaseWaitDiv = $('<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>');
@@ -214,7 +236,7 @@ $(document).ready(function () {
         $("#actions").css({ "background-color": "transparent", "color": "#a1aaaf" });
         $("#profile").css({ "background-color": "#8e040a", "color": "#fff" });
     });
-    
+
 
     $("#r_details").click(function () {
         $("#responder").css({ "display": "none" });
@@ -247,11 +269,11 @@ $(document).ready(function () {
         var fecha = $("#new_estimated_date").val();
         var observaciones = $("#postpone_observations").val();
         if ((fecha != "") && (observaciones != "")) {
-            postpone_translate(fecha,observaciones);
+            postpone_translate(fecha, observaciones);
         } else {
             message("Please check the required files", "Alert", "danger");
         }
-        
+
     });
 
     $("#s_CloseRequest").click(function () {
@@ -267,7 +289,7 @@ $(document).ready(function () {
         } else if (this.value == "2") {
             $("#copy_r").css("display", "none");
             $("#file_r").css("display", "block");
-        } 
+        }
     });
 
     $("#Select2").change(function () {
@@ -283,7 +305,7 @@ $(document).ready(function () {
 
     $("#revision").change(function () {
         if (this.value == "YES") {
-            $("#revisor_box").css("display","block");
+            $("#revisor_box").css("display", "block");
         } else {
             $("#revisor_box").css("display", "none");
         }
@@ -291,7 +313,7 @@ $(document).ready(function () {
 
     var date = new Date();
     date.setDate(date.getDate());
-        
+
     $('#datetimepicker3').datetimepicker({
         startDate: date,
         pickTime: false
@@ -305,7 +327,7 @@ $(document).ready(function () {
         downloadURL(ST_correction, "Corrections");
     });
 
-    
+
     $("#exit").click(function () {
         cerrarSession();
     });
@@ -313,6 +335,13 @@ $(document).ready(function () {
     $("#BtnDownload_rw").click(function () {
         downloadURL(RT_review, "Reviews");
     });
+
+    $("#reject_request").click(function () {
+        // var reject_observations = $("#reject_observations").val();
+        //aqui colocar el codigo para que salga el popup con las obervaciones.
+        messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write observations here...'></textarea>", "Write the reasons for rejection", "danger");
+    });
+
 });
 
 function cerrarSession() {
@@ -646,7 +675,7 @@ function getRequest(id) {
                 estado = item.estado;
                 RT_send_review = item.RT_send_review;
                 if (estado == 1) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a></li><li><a href=\"#\" id=\"c_Request\" onClick=\"c_Request();\">Cancel Request</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a></li>");
                 } else if ((estado == 2)|| (estado == 12)) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
                 } else if (estado == 11) {
@@ -1003,42 +1032,44 @@ function ajaxFileUpload(filename,id,formulario) {
 }
 
 //funcion ajax que permite realizar el llamado a servicio cancelRequest realizando la cancelacion de una solicitud por parte del traductor
-function c_Request() {
-
-    BootstrapDialog.show({
-        cssClass: 'type-danger',
-        title: 'Cancel Request',
-        message: 'Are you sure to Cancel this request?',
-        buttons: [{
-            label: 'YES',
-            cssClass: 'btn-danger',
-            action: function () {
+function c_Request(reject_observations,formulario) {
+    //var id = QueryString.id;
+    //myApp.showPleaseWait();
+    var revisor;
+    if (formulario.revisor == "") {
+        revisor = 0;
+    } else {
+        revisor = formulario.revisor;
+    }
+    //var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revision': formulario.revision , 'revisor':revisor};
+    //se eliminó el campo de "Require revisión" por lo tanto no se envía como parámetro y queda cono NULL en la tabla
+    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': reject_observations, 'estado_feed': 4, 'revisor': revisor };
+    $.ajax({
+        type: "POST",
+        url: "trad_req_detail.aspx/putDataCancel",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(datae),
+        dataType: "json",
+        success: function (resultado) {
+           // myApp.hidePleaseWait();
+            if (resultado.d !== "ok") {
+                message("Alert, please try again", "Register", "danger");
+            } else {
+                //T_send_feedback = "Y";
                 var id = QueryString.id;
-                var datae = { 'id': id };
-                $.ajax({
-                    type: "POST",
-                    url: "trad_req_detail.aspx/cancelRequest",
-                    contentType: "application/json; charset=utf-8",
-                    data: JSON.stringify(datae),
-                    dataType: "json",
-                    success: function (resultado) {
-                        if (resultado.d === "ok") {
-                            document.location.href = "traductor.aspx";
-                        } else {
-                            message("Error:  Please contact with the administrator", "Error", "danger");
-                        }
-                    }
-                });
-                return false;
-            }
-        }, {
-            label: 'NO',
-            action: function (dialogItself) {
-                dialogItself.close();
-            }
-        }]
+                getRequest(id);
+                limpiarCampos(formulario);
+                message("Sucess rejected", "Register", "danger");
+                $("#responder").css({ "display": "none" });
+                $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
 
+            }
+        },
+        error: function (e) {
+           // myApp.hidePleaseWait();
+        }
     });
+    return false;
 
 }
 

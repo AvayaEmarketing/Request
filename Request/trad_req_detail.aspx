@@ -278,7 +278,7 @@
                         <div class="control-group">
                             <label class="control-label" for="estimated_date"><span style="color: #cc0000;">*</span>Estimated Date:</label>
                             <div id="datetimepicker3" class="controls">
-                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estimated_date" />
+                                <input data-format="dd/MM/yyyy" type="text" id="estimated_date" />
                                 <span class="add-on">
                                     <i data-date-icon="icon-calendar"></i>
                                 </span>
@@ -291,8 +291,8 @@
                                 <textarea id="observations_feedback" rows="3"></textarea>
                             </div>
                         </div>
-
-                        <div class="control-group">
+                        
+                        <%--<div class="control-group">
                             <label class="control-label" for="estado_feed"><span style="color: #cc0000;">*</span>Request State:</label>
                             <div class="controls">
                                 <select id="estado_feed">
@@ -302,7 +302,7 @@
                                     <option value="4">Denegada</option>
                                 </select>
                             </div>
-                        </div>
+                        </div>--%>
                         <%--Se elimina el campo para omitir el paso--%>
                         <%--<div class="control-group">
                             <label class="control-label" for="revision"><span style="color: #cc0000;">*</span>Requires a review?:</label>

@@ -819,7 +819,8 @@ function getForm(key) {
     var id = key;
     var estimated_date = $("#estimated_date");
     var observations_feedback = $("#observations_feedback");
-    var estado_feed = $("#estado_feed");
+    //var estado_feed = $("#estado_feed");
+    var estado_feed = "2";
     var revision = $("#revision");
     var revisor = $("#revisor");
     
@@ -827,7 +828,7 @@ function getForm(key) {
     formulario.id = id;
     formulario.estimated_date = estimated_date.val();
     formulario.observations_feedback = observations_feedback.val();
-    formulario.estado_feed = estado_feed.val();
+    formulario.estado_feed = estado_feed; // se predetermina el estado a "2", puesto q enviando el feedback se acepta por defecto la solicitud
     formulario.revision = revision.val();
     formulario.revisor = revisor.val();
     

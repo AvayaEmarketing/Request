@@ -906,6 +906,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         
         
         if (tipo_envio == "Feedback") {
+           
             title = "You have a new notification";
             data = "<p>Your Request have a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests site";
@@ -1029,7 +1030,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         AlternateView alternate = AlternateView.CreateAlternateViewFromString(body, mimeType);
         message.AlternateViews.Add(alternate);
 
-        message.From = new MailAddress(from);
+        message.From = new MailAddress(from,"Avaya Translation Requests");
         message.To.Add(to);
         message.Subject = subject;
 

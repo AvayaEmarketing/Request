@@ -5,9 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Avaya Translate Request - Login</title>
     
-    <link rel="shortcut icon" href="../assets/ico/favicon.png" />
-    
-    
+    <link rel="icon" type="image/png" href="images/favicon.png" />
     <link href="css/admin.css" rel="stylesheet"/>
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/prettyLoader.css" rel="stylesheet" />

@@ -455,7 +455,7 @@ public partial class rev_req_detail : System.Web.UI.Page
     {
         string respuesta = "";
 
-        MailAddress sendfrom = new MailAddress(from);
+        MailAddress sendfrom = new MailAddress(from, "Avaya Translation Requests");
         MailAddress sendto = new MailAddress(to);
         MailMessage message = new MailMessage();
 

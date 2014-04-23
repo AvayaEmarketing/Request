@@ -298,6 +298,7 @@ public partial class solicitante : System.Web.UI.Page
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
         desired_date = desired_date.Replace("/", "-");
+        desired_date = desired_date + " 00:00:00";
         DateTime dt = DateTime.ParseExact(desired_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
 
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,S_visible,S_Fecha_modificacion) OUTPUT INSERTED.solicit_id VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name, @S_visible,@fecha_m)";

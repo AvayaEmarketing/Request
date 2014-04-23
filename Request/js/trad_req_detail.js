@@ -342,7 +342,12 @@ $(document).ready(function () {
         messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write observations here...'></textarea>", "Write the reasons for rejection", "danger");
     });
 
+    
 });
+
+function reject() {
+    messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write observations here...'></textarea>", "Write the reasons for rejection", "danger");
+}
 
 function cerrarSession() {
     $.ajax({
@@ -673,9 +678,9 @@ function getRequest(id) {
                 solicitante_id = item.solicitante_id;
                 responsable = item.responsable;
                 estado = item.estado;
-                RT_send_review = item.RT_send_review;
+                RT_send_review = item.RT_send_review;    
                 if (estado == 1) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"feedback()\">Send FeedBack</a><a href=\"#\" id=\"reject_request2\" onClick=\"reject()\">Reject Request</a></li>");
                 } else if ((estado == 2)|| (estado == 12)) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
                 } else if (estado == 11) {
@@ -1034,15 +1039,16 @@ function ajaxFileUpload(filename,id,formulario) {
 
 //funcion ajax que permite realizar el llamado a servicio cancelRequest realizando la cancelacion de una solicitud por parte del traductor
 function c_Request(reject_observations,formulario) {
-    //var id = QueryString.id;
-    //myApp.showPleaseWait();
+    $.each(BootstrapDialog.dialogs, function (id, dialog) {
+        dialog.close();
+    });
+    myApp.showPleaseWait();
     var revisor;
     if (formulario.revisor == "") {
         revisor = 0;
     } else {
         revisor = formulario.revisor;
     }
-    //var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revision': formulario.revision , 'revisor':revisor};
     //se eliminó el campo de "Require revisión" por lo tanto no se envía como parámetro y queda cono NULL en la tabla
     var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': reject_observations, 'estado_feed': 4, 'revisor': revisor };
     $.ajax({
@@ -1052,26 +1058,18 @@ function c_Request(reject_observations,formulario) {
         data: JSON.stringify(datae),
         dataType: "json",
         success: function (resultado) {
-           // myApp.hidePleaseWait();
+            myApp.hidePleaseWait();
             if (resultado.d !== "ok") {
                 message("Alert, please try again", "Register", "danger");
             } else {
-                $.each(BootstrapDialog.dialogs, function (id, dialog) {
-                    dialog.close();
-                });
-
                 message("Sucess rejected.  Redirecting... Please wait", "Register", "danger");
                 setTimeout(function () {
                     document.location.href = "traductor.aspx";
                 }, 3000);
-                //$("#responder").css({ "display": "none" });
-                //$("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
-
-
             }
         },
         error: function (e) {
-           // myApp.hidePleaseWait();
+            myApp.hidePleaseWait();
         }
     });
     return false;

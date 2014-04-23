@@ -1,4 +1,0 @@
-C:\Users\william\documents\visual studio 2012\Projects\Solicits\Solicits\bin\Solicits.dll
-C:\Users\william\documents\visual studio 2012\Projects\Solicits\Solicits\bin\Solicits.pdb
-C:\Users\william\documents\visual studio 2012\Projects\Solicits\Solicits\obj\Release\Solicits.dll
-C:\Users\william\documents\visual studio 2012\Projects\Solicits\Solicits\obj\Release\Solicits.pdb

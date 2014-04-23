@@ -1263,12 +1263,39 @@ public partial class trad_req_detail : System.Web.UI.Page
         if (result == "ok")
         {
             //Si requiere revision, enviar correo al revisor
-            //updateEstadoSolicitante(solicit_id, solicitante_id, responsable, 1);
+            updateSolicits2(solicit_id);
             //Enviar correo a solicitante
             sendMails(solicit_id, S_Key_name, solicitante_id, "", S_original_language, S_translate_language, "cancel", revisor);
         }
         return result;
 
+    }
+
+    public static void updateSolicits2(int id)
+    {
+        SqlConnection con = new SqlConnection();
+        con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
+
+        string strSQL = "update Translate_Solicits set S_visible = 'NO' where solicit_id = @solicit_id and estado <> 4";
+        SqlCommand cmd = new SqlCommand(strSQL, con);
+        cmd.Parameters.Add("@solicit_id", SqlDbType.Int);
+
+        cmd.Parameters["@solicit_id"].Value = id;
+
+        try
+        {
+            con.Open();
+            cmd.ExecuteScalar();
+            con.Close();
+        }
+        catch (Exception ex)
+        {
+            WriteError(ex.Message, "trad_req_detail.aspx", "updateSolicits");
+        }
+        finally
+        {
+            con.Close();
+        }
     }
 }
 

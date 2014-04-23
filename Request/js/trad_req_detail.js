@@ -1056,13 +1056,17 @@ function c_Request(reject_observations,formulario) {
             if (resultado.d !== "ok") {
                 message("Alert, please try again", "Register", "danger");
             } else {
-                //T_send_feedback = "Y";
-                var id = QueryString.id;
-                getRequest(id);
-                limpiarCampos(formulario);
-                message("Sucess rejected", "Register", "danger");
-                $("#responder").css({ "display": "none" });
-                $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+                $.each(BootstrapDialog.dialogs, function (id, dialog) {
+                    dialog.close();
+                });
+
+                message("Sucess rejected.  Redirecting... Please wait", "Register", "danger");
+                setTimeout(function () {
+                    document.location.href = "traductor.aspx";
+                }, 3000);
+                //$("#responder").css({ "display": "none" });
+                //$("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+
 
             }
         },

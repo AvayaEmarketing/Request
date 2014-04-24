@@ -457,6 +457,59 @@ function getRequest(id) {
                 $("#observations_feedback").val(item.T_Observaciones);
                 $("#estado_feed").val(item.nombre);
                 $("#estimated_date").val(item.S_register_date);
+
+                switch (estado) {
+
+                    case 1://Requerida
+                        $("#estado").addClass("alert alert-warning");
+                        $("#estado").html("<strong>Required!</strong>");
+                        break;
+                    case 2://Aceptada
+                        $("#estado").addClass("alert alert-info");
+                        $("#estado").html("<strong>Accepted!</strong>");
+                        break;
+                    case 3://En espera
+                        $("#estado").addClass("alert alert-info");
+                        $("#estado").html("<strong>Stand by</strong>");
+                        break;
+                    case 4://Denegada
+                        $("#estado").addClass("alert alert-danger");
+                        $("#estado").html("<strong>Rejected!</strong>");
+                        break;
+                    case 5://En traduccion
+                        $("#estado").addClass("alert alert-info");
+                        $("#estado").html("<strong>In translation</strong>");
+                        break;
+                    case 6://En revisión
+                        $("#estado").addClass("alert alert-info");
+                        $("#estado").html("<strong>In review</strong>");
+                        break;
+                    case 7://Entregada
+                        $("#estado").addClass("alert alert-success");
+                        $("#estado").html("<strong>Delivered!</strong>");
+                        break;
+                    case 8://Declinada/Cancelada por sistema
+                    case 9:
+                        $("#estado").addClass("alert alert-danger");
+                        $("#estado").html("<strong>Declined / Cancelled by system</strong>");
+                        break;
+                    case 10://Finalizada
+                        $("#estado").addClass("alert alert-success");
+                        $("#estado").html("<strong>Closed!</strong>");
+                        break;
+                    case 11://Revisada
+                        $("#estado").addClass("alert alert-success");
+                        $("#estado").html("<strong>Revised!</strong>");
+                        break;
+                    case 12://Corregida
+                        $("#estado").addClass("alert alert-info");
+                        $("#estado").html("<strong>Corrected!</strong>");
+                        break;
+                    case 13://Cancelada por el solicitante
+                        $("#estado").addClass("alert alert-danger");
+                        $("#estado").html("<strong>Canceled by the applicant</strong>");
+                        break;
+                }
             }
         }
     });

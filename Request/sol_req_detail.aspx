@@ -115,6 +115,21 @@
                         <h2>Request Details</h2>
 
                         <div class="form-horizontal">
+
+                            <div class="control-group">
+                                <label class="control-label" for="estado">Resquest state:</label>
+                                <div class="controls">
+                                    <span id="estado"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group" id="reasonsRejection" style="display: none;">
+                                <label class="control-label" for="estado">Reasons for rejection:</label>
+                                <div class="controls">
+                                    <span id="reasonsText"></span>
+                                </div>
+                            </div>
+
                             <div class="control-group">
                                 <label class="control-label" for="translation_name">Translation name:</label>
                                 <div class="controls">

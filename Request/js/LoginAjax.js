@@ -44,7 +44,7 @@ $(document).ready(function () {
 
         version = getInternetExplorerVersion();
 
-        if (version === 11) {
+        if (version > 8) {
             $("body").css("background-attachment", "local");
             $("body").css("background-attachment", "local");
             $("body").css("background-attachment", "local");

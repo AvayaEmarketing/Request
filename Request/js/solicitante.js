@@ -226,7 +226,7 @@ $(document).ready(function () {
         var formulario = getForm();
         var validado = validar(formulario);
         if (validado) {
-            if (formulario.document_type = "1") {
+            if (formulario.document_type == "1") {
                 var tamano = formulario.document_name.length;
                 if (tamano > 300) {
                     message("Field Copy: " + tamano + " Characters,  The number of characters is more than 300", "Alert", "danger");
@@ -359,7 +359,7 @@ function registrarInfo(formulario) {
                 if ((formulario.document_type == "3") || (formulario.document_type == "5") || (formulario.document_type == "6")) {
                     ajaxFileUpload(divs_id);
                 } else {
-                    message("The request is successfully created", "Solicit", "danger");
+                    message("The request is successfully created.  Redirecting... Please wait", "Solicit", "danger");
                     setTimeout(function () {
                         document.location.href = "solicitante.aspx";
                     }, 2000);

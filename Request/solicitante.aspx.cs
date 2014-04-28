@@ -436,7 +436,7 @@ public partial class solicitante : System.Web.UI.Page
             AlternateView alternate = AlternateView.CreateAlternateViewFromString(body, mimeType);
             message.AlternateViews.Add(alternate);
 
-            message.From = new MailAddress(from);
+            message.From = new MailAddress(from, "Avaya Translation Requests");
             message.To.Add(to);
             message.Subject = subject;
 

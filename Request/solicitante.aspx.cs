@@ -206,7 +206,7 @@ public partial class solicitante : System.Web.UI.Page
             con.Open();
             datt = (DateTime)cmd.ExecuteScalar();
             con.Close();
-            WriteError("Prueba de funcionamiento", "solicitante.aspx", "putData");
+            
         }
         catch (Exception ex)
         {

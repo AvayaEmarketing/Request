@@ -216,7 +216,10 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
 
         estimated_date = estimated_date.Replace("/", "-");
+        estimated_date = estimated_date + " 00:00:00";
         DateTime dt2 = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+        
 
 
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones, T_send_feedback, S_visible,S_Fecha_modificacion,S_revisor) VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@feedback,@S_visible,@fecha_m, @revisor)";
@@ -425,8 +428,8 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
 
         //la solicitud cambia de responsable, en este caso va a ser el revisor entonces se trae al revisor
-        //int revisor = getRevisor(S_original_language, S_translate_language);
-        int revisor = S_revisor;
+        int revisor = getRevisor(S_original_language, S_translate_language);
+        //int revisor = S_revisor;
 
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones,T_requiere_revision, T_send_feedback,TR_Format_translate, T_document_translate, TR_observations, TR_send_review, S_visible, S_Fecha_modificacion, S_revisor)  VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@T_revision,@feedback,@type_send,@translate,@observations_r, @review, @S_visible, @fecha_m, @revisor)";
 
@@ -648,6 +651,11 @@ public partial class trad_req_detail : System.Web.UI.Page
         {
             con.Close();
         }
+
+        estimated_date = estimated_date.Replace("/", "-");
+        //DateTime dt = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+
+           
 
         //estimated_date = estimated_date.Replace("/", "-");
         //DateTime dt2 = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);

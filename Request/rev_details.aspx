@@ -17,8 +17,7 @@ s<%@ Page Language="C#" AutoEventWireup="true" CodeFile="rev_details.aspx.cs" In
     <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
     <link href="css/docs.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/messi.css" rel="stylesheet">
-    <link href="css/prettyLoader.css" rel="stylesheet">
+    
     <link href="css/DT_bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-dialog.css" rel="stylesheet" type="text/css" />
     

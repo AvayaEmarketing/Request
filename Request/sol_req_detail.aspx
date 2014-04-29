@@ -163,7 +163,7 @@
                             <div class="control-group" id="file" style="display: none;">
                                 <label class="control-label" for="copy_field">Original Document:</label>
                                 <div class="controls">
-                                    <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Download">Download File</button>
+                                    <span id="span_documentName"></span><br/><button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Download">Download File</button>
                                 </div>
                             </div>
 

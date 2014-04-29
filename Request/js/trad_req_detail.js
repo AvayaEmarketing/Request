@@ -303,13 +303,13 @@ $(document).ready(function () {
         }
     });
 
-    $("#revision").change(function () {
+    /*$("#revision").change(function () {
         if (this.value == "YES") {
             $("#revisor_box").css("display", "block");
         } else {
             $("#revisor_box").css("display", "none");
         }
-    });
+    });*/
 
     var date = new Date();
     date.setDate(date.getDate());
@@ -757,6 +757,7 @@ function getRequest(id) {
                     $("#url").css("display", "none");
                     $("#file").css("display", "block");
                     documento = item.S_document_name;
+                    $("#span_documentName").text(documento);
                     ST_correction = item.ST_correction;
                     if (estado == 12) {
                         $("#msg_correction").css("display", "block");
@@ -972,7 +973,7 @@ function registrarInfoReview(formulario) {
                     myApp.hidePleaseWait();
                     limpiarCampos(formulario);
                     T_send_review = 'YES';
-                    message("Sucess, Information send successfully", "Register", "danger");
+                    message("information sent successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });
                     $("#translate").css({ "display": "none" });

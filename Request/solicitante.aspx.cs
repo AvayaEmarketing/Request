@@ -247,7 +247,7 @@ public partial class solicitante : System.Web.UI.Page
             arr4[i] = guardarDatos(translation_name,solicitante, traductor, state, document_type, original_language, idioma, prioridad, priority_comment, observations, datt, desired_date,document_name);
             if (arr4[i] != -1)
             {
-                error = sendMails(translation_name, solicitante, traductor, state, document_type, original_language, idioma, prioridad, priority_comment, observations, datt, desired_date, document_name);
+               // error = sendMails(translation_name, solicitante, traductor, state, document_type, original_language, idioma, prioridad, priority_comment, observations, datt, desired_date, document_name);
             }
             else {
                 error = "fail";  
@@ -265,7 +265,7 @@ public partial class solicitante : System.Web.UI.Page
         if (error != "ok") {
             result = error;
         }
-        result = errores;     
+        //result = errores;   no estaba devolviendo el ID correspondiente pueste que estaba asignando a result = errores = ""  
         return result;
     }
 

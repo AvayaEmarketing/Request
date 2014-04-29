@@ -126,7 +126,7 @@ $(document).ready(function () {
 	  	}
 	  );
 
-    obtenerNombreUsuario();
+    obtenerNombreUsuario();   
 
     $("#r_details").css({ "background-color": "#8e040a", "color": "#fff" });
     var id = QueryString.id;
@@ -134,6 +134,7 @@ $(document).ready(function () {
         document.location.href = "solicitante.aspx";
     } else {
         getRequest(id);
+       
     }
 
     $("#file1").change(function () {
@@ -266,7 +267,7 @@ $(document).ready(function () {
         });
 
         $("#Download").click(function () {
-            downloadURL(S_document_name,"Files");
+            downloadURL(S_document_name, "Files");
         });
 
         $("#BtnDownload").click(function () {
@@ -278,6 +279,7 @@ $(document).ready(function () {
         
         });
 
+        
 
     });
 
@@ -573,6 +575,7 @@ $(document).ready(function () {
                         $("#url").css("display", "none");
                         $("#file").css("display", "block");
                         documento = item.S_document_name;
+                        $("#span_documentName").text("" + documento);//Nombre del documento
 
                         $("#s_copy").css("display", "none");
                         $("#s_url").css("display", "none");

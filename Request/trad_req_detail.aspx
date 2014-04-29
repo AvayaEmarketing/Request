@@ -141,7 +141,7 @@
                             <div class="control-group" id="file" style="display: none;">
                                 <label class="control-label" for="copy_field">Original Document:</label>
                                 <div class="controls">
-                                    <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Download">Download File</button>
+                                    <span id="span_documentName"></span><br/><button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Download">Download File</button>
                                 </div>
                             </div>
 
@@ -314,14 +314,6 @@
                             </div>
                         </div>--%>
 
-                        <div class="control-group" id="revisor_box" style="display:none;">
-                            <label class="control-label" for="estado_feed"><span style="color: #cc0000;">*</span>Select the Reviser:</label>
-                            <div class="controls">
-                                <select id="revisor">
-                                    
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="control-group">
                             <div class="controls">
@@ -402,6 +394,15 @@
                             </div>
                         </div>
 
+                        
+                        <div class="control-group" id="revisor_box" >
+                            <label class="control-label" for="estado_feed"><span style="color: #cc0000;">*</span>Select the Reviser:</label>
+                            <div class="controls">
+                                <select id="revisor">
+                                    
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="control-group">
                             <label class="control-label" for="observations_r"><span style="color: #cc0000;">*</span>Observations for Review:</label>

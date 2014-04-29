@@ -446,7 +446,7 @@ function ajaxFileUpload(id) {
                 }
             },
             error: function (data, status, e) {
-                alert("Please Select File");
+                alert("Please Select File"+e);
             }
         }
     )

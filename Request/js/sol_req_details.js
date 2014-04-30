@@ -92,7 +92,7 @@ function registrarInfo(formulario) {
                 var id = QueryString.id;
                 getRequest(id);
                 limpiarCampos(formulario);
-                message("Sucess, Information send successfully", "Register", "danger");
+                message("Information sent successfully", "Register", "danger");
                 $("#responder").css({ "display": "none" });
                 $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
 
@@ -400,7 +400,7 @@ $(document).ready(function () {
             dataType: "json",
             success: function (resultado) {
                 if (resultado.d == "ok") {
-                    message("Sucess, Information send successfully... Please Wait", "Close Request", "danger");
+                    message("Information sent successfully... Please Wait", "Close Request", "danger");
                     setTimeout(function () {
                         document.location.href = "solicitante.aspx";
                     }, 3000);
@@ -755,7 +755,7 @@ $(document).ready(function () {
                         limpiarCampos(formulario);
                         T_send_correction = 'YES';
                         getRequest(solicit_id);
-                        message("Sucess, Information send successfully", "Register", "danger");
+                        message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#translate").css({ "display": "none" });
@@ -808,7 +808,7 @@ $(document).ready(function () {
                         limpiarCampos(formulario);
                         T_send_review = 'YES';
                         estado = 7;
-                        message("Sucess, Information send successfully", "Register", "danger");
+                        message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#translate").css({ "display": "none" });
@@ -842,7 +842,7 @@ $(document).ready(function () {
                     } else {
                         limpiarCampos(formulario);
                         T_send_correction = 'YES';
-                        message("Sucess, Information send successfully", "Register", "danger");
+                        message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#send_correction").css({ "display": "none" });

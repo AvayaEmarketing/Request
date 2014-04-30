@@ -127,7 +127,7 @@ function registrarInfo(formulario) {
                 var id = QueryString.id;
                 getRequest(id);
                 limpiarCampos(formulario);
-                message("Sucess, Information send successfully", "Register", "danger");
+                message("Information sent successfully", "Register", "danger");
                 $("#responder").css({ "display": "none" });
                 $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
 
@@ -571,7 +571,7 @@ function closeRequest() {
         dataType: "json",
         success: function (resultado) {
             if (resultado.d == "ok") {
-                message("Sucess, Information send successfully... Please Wait", "Close Request", "danger");
+                message("Information sent successfully... Please Wait", "Close Request", "danger");
                 setTimeout(function () {
                     document.location.href = "traductor.aspx";
                 }, 3000);
@@ -1075,7 +1075,7 @@ function ajaxFileUpload(filename,id,formulario) {
                     } else {
                         limpiarCampos(formulario);
                         T_send_review = 'YES';
-                        message("Sucess, Information send successfully", "Register", "danger");
+                        message("Sucess, Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#translate").css({ "display": "none" });

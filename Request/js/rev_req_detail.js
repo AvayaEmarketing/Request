@@ -92,7 +92,7 @@ function registrarInfo(formulario) {
                 var id = QueryString.id;
                 getRequest(id);
                 limpiarCampos(formulario);
-                message("Sucess, Information send successfully", "Register", "danger");
+                message("Information sent successfully", "Register", "danger");
                 $("#responder").css({ "display": "none" });
                 $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
                 
@@ -303,7 +303,7 @@ function registrarInfoReview(formulario) {
                     RT_send_review = 'YES';
                     estado = 11;
                     $("#menu_actions").html("<li><a href=\"#\">No Actions yet..</a></li>");
-                    message("Sucess, Information send successfully", "Register", "danger");
+                    message("Information sent successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });
                     $("#translate").css({ "display": "none" });
@@ -592,7 +592,7 @@ function ajaxFileUpload(filename, id, formulario) {
                         limpiarCampos(formulario);
                         RT_send_correction = 'YES';
                         $("#menu_actions").html("<li><a href=\"#\">No Actions yet..</a></li>");
-                        message("Sucess, Information send successfully", "Register", "danger");
+                        message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#send_correction").css({ "display": "none" });

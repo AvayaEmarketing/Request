@@ -38,15 +38,37 @@ using System.Configuration;
 			 
 				string fullPath = HttpContext.Current.Server.MapPath("~") + "\\Files\\" + hora + "-" + fileName;
 				string strFileName = fileName;
-				try {
-					file.SaveAs(fullPath);
-					resultado = "ok";
-				} 
-				catch (Exception ex) {
-					resultado = "fail";
-					error = ex.Message;
-					Console.WriteLine(ex.Message);
-				}
+                long fileSize = file.ContentLength;
+
+                if (fileSize / 1024 / 1024 <= 2)
+                {
+
+                    try
+                    {
+                        file.SaveAs(fullPath);
+                        resultado = "ok";
+                    }
+                    catch (Exception ex)
+                    {
+                        resultado = "fail";
+                        error = ex.Message;
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+                else
+                {
+                    resultado = "fail";
+                    string stringParam = (string) context.Request["div_id"];
+                    string[] words = stringParam.Split(',');
+                    int i = 0;
+                    foreach (string word in words)
+                    {
+                        i = Convert.ToInt32(word);
+                        eliminarRegistro(i);
+                    }
+                    error = "file size exceeds the limit";
+                    //context.Response.Write(mensaje);
+                }
 				
 				
 				if (resultado == "ok") {
@@ -106,6 +128,39 @@ using System.Configuration;
 
 			return resultado;
 		}
+
+        public static string eliminarRegistro ( int id)
+        {
+
+            string resultado = "";
+
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
+
+            string strSQL = "delete from Translate_Solicits where solicit_id = @id";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.Add("@id", SqlDbType.Int);
+            cmd.Parameters["@id"].Value = id;
+
+            try
+            {
+                con.Open();
+                cmd.ExecuteNonQuery();
+                resultado = "ok";
+
+            }
+            catch (Exception ex)
+            {
+                resultado = "fail";
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return resultado;
+        }
 		
 		public bool IsReusable
 		{

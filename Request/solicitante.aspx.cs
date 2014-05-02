@@ -704,8 +704,9 @@ public partial class solicitante : System.Web.UI.Page
         }
 
         [WebMethod]
-        public string CheckFileSize ( HttpContext context )
+        public static string CheckFileSize ( HttpContext context )
         {
+            
             string resultado = "";
             var file1 = context.Request.Files[0];
  

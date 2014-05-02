@@ -208,7 +208,7 @@ $(document).ready(function () {
             if (validarExtension(this.value)) {
                 $("#doc_content").css("display", "block");
                 $("#name_document").text(this.value);
-                ajaxFileSizeValidate();
+                //ajaxFileSizeValidate('fileToUpload');
                 } else {
                 message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
                 $("#fileToUpload").val("");
@@ -431,25 +431,30 @@ function ajaxFileUpload(id) {
     $.ajaxFileUpload
     (
         {
-                  
+
             url: 'AjaxFileUploader.ashx?div_id=' + id,
             secureuri: false,
             fileElementId: 'fileToUpload',
             dataType: 'json',
             data: { name: 'logan', id: id },
-            success: function (data, status) {
+            success: function (data, status, response) {
                 if (typeof (data.error) != 'undefined') {
-                    if (data.error != '') {
-                        alert(data.error);
-                    } else {
-                        
-                        document.location.href = "solicitante.aspx";
-                    }
-                }
-            },
-            error: function (data, status, e) {
-                alert("Please Select File"+e);
+                   // if (data.error != '') {
+                    //    alert(data.error);
+                   // } else {
+                        if (data.error === "file size exceeds the limit") {
+                            message("file size exceeds the limit, try with other file", "Alert", "danger");
+                            ("#name_document").html("");
+                            ("#name_document").test("");
+                        }
+                        else
+                            document.location.href = "solicitante.aspx";
+                   // }
+                } else message("response: " + response + " ErrorMessage: " + e);
             }
+            /*error: function (data, status, e, response) {
+                message("response: " + response + " ErrorMessage: " + e);
+            }*/
         }
     )
     return false;
@@ -541,37 +546,45 @@ function countChar(val) {
     }
 }
 
-function ajaxFileSizeValidate() {
+function ajaxFileSizeValidate(input) {
 
-    $("#loading")
-.ajaxStart(function () {
-    $(this).show();
-})
-.ajaxComplete(function () {
-    $(this).hide();
-});
+    /*$.ajaxFileUpload({
+        url: 'FileSizeValidator.ashx',
+        secureuri: false,
+        fileElementId: input,
+        dataType: 'json',
 
-    $.ajaxFileUpload
-    (
-        {
-            url: 'solicitante.aspx/CheckFileSize',
-            secureuri: false,
-            fileElementId: 'fileToUpload',
-            dataType: 'json',
-            
-            success: function (data, status) {
-                if (data.success == "true") {
-                   alert("Valid file size, " + data.length);
+        complete: function (r) {
+        },
+        success: function (data, status, response) {
+            if (typeof (data.error) != 'undefined') {
+                if (data.error != '') {
+                    alert("response"+reponse);
+                } else {
+                    alert(data.msg);
                 }
-                else {
-                    alert("Invalid file size, " + data.length);
-                }
-            },
-            error: function (data, status, e) {
-                alert("Please Select File" + e);
             }
+        },
+        error: function (data, status, e) {
+            alert(e);
         }
-    )
-    return false;
+    });
+    return false;*/
+
+    $.ajaxFileUpload({
+        url: 'FileSizeValidator.ashx',
+        secureuri: false,
+        fileElementId: input,
+        dataType: 'json',
+
+        onComplete: function (file, response) {
+            
+            $("#results").html(response);
+        },
+        error: function (data, status, e) {
+            alert(e);
+        }
+    });
+    return false
 
 }

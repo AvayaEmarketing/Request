@@ -703,5 +703,25 @@ public partial class solicitante : System.Web.UI.Page
             return resultado;
         }
 
+        [WebMethod]
+        public string CheckFileSize ( HttpContext context )
+        {
+            string resultado = "";
+            var file1 = context.Request.Files[0];
+ 
+            if (file1 != null && file1.ContentLength > 0)
+            {
+                if (file1.ContentLength > 1024) 
+                {
+                    resultado = "{\"success\":\"true\",\"length\":\"" + file1.ContentLength + "\"}";
+                }
+                else
+                {
+                    resultado =  "{\"success\":\"false\",\"length\":\"" + file1.ContentLength + "\"}";
+                }
+            }
+            return resultado;
+        }
+
 }
 

@@ -21,9 +21,7 @@
     
     <link href="css/DT_bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="css/bootstrap-dialog.css" rel="stylesheet" type="text/css" />
-    
-
-    
+   
 
     <style>
         .btn-file {
@@ -184,6 +182,7 @@
                                 <label class="control-label" for="doc_content_text">File:</label>
                                 <div class="controls">
                                     <label id="name_document" class="control-label"></label>
+                                    <span id="results"></span>
                                 </div>
                             </div>
 

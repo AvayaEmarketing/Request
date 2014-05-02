@@ -208,7 +208,8 @@ $(document).ready(function () {
             if (validarExtension(this.value)) {
                 $("#doc_content").css("display", "block");
                 $("#name_document").text(this.value);
-            } else {
+                ajaxFileSizeValidate();
+                } else {
                 message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
                 $("#fileToUpload").val("");
             }
@@ -441,6 +442,7 @@ function ajaxFileUpload(id) {
                     if (data.error != '') {
                         alert(data.error);
                     } else {
+                        
                         document.location.href = "solicitante.aspx";
                     }
                 }
@@ -537,4 +539,39 @@ function countChar(val) {
         $('#charCount').text(300 - len);
         $('#charCount').css('color', 'green');
     }
+}
+
+function ajaxFileSizeValidate() {
+
+    $("#loading")
+.ajaxStart(function () {
+    $(this).show();
+})
+.ajaxComplete(function () {
+    $(this).hide();
+});
+
+    $.ajaxFileUpload
+    (
+        {
+            url: 'solicitante.aspx/CheckFileSize',
+            secureuri: false,
+            fileElementId: 'fileToUpload',
+            dataType: 'json',
+            
+            success: function (data, status) {
+                if (data.success == "true") {
+                   alert("Valid file size, " + data.length);
+                }
+                else {
+                    alert("Invalid file size, " + data.length);
+                }
+            },
+            error: function (data, status, e) {
+                alert("Please Select File" + e);
+            }
+        }
+    )
+    return false;
+
 }

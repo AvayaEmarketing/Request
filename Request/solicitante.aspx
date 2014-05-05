@@ -75,8 +75,6 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-
-
                 <a class="brand" href="http://avaya.com">
                     <img class="desktop" src="images/avaya-logo.jpg" alt="Avaya" /><img class="mobile" src="images/avaya-logo-mobile.jpg" alt="Avaya" /></a>
 
@@ -95,11 +93,7 @@
                     </ul>
                     
                 </div>
-
-               
-                
                 <!--/.nav-collapse -->
-
             </div>
         </div>
     </div>
@@ -111,12 +105,8 @@
 
     <div class="container" id="nueva_solicitud" style="display: none;">
         <div class="row-fluid">
-
-
             <div class="span9">
-
                 <hr style="margin-top: 0;">
-
                 <div class="row-fluid">
                     <div class="span12">
                         <h2>New Request</h2>
@@ -128,22 +118,6 @@
                                     <input id="translation_name" type="text" placeholder="Name" />
                                 </div>
                             </div>
-
-                            <%--<div class="control-group">
-                                <label class="control-label" for="document_type"><span style="color: #cc0000;">*</span>Document Type:</label>
-                                <div class="controls">
-                                    <select id="document_type">
-                                        <option value="" selected="selected"></option>
-                                        <option value="1" >Copy (Max 300 characters)</option>
-                                        <option value="2">Video</option>
-                                        <option value="3">Document (Word,PDF,..)</option>
-                                        <option value="4">URL</option>
-                                        <option value="5">Presentation</option>
-                                        <option value="6">Image</option>
-                                    </select>
-                                </div>
-                            </div>--%>
-
                             <div class="control-group">
                                 <label class="control-label" for="document_type"><span style="color: #cc0000;">*</span>Document Type:</label>
                                 <div class="controls">
@@ -251,21 +225,14 @@
                                     <textarea id="priority_comment" rows="7"></textarea>
                                 </div>
                             </div>
-
-                            
-
                             <div class="control-group">
                                 <div class="controls">
                                     <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Register">Send</button>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -278,16 +245,7 @@
 
                 <hr style="margin-top: 0;">
                 
-                <%--<table  width="100%">
-                  <tr>
-                    <td><div> </div></td>
-                    <td><div id="userName" align="right"></div></td>
-                  </tr>
-                  <tr rowspan="0">
-                      <td></td>
-                    <td align="right"><img src="images/profile.jpg" /></td>
-                  </tr>
-                 </table>--%>
+                
 
                 <div class="row-fluid">
                     <div class="span12">
@@ -304,7 +262,7 @@
                     <th class="sorting" width="10%">State</th>
                     <th class="sorting" width="12%">Original Lang</th>
                     <th class="sorting" width="12%">Translate Lang</th>
-                    <th class="sorting" width="14%">Register Date</th>
+                    <th class="sorting" width="14%">Date of Requirement</th>
                     <th class="sorting" width="14%">Desired Date</th>
                     <th class="sorting" width="14%">Estimated Date</th>
                     <th class="sorting" width="8%">Priority</th>
@@ -318,14 +276,9 @@
             <tfoot>
                 <tr>
                     <td>
-                        <%--<table style="width:24px">
-                            <tr>
-                                <td>--%>
-                                    <div id="toExcel"><a href="#" id="btnDescargaExcel">
-                                        <img src="images/xls.png" alt="to Excel" /></a></div>
-                                <%--</td>
-                            </tr>
-                        </table>--%>
+                       <div id="toExcel"><a href="#" id="btnDescargaExcel">
+                           <img src="images/xls.png" alt="to Excel" /></a>
+                       </div>
                     </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>

@@ -66,7 +66,7 @@ function getDatosCalendarioDetail() {
 
 function cargarDatos() {
     myApp.showPleaseWait();
-    //$.prettyLoader();dfasdfafasdf
+    
     $.ajax({
         type: "POST",
         url: "traductor.aspx/getDatosReg",

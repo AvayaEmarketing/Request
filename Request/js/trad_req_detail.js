@@ -699,6 +699,8 @@ function getRequest(id) {
                 S_register_date  = item.S_register_date;
                 S_desired_date  = item.S_desired_date;
                 S_Key_name = item.S_Key_name;
+                SolicitanteNombre = item.nombre1;
+                SolicitanteApellido = item.apellido;
                 T_send_feedback = item.T_send_feedback;
                 T_Fecha_Estimada = item.T_Fecha_Estimada;
                 T_Observaciones = item.T_Observaciones;
@@ -768,6 +770,7 @@ function getRequest(id) {
                     }
                 }
 
+                $("#solicitante").val(SolicitanteNombre + " " + SolicitanteApellido);
                 $("#original_language").val(item.S_original_language);
                 $("#translate_language").val(item.S_translate_language);
                 $("#desired_date").val(item.S_desired_date);

@@ -533,6 +533,8 @@ $(document).ready(function () {
                     S_register_date = item.S_register_date;
                     S_desired_date = item.S_desired_date;
                     S_Key_name = item.S_Key_name;
+                    SolicitanteNombre = item.nombre1;
+                    SolicitanteApellido = item.apellido;
                     T_send_feedback = item.T_send_feedback;
                     T_Fecha_Estimada = item.T_Fecha_Estimada;
                     T_Observaciones = item.T_Observaciones;
@@ -540,6 +542,7 @@ $(document).ready(function () {
                     T_send_review = item.TR_send_review;
                     T_document_translate = item.T_document_translate;
                     TR_format_translate = item.TR_format_translate;
+
                     if (TR_format_translate == 1) {
                         $("#text_t").css("display", "block");
                         $("#doc_t").css("display", "none");

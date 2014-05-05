@@ -135,6 +135,13 @@
                             </div>
 
                             <div class="control-group">
+                                <label class="control-label" for="translation_name">Requester name:</label>
+                                <div class="controls">
+                                    <input id="solicitante" type="text" placeholder="Requester Name" />
+                                </div>
+                            </div>
+
+                            <div class="control-group">
                                 <label class="control-label" for="document_type">Document Type:</label>
                                 <div class="controls">
                                     <input id="document_type" type="text" placeholder="Document Type" />

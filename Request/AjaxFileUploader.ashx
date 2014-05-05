@@ -80,8 +80,6 @@ using System.Configuration;
 						i = Convert.ToInt32(word);
 						resultado = actualizar(i,hora + "-" + fileName);
 					}
-					
-					
 				}
 				string msg = "{";
 				msg += string.Format("error:'{0}',\n", error);

@@ -128,7 +128,7 @@ function AjaxGetFieldDataSucceeded(result) {
                 "aaData": dataTab,
                 "aoColumns": [{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "S_desired_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }, { "mDataProp": "Edit" }],
                 "sPaginationType": "bootstrap",
-                "aaSorting": [[0, "asc"]],
+                "aaSorting": [[4, "desc"]],
                 "bJQueryUI": true
             });
         };

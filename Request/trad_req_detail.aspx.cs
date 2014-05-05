@@ -153,8 +153,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         {
             usuario = Convert.ToInt32(user);
             con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
-            //string strSQL = "select sol.solicit_id, sol.solicitante_id, sol.responsable,sol.estado,sta.nombre, sol.S_document_type, sol.S_document_name, sol.S_original_language,sol.S_translate_language,sol.S_solicit_priority, S_priority_comment, S_observations, S_register_date, S_desired_date, S_Key_name, T_send_feedback from Translate_Solicits sol,Translate_State sta  where sol.solicit_id = @id and sol.estado = sta.id and S_register_date2 = (select max(S_register_date2) as fecha_registro from Translate_Solicits where solicit_id = @id)";
-            //string strSQL = "select solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type, S_original_language, S_translate_language, S_solicit_priority, S_priority_comment, S_observations, S_register_date, S_register_date2, S_desired_date, S_desired_date2, S_document_name, T_Fecha_Estimada, T_Fecha_Estimada2, T_Observaciones, T_requiere_revision, T_send_feedback, TR_send_review , ST_correction, ST_observations, sta.nombre,RT_review,RT_observations,TR_format_translate,RT_send_review from Translate_Solicits sol, Translate_State sta  where sol.solicit_id = @id and sol.estado = sta.id and S_register_date2 = (select max(S_register_date2) as fecha_registro from Translate_Solicits where solicit_id = @id)";
+            
             string strSQL = "select distinct solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type, S_original_language, S_translate_language, S_solicit_priority, S_priority_comment, S_observations, S_register_date, S_register_date2, S_desired_date, S_desired_date2, S_document_name, T_Fecha_Estimada, T_Fecha_Estimada2, T_Observaciones, T_requiere_revision, T_send_feedback, TR_send_review , ST_correction, ST_observations, sta.nombre,RT_review,RT_observations,TR_format_translate,RT_send_review,RT_format_review,S_revisor,ud.nombre,ud.apellido from Translate_Solicits sol, Translate_State sta, UserData ud  where ud.id = sol.solicitante_id and sol.solicit_id = @id and sol.estado = sta.id and responsable = @user and S_visible = 'YES'";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.Add("@id", SqlDbType.Int);
@@ -191,7 +190,7 @@ public partial class trad_req_detail : System.Web.UI.Page
     }
 
     [WebMethod]
-    public static string putData ( int solicit_id, int solicitante_id, int responsable, int estado, string S_document_type, string S_document_name, string S_original_language, string S_translate_language, string S_solicit_priority, string S_priority_comment, string S_observations, string S_register_date, string S_desired_date, string S_Key_name, string estimated_date, string observations_feedback, int estado_feed, int revisor )
+    public static string putData ( int solicit_id, int solicitante_id, int responsable, int estado, string S_document_type, string S_document_name, string S_original_language, string S_translate_language, string S_solicit_priority, string S_priority_comment, string S_observations, string S_register_date, string S_desired_date, string S_Key_name, string estimated_date, string observations_feedback, int estado_feed )
     {
         string result = "";
         DateTime datt = DateTime.Now;
@@ -222,7 +221,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         
 
 
-        string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones, T_send_feedback, S_visible,S_Fecha_modificacion,S_revisor) VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@feedback,@S_visible,@fecha_m, @revisor)";
+        string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones, T_send_feedback, S_visible,S_Fecha_modificacion) VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@feedback,@S_visible,@fecha_m)";
 
         SqlCommand cmd2 = new SqlCommand(stmt, con);
         cmd2.Parameters.Add("@solicit_id", SqlDbType.Int);
@@ -248,7 +247,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd2.Parameters.Add("@feedback", SqlDbType.VarChar, 4);
         cmd2.Parameters.Add("@S_visible", SqlDbType.VarChar, 4);
         cmd2.Parameters.Add("@fecha_m", SqlDbType.DateTime);
-        cmd2.Parameters.Add("@revisor", SqlDbType.Int);
+        //cmd2.Parameters.Add("@revisor", SqlDbType.Int);
 
         cmd2.Parameters["@solicit_id"].Value = solicit_id;
         cmd2.Parameters["@translation_name"].Value = S_Key_name;
@@ -274,7 +273,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd2.Parameters["@feedback"].Value = "YES";
         cmd2.Parameters["@S_visible"].Value = "YES";
         cmd2.Parameters["@fecha_m"].Value = datt;
-        cmd2.Parameters["@revisor"].Value = revisor;
+        //cmd2.Parameters["@revisor"].Value = revisor;
 
         try
         {
@@ -299,7 +298,7 @@ public partial class trad_req_detail : System.Web.UI.Page
             //Si requiere revision, enviar correo al revisor
             updateEstadoSolicitante(solicit_id, solicitante_id, responsable, 1);
             //Enviar correo a solicitante
-            sendMails(solicit_id, S_Key_name, solicitante_id, "", S_original_language, S_translate_language, "Feedback", revisor);
+            sendMails(solicit_id, S_Key_name, solicitante_id, "", S_original_language, S_translate_language, "Feedback",0);
         }
         return result;
 
@@ -428,8 +427,8 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
 
         //la solicitud cambia de responsable, en este caso va a ser el revisor entonces se trae al revisor
-        int revisor = getRevisor(S_original_language, S_translate_language);
-        //int revisor = S_revisor;
+        //int revisor = getRevisor(S_original_language, S_translate_language);
+        
 
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones,T_requiere_revision, T_send_feedback,TR_Format_translate, T_document_translate, TR_observations, TR_send_review, S_visible, S_Fecha_modificacion, S_revisor)  VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@T_revision,@feedback,@type_send,@translate,@observations_r, @review, @S_visible, @fecha_m, @revisor)";
 
@@ -467,7 +466,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd2.Parameters["@solicit_id"].Value = solicit_id;
         cmd2.Parameters["@translation_name"].Value = S_Key_name;
         cmd2.Parameters["@solicitante"].Value = solicitante_id;
-        cmd2.Parameters["@traductor"].Value = revisor;
+        cmd2.Parameters["@traductor"].Value = S_revisor;
         cmd2.Parameters["@state"].Value = estado_rev;
         cmd2.Parameters["@document_type"].Value = S_document_type;
         cmd2.Parameters["@original_language"].Value = S_original_language;
@@ -524,7 +523,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
 
-        string strSQL = "update Translate_Solicits set estado = @estado, TR_send_review = 'YES',TR_format_translate = @type_send, T_document_translate = @translate, TR_observations = @observations_r where solicit_id = @solicit_id and solicitante_id = @solicitante_id and responsable = @responsable and estado = 2";
+        string strSQL = "update Translate_Solicits set estado = @estado, TR_send_review = 'YES',TR_format_translate = @type_send, T_document_translate = @translate, TR_observations = @observations_r,T_requiere_revision = @T_revision where solicit_id = @solicit_id and solicitante_id = @solicitante_id and responsable = @responsable and estado = 2";
         SqlCommand cmd = new SqlCommand(strSQL, con);
         cmd.Parameters.Add("@solicit_id", SqlDbType.Int);
         cmd.Parameters.Add("@solicitante_id", SqlDbType.Int);
@@ -533,6 +532,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd.Parameters.Add("@type_send", SqlDbType.VarChar, 4);
         cmd.Parameters.Add("@translate", SqlDbType.VarChar, 4);
         cmd.Parameters.Add("@observations_r", SqlDbType.VarChar, 4);
+        cmd.Parameters.Add("@T_revision", SqlDbType.VarChar, 4);
 
         cmd.Parameters["@solicit_id"].Value = solicit_id;
         cmd.Parameters["@solicitante_id"].Value = solicitante_id;
@@ -541,6 +541,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd.Parameters["@type_send"].Value = type_send;
         cmd.Parameters["@translate"].Value = translate;
         cmd.Parameters["@observations_r"].Value = observations_r;
+        cmd.Parameters["@T_revision"].Value = "YES";
         
         try
         {
@@ -634,7 +635,12 @@ public partial class trad_req_detail : System.Web.UI.Page
         DateTime datt = DateTime.Now;
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
-
+        
+        revision = (revision == null) ? " ":revision;
+        RT_review = (RT_review == null) ? " ":RT_review;
+        RT_observations = (RT_observations == null) ? " ":RT_observations;
+        RT_send_review = (RT_send_review == null) ? " ":RT_send_review;
+        
         string strSQL = "SELECT CURRENT_TIMESTAMP AS registerDate";
         SqlCommand cmd = new SqlCommand(strSQL, con);
         try
@@ -653,13 +659,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
 
         estimated_date = estimated_date.Replace("/", "-");
-        //DateTime dt = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-
-           
-
-        //estimated_date = estimated_date.Replace("/", "-");
-        //DateTime dt2 = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-
+        
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones,T_requiere_revision, T_send_feedback,TR_Format_translate, T_document_translate, TR_send_review, S_visible,RT_review,RT_observations, RT_send_review, S_Fecha_modificacion)  VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@T_revision,@feedback,@type_send,@translate, @review, @S_visible,@RT_review,@RT_observations, @RT_send_review, @fecha_m)";
 
         SqlCommand cmd2 = new SqlCommand(stmt, con);
@@ -723,7 +723,7 @@ public partial class trad_req_detail : System.Web.UI.Page
         cmd2.Parameters["@RT_send_review"].Value = RT_send_review;
         cmd2.Parameters["@fecha_m"].Value = datt;
         
-
+        
         try
         {
             con.Open();
@@ -1193,10 +1193,6 @@ public partial class trad_req_detail : System.Web.UI.Page
         {
             con.Close();
         }
-
-        //estimated_date = estimated_date.Replace("/", "-");
-        //DateTime dt2 = DateTime.ParseExact(estimated_date, "dd-MM-yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-
 
         string stmt = "INSERT INTO Translate_Solicits (solicit_id,S_Key_name, solicitante_id, responsable, estado, S_document_type,S_original_language,S_translate_language,S_solicit_priority,S_priority_comment,S_observations,S_register_date,S_register_date2,S_desired_date,S_desired_date2,S_document_name,T_Fecha_Estimada,T_Fecha_Estimada2,T_Observaciones, T_send_feedback, S_visible,S_Fecha_modificacion,S_revisor) VALUES (@solicit_id,@translation_name,@solicitante, @traductor, @state, @document_type, @original_language, @translate_language, @prioridad, @priority_comment, @comments, @register_date, @register_date2, @desired_date, @desired_date2, @document_name,@estimated_date,@estimated_date2,@T_observation,@feedback,@S_visible,@fecha_m, @revisor)";
 

@@ -124,7 +124,7 @@
                                     <select id="document_type">
                                         <option value="" selected="selected"></option>
                                         <option value="1" >Copy (Max 300 characters)</option>
-                                        <option value="3">Office Document (Word,Power Point,..)+PDF</option>
+                                        <option value="3">Text Document (PDF,Word,txt)</option>
                                     </select>
                                 </div>
                             </div>

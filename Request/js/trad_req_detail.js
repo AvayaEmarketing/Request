@@ -24,7 +24,7 @@ var ST_correction;
 var ST_observations;
 var RT_review;
 var RT_observations;
-var RT_send_review;
+var RT_send_review; Register_r
 var TR_format_translate;
 var RT_format_review
 var S_revisor;
@@ -103,15 +103,7 @@ var QueryString = function () {
 
 function registrarInfo(formulario) {
     myApp.showPleaseWait();
-    var revisor;
-    if (formulario.revisor == "") {
-        revisor = 0;
-    } else {
-        revisor = formulario.revisor;
-    }
-    //var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revision': formulario.revision , 'revisor':revisor};
-    //se eliminó el campo de "Require revisión" por lo tanto no se envía como parámetro y queda cono NULL en la tabla
-    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed, 'revisor': revisor };
+    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': formulario.estimated_date, 'observations_feedback': formulario.observations_feedback, 'estado_feed': formulario.estado_feed};
     $.ajax({
         type: "POST",
         url: "trad_req_detail.aspx/putData",
@@ -887,16 +879,14 @@ function getForm(key) {
     var observations_feedback = $("#observations_feedback");
     //var estado_feed = $("#estado_feed");
     var estado_feed = "2";
-    var revision = $("#revision");
-    var revisor = $("#revisor");
+   
     
     var formulario = new Object();
     formulario.id = id;
     formulario.estimated_date = estimated_date.val();
     formulario.observations_feedback = observations_feedback.val();
     formulario.estado_feed = estado_feed; // se predetermina el estado a "2", puesto q enviando el feedback se acepta por defecto la solicitud
-    formulario.revision = revision.val();
-    formulario.revisor = revisor.val();
+    
     
     return formulario;
 }
@@ -940,6 +930,7 @@ function getFormReview(key) {
     var copy_field_r = $("#copy_field_r");
     var fileToUpload = $("#fileToUpload");
     var observations_r = $("#observations_r");
+    var revisor = $("#revisor");
 
     var formulario2 = new Object();
     formulario2.id = id;
@@ -951,13 +942,14 @@ function getFormReview(key) {
     }
     formulario2.observations_r = observations_r.val();
     formulario2.estado_rev = 6;
+    formulario2.revisor = revisor.val();
 
     return formulario2;
 }
 
 function registrarInfoReview(formulario) {
     myApp.showPleaseWait();
-    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': T_Fecha_Estimada, 'observations_feedback': T_Observaciones, 'estado_rev': formulario.estado_rev, 'revision': T_requiere_revision, 'type_send': formulario.type_send, 'translate': formulario.translate, 'observations_r' :formulario.observations_r, 'S_revisor': S_revisor };
+    var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': T_Fecha_Estimada, 'observations_feedback': T_Observaciones, 'estado_rev': formulario.estado_rev, 'revision': T_requiere_revision, 'type_send': formulario.type_send, 'translate': formulario.translate, 'observations_r' :formulario.observations_r, 'S_revisor': formulario.revisor };
     $.ajax({
         type: "POST",
         url: "trad_req_detail.aspx/putDataReview",
@@ -983,6 +975,8 @@ function registrarInfoReview(formulario) {
                     $("#data_review").css({ "display": "none" });
                     $("#postponer").css({ "display": "none" });
                     $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+                    var id = QueryString.id;
+                    getRequest(id);
                 }
             }
         },
@@ -1014,6 +1008,62 @@ function getFormTranslate(key) {
     return formulario2;
 }
 
+function validarExtension(nombre) {
+    var ext = (nombre.substring(nombre.lastIndexOf(".") + 1)).toUpperCase();
+    var respuesta = 0;
+    var extension = new Object();
+    extension.DOC = "DOC";
+    extension.PDF = "PDF";
+    extension.DOCX = "DOCX";
+    extension.TXT = "TXT";
+
+    for (var i in extension) {
+        if (extension[i] === ext) {
+            respuesta = respuesta + 0;
+            return true;
+        }
+        else {
+            respuesta = respuesta + 1;
+
+        }
+    }
+    if (respuesta === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$("#fileToUpload2").change(function () {
+    if (this.value != "") {
+        if (validarExtension(this.value)) {
+            $("#doc_content2").css("display", "block");
+            $("#name_document2").text(this.value);
+            //ajaxFileSizeValidate('fileToUpload');
+        } else {
+            message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
+            $("#fileToUpload2").val("");
+        }
+    } else {
+        $("#doc_content2").css("display", "none");
+    }
+});
+
+$("#fileToUpload").change(function () {
+    if (this.value != "") {
+        if (validarExtension(this.value)) {
+            $("#doc_content").css("display", "block");
+            $("#name_document").text(this.value);
+            //ajaxFileSizeValidate('fileToUpload');
+        } else {
+            message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
+            $("#fileToUpload").val("");
+        }
+    } else {
+        $("#doc_content").css("display", "none");
+    }
+});
+
 function registrarInfoTranslate(formulario) {
     myApp.showPleaseWait();
     var datae = { 'solicit_id': solicit_id, 'solicitante_id': solicitante_id, 'responsable': responsable, 'estado': estado, 'S_document_type': S_document_type2, 'S_document_name': S_document_name, 'S_original_language': S_original_language, 'S_translate_language': S_translate_language, 'S_solicit_priority': S_solicit_priority, 'S_priority_comment': S_priority_comment, 'S_observations': S_observations, 'S_register_date': S_register_date, 'S_desired_date': S_desired_date, 'S_Key_name': S_Key_name, 'estimated_date': T_Fecha_Estimada, 'observations_feedback': T_Observaciones, 'estado_rev': formulario.estado_rev, 'revision': T_requiere_revision, 'type_send': formulario.type_send, 'translate': formulario.translate, 'RT_review': RT_review, 'RT_observations': RT_observations, 'RT_send_review': RT_send_review };
@@ -1043,6 +1093,8 @@ function registrarInfoTranslate(formulario) {
                     $("#data_review").css({ "display": "none" });
                     $("#postponer").css({ "display": "none" });
                     $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+                    var id = QueryString.id;
+                    getRequest(id);
                 }
             }
         },
@@ -1074,8 +1126,10 @@ function ajaxFileUpload(filename,id,formulario) {
                 if (typeof (data.error) != 'undefined') {
                     myApp.hidePleaseWait();
                     if (data.error != '') {
+                        myApp.hidePleaseWait();
                         alert(data.error);
                     } else {
+                        myApp.hidePleaseWait();
                         limpiarCampos(formulario);
                         T_send_review = 'YES';
                         message("Sucess, Information sent successfully", "Register", "danger");
@@ -1085,10 +1139,13 @@ function ajaxFileUpload(filename,id,formulario) {
                         $("#data_review").css({ "display": "none" });
                         $("#postponer").css({ "display": "none" });
                         $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+                        var id = QueryString.id;
+                        getRequest(id);
                     }
                 }
             },
             error: function (data, status, e) {
+                myApp.hidePleaseWait();
                 alert("Please Select File");
             }
         }

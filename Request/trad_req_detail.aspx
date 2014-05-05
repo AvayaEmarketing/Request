@@ -505,6 +505,13 @@
                                 </span>
                             </div>
                         </div>
+                        <div class="control-group" id="doc_content2" style="display:none;">
+                                <label class="control-label" for="doc_content_text">File:</label>
+                                <div class="controls">
+                                    <label id="name_document2" class="control-label"></label>
+                                    <span id="results"></span>
+                                </div>
+                            </div>
                         <div class="control-group">
                             <div class="controls">
                                 <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="Register_t">Send</button>

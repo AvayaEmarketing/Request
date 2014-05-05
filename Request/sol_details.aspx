@@ -1,3 +1,5 @@
+
+
 <%@ Page Language="C#" AutoEventWireup="true" CodeFile="sol_details.aspx.cs" Inherits="sol_details" %>
 
 <!DOCTYPE html>

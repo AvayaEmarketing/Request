@@ -351,7 +351,7 @@ function registrarInfo(formulario) {
         data: JSON.stringify(datae),
         dataType: "json",
         success: function (resultado) {
-            myApp.hidePleaseWait();
+            
             if (resultado.d !== -1) {
                 var divs_id = resultado.d;
                 if ((divs_id.substring(divs_id.length - 1, divs_id.length)) === ',') {
@@ -360,6 +360,7 @@ function registrarInfo(formulario) {
                 if ((formulario.document_type == "3") || (formulario.document_type == "5") || (formulario.document_type == "6")) {
                     ajaxFileUpload(divs_id);
                 } else {
+                    myApp.hidePleaseWait();
                     message("The request is successfully created.  Redirecting... Please wait", "Solicit", "danger");
                     setTimeout(function () {
                         document.location.href = "solicitante.aspx";
@@ -439,22 +440,22 @@ function ajaxFileUpload(id) {
             data: { name: 'logan', id: id },
             success: function (data, status, response) {
                 if (typeof (data.error) != 'undefined') {
-                   // if (data.error != '') {
-                    //    alert(data.error);
-                   // } else {
-                        if (data.error === "file size exceeds the limit") {
-                            message("file size exceeds the limit, try with other file", "Alert", "danger");
-                            ("#name_document").html("");
-                            ("#name_document").test("");
-                        }
-                        else
-                            document.location.href = "solicitante.aspx";
-                   // }
-                } else message("response: " + response + " ErrorMessage: " + e);
-            }
-            /*error: function (data, status, e, response) {
+                    if (data.error === "file size exceeds the limit") {
+                        message("file size exceeds the limit, try with other file", "Alert", "danger");
+                        $("#name_document").html("");
+                        $("#name_document").test("");
+                    }
+                    else {
+                        document.location.href = "solicitante.aspx";
+                    }
+                }
+                else message("response: " + response + " ErrorMessage: " + e);
+                myApp.hidePleaseWait();
+            },
+            error: function (data, status, e, response) {
+                myApp.hidePleaseWait();
                 message("response: " + response + " ErrorMessage: " + e);
-            }*/
+            }
         }
     )
     return false;

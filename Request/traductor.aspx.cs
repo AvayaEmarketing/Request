@@ -109,7 +109,7 @@ public partial class traductor : System.Web.UI.Page
         SqlConnection con = new SqlConnection();
         con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
         //string strSQL = "SELECT CONVERT(VARCHAR(20),solicit_id) AS id, S_document_name AS title, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', S_desired_date2) AS bigint)*1000)) AS start, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', T_Fecha_Estimada2) AS bigint)*1000)) AS 'end' from Translate_Solicits where estado=3 and S_visible='YES'";
-        string strSQL = "SELECT solicit_id AS url, S_solicit_priority AS 'clase', CONVERT(VARCHAR(20),solicit_id) AS id, S_key_name AS title, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', S_register_date2) AS bigint)*1000)) AS start, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', T_Fecha_Estimada2) AS bigint)*1000)) AS 'end' from Translate_Solicits where S_visible='YES' and T_Fecha_Estimada2 IS NOT NULL and responsable=" + responsable2;
+        string strSQL = "SELECT solicit_id AS url, S_solicit_priority AS 'clase', CONVERT(VARCHAR(20),solicit_id) AS id, S_key_name AS title, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', S_register_date2) AS bigint)*1000)) AS start, CONVERT(VARCHAR(20),(cast(Datediff(s, '1970-01-01', T_Fecha_Estimada2) AS bigint)*1000)) AS 'end' from Translate_Solicits where S_visible='YES' and estado not in (4,6,7,8,9,10,13) and T_Fecha_Estimada2 IS NOT NULL and responsable=" + responsable2;
         SqlCommand cmd = new SqlCommand(strSQL, con);
         try
         {

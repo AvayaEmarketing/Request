@@ -677,8 +677,10 @@ function getRequest(id) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
                 } else if (estado == 11) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li>");
-                } else if (estado == 7) {
+                } else if (estado == 7 && T_requiere_revision == "YES") {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                } else if (estado == 7) {
+                    $("#menu_actions").html("<li><li><a href=\"#\">No Actions..</a></li></li>");
                 }
                 S_document_type = getTypeDocument(item.S_document_type);
                 S_document_type2 = item.S_document_type;
@@ -843,7 +845,8 @@ function getRequest(id) {
     return false;
 }
 
-function traerRevisores(original,translate) {
+function traerRevisores(original, translate) {
+    $("#revisor").html("");
     var datae = { 'original': original, 'translate': translate };
     $.ajax({
         type: "POST",

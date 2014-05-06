@@ -614,7 +614,7 @@ $(document).ready(function () {
 
                         case 1://Requerida
                             $("#estado").addClass("alert alert-warning");
-                            $("#estado").html("<strong>Required!</strong>");
+                            $("#estado").html("<strong>Requested!</strong>");
                             break;
                         case 2://Aceptada
                             $("#estado").addClass("alert alert-info");
@@ -622,11 +622,11 @@ $(document).ready(function () {
                             break;
                         case 3://En espera
                             $("#estado").addClass("alert alert-info");
-                            $("#estado").html("<strong>Stand by</strong>");
+                            $("#estado").html("<strong>Hold up</strong>");
                             break;
                         case 4://Denegada
                             $("#estado").addClass("alert alert-danger");
-                            $("#estado").html("<strong>Rejected!</strong>");
+                            $("#estado").html("<strong>Denied!</strong>");
                             $("#reasonsRejection").css("display", "block");
                             $("#reasonsText").html("" + item.T_Observaciones);
                             $("#reasonsText").addClass("alert alert-danger");
@@ -650,11 +650,11 @@ $(document).ready(function () {
                             break;
                         case 10://Finalizada
                             $("#estado").addClass("alert alert-success");
-                            $("#estado").html("<strong>Closed!</strong>");
+                            $("#estado").html("<strong>Finished!</strong>");
                             break;
                         case 11://Revisada
                             $("#estado").addClass("alert alert-success");
-                            $("#estado").html("<strong>Revised!</strong>");
+                            $("#estado").html("<strong>Reviewed!</strong>");
                             break;
                         case 12://Corregida
                             $("#estado").addClass("alert alert-info");
@@ -662,7 +662,7 @@ $(document).ready(function () {
                             break;
                         case 13://Cancelada por el solicitante
                             $("#estado").addClass("alert alert-danger");
-                            $("#estado").html("<strong>Canceled by the applicant</strong>");
+                            $("#estado").html("<strong> Cancelled by requestor</strong>");
                             break;
                     }
                 } 

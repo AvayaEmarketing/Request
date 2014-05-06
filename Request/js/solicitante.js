@@ -206,9 +206,10 @@ $(document).ready(function () {
     $("#fileToUpload").change(function () {
         if (this.value != "") {
             if (validarExtension(this.value)) {
-                $("#doc_content").css("display", "block");
-                $("#name_document").text(this.value);
-                //ajaxFileSizeValidate('fileToUpload');
+                if (FileSize()) {
+                    $("#doc_content").css("display", "block");
+                    $("#name_document").text(this.value);
+                }
                 } else {
                 message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
                 $("#fileToUpload").val("");
@@ -547,45 +548,25 @@ function countChar(val) {
     }
 }
 
-function ajaxFileSizeValidate(input) {
+function FileSize() {
+    var input, file;
+    var resultado;
+    if (!window.FileReader) {
+        console.error("The file API isn't supported on this browser yet.");
+        return;
+    }
 
-    /*$.ajaxFileUpload({
-        url: 'FileSizeValidator.ashx',
-        secureuri: false,
-        fileElementId: input,
-        dataType: 'json',
-
-        complete: function (r) {
-        },
-        success: function (data, status, response) {
-            if (typeof (data.error) != 'undefined') {
-                if (data.error != '') {
-                    alert("response"+reponse);
-                } else {
-                    alert(data.msg);
-                }
-            }
-        },
-        error: function (data, status, e) {
-            alert(e);
-        }
-    });
-    return false;*/
-
-    $.ajaxFileUpload({
-        url: 'FileSizeValidator.ashx',
-        secureuri: false,
-        fileElementId: input,
-        dataType: 'json',
-
-        onComplete: function (file, response) {
-            
-            $("#results").html(response);
-        },
-        error: function (data, status, e) {
-            alert(e);
-        }
-    });
-    return false
-
+    input = document.getElementById('fileToUpload');
+     if (!input.files) {
+         console.error("This browser doesn´t seem to support the `files` property of file inputs.");
+    }
+    else {
+         file = input.files[0];
+         var sizeInMB = file.size / 1024 / 1024;
+         if (sizeInMB > 10) {
+             message("<strong>" + file.name + "</strong> : Exceeds the allowable limit", "File Size", "danger");
+             return false;
+         }
+         else return true;
+    }
 }

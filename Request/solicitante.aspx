@@ -147,8 +147,7 @@
                             <div class="control-group" id="file" style="display:none;">
                                 <label class="control-label" for="file_field">Upload your File:</label>
                                 <div class="controls">
-                                    <span class="btn btn-default btn-file">    Browse <input id="fileToUpload" type="file"  name="fileToUpload" /> </span>
-                                    
+                                    <span class="btn btn-default btn-file"  > Browse <input id="fileToUpload" type="file" name="fileToUpload"  /></span> Max File Size: 10MB 
                                 </div>
                             </div>
 

@@ -147,7 +147,7 @@
                             <div class="control-group" id="file" style="display:none;">
                                 <label class="control-label" for="file_field">Upload your File:</label>
                                 <div class="controls">
-                                    <span class="btn btn-default btn-file"  > Browse <input id="fileToUpload" type="file" name="fileToUpload"  /></span> Max File Size: 10MB 
+                                    <span class="btn btn-danger btn-file"  > Browse <input id="fileToUpload" type="file" name="fileToUpload"  /></span> Max File Size: 10MB 
                                 </div>
                             </div>
 
@@ -198,7 +198,7 @@
                             <div class="control-group">
                                 <label class="control-label" for="desired_date"><span style="color: #cc0000;">*</span>Desired Date:</label>
                                 <div id="datetimepicker3" class="controls">
-                                    <input data-format="dd/MM/yyyy" type="text" id="desired_date" />
+                                    <input data-format="dd/MM/yyyy" type="text" id="desired_date" readonly="readonly" />
                                     <span class="add-on">
                                         <i data-date-icon="icon-calendar"></i>
                                     </span>

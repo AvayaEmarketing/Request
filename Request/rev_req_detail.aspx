@@ -283,6 +283,7 @@
                                 <label class="control-label" for="file_field">Upload Review File:</label>
                                 <div class="controls">
                                     <span class="btn btn-default btn-file"> Browse <input id="fileToUpload" type="file"  name="fileToUpload" /> </span>
+                                    Max File Size: 10MB 
                                 </div>
                             </div>
 

@@ -211,7 +211,7 @@ $(document).ready(function () {
                     $("#name_document").text(this.value);
                 }
                 } else {
-                message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
+                message("Please check the filetype, only accept ( PDF, DOC, DOCX, TXT )", "Error", "danger");
                 $("#fileToUpload").val("");
             }
         } else {

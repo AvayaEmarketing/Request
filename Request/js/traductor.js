@@ -36,34 +36,6 @@ myApp = myApp || (function () {
 })();
 
 
-
-function getDatosCalendarioDetail() {
-    $.ajax({
-        type: "POST",
-        url: "traductor.aspx/getDatosCalendario",
-        contentType: "application/json; charset=utf-8",
-        data: "{}",
-        dataType: "json",
-        success: function (resultado) {
-            jposts = resultado.d;
-            Json_data = $.parseJSON(jposts);
-            var eventData1 = {
-                options: {
-                    timeslotsPerHour: 2,
-                    
-                },
-                events: [
-                    { "id": 1, "start": "2014-02-17T13:15:00.000", "end": "2014-02-22T14:15:00.000", "title": "APCD" },
-	                { "id": 2, "start": "2014-02-18T09:15:00.000", "end": "2014-03-01T10:15:00.000", "title": "Evolutions" }
-                ]
-            };
-            cargarCalendario(eventData1);
-            
-        }
-    });
-    return false;
-}
-
 function cargarDatos() {
     myApp.showPleaseWait();
     

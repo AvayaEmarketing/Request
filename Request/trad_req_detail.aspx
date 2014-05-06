@@ -405,9 +405,9 @@
                         <div class="control-group" id="file_r" style="display: none;">
                             <label class="control-label" for="file_field">Upload Translation File:</label>
                             <div class="controls">
-                                <span class="btn btn-default btn-file">Browse
+                                <span class="btn btn-danger btn-file">Browse
                                     <input id="fileToUpload" type="file" name="fileToUpload" />
-                                </span>
+                                </span> Max File Size: 10MB
                             </div>
                         </div>
 
@@ -502,7 +502,7 @@
                             <div class="controls">
                                 <span class="btn btn-default btn-file">Browse
                                     <input id="fileToUpload2" type="file" name="fileToUpload" />
-                                </span>
+                                </span> Max File Size: 10MB 
                             </div>
                         </div>
                         <div class="control-group" id="doc_content2" style="display:none;">

@@ -136,8 +136,10 @@ $(document).ready(function () {
 
     $("#fileToUpload").change(function () {
         if (this.value != "") {
-            $("#doc_content").css("display", "block");
-            $("#name_document").text(this.value);
+            if (FileSize()) {
+                $("#doc_content").css("display", "block");
+                $("#name_document").text(this.value);
+            }
         } else {
             $("#doc_content").css("display", "none");
         }
@@ -638,4 +640,27 @@ function obtenerNombreUsuario() {
         }
     });
     return false;
+}
+
+function FileSize() {
+    var input, file;
+    var resultado;
+    if (!window.FileReader) {
+        console.error("The file API isn't supported on this browser yet.");
+        return;
+    }
+
+    input = document.getElementById('fileToUpload');
+    if (!input.files) {
+        console.error("This browser doesn´t seem to support the `files` property of file inputs.");
+    }
+    else {
+        file = input.files[0];
+        var sizeInMB = file.size / 1024 / 1024;
+        if (sizeInMB > 10) {
+            message("<strong>" + file.name + "</strong> : Exceeds the allowable limit", "File Size", "danger");
+            return false;
+        }
+        else return true;
+    }
 }

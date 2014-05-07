@@ -98,9 +98,9 @@ function AjaxGetFieldDataSucceeded(result) {
             oTable = $('#datatables').dataTable({
                 "bProcessing": true,
                 "aaData": dataTab,
-                "aoColumns": [{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "S_desired_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }, { "mDataProp": "Edit" }],
+                "aoColumns": [{ "mDataProp": "state" },{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "S_desired_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }, { "mDataProp": "Edit" }],
                 "sPaginationType": "bootstrap",
-                "aaSorting": [[4, "desc"]],
+                "aaSorting": [[5, "desc"]],
                 "bJQueryUI": true
             });
         };

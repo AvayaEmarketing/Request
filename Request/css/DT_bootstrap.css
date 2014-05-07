@@ -27,6 +27,14 @@ table.table {
 	max-width: none !important;
 }
 
+table.table thead .status {
+    border:none;
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+}
+
+
 table.table thead .sorting,
 table.table thead .sorting_asc,
 table.table thead .sorting_desc,

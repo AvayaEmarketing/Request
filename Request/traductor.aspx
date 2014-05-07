@@ -136,15 +136,16 @@
                         <table id="datatables" cellpadding="0" cellspacing="0" border="0" style="width: 100%; text-align: center; visibility: hidden" class="table table-striped table-bordered">
                             <thead id="thead">
                                 <tr>
+                                    <th width="2%"></th>
                                     <th class="sorting" width="15%">Translation Name</th>
                                     <th class="sorting" width="10%">State</th>
-                                    <th class="sorting" width="12%">Original Lang</th>
-                                    <th class="sorting" width="12%">Translate Lang</th>
-                                    <th class="sorting" width="12%">Register Date</th>
-                                    <th class="sorting" width="12%">Desired Date</th>
-                                    <th class="sorting" width="12%">Estimated Date</th>
+                                    <th class="sorting" width="10%">Original Lang</th>
+                                    <th class="sorting" width="10%">Translate Lang</th>
+                                    <th class="sorting" width="15%">Register Date</th>
+                                    <th class="sorting" width="15%">Desired Date</th>
+                                    <th class="sorting" width="16%">Estimated Date</th>
                                     <th class="sorting" width="8%">Priority</th>
-                                    <th class="sorting" width="13%">Details</th>
+                                    <th width="7%">Details</th>
 
 
                                 </tr>
@@ -153,17 +154,11 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td>
-                                        <%--<table style="width:24px">
-                            <tr>
-                                <td>--%>
-                                        <div id="toExcel">
+                                    <td>&nbsp;</td>
+                                    <td ><div id="toExcel">
                                             <a href="#" id="btnDescargaExcel">
                                                 <img src="images/xls.png" alt="to Excel" /></a>
                                         </div>
-                                        <%--</td>
-                            </tr>
-                        </table>--%>
                                     </td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>

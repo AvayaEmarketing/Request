@@ -431,7 +431,10 @@ public partial class rev_req_detail : System.Web.UI.Page
         string correo = "";
         
             title = "You have a new notification";
-            data = "<p>You has recived a review.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p><br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            data = "<p>You has recived a review.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translate Language :  &nbsp;" + S_translate_language + "</p>";
+            data +="<br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests site";
 
             int traductor = getTraductor(S_original_language,S_translate_language);

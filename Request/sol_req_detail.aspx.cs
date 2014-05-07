@@ -577,23 +577,23 @@ public partial class sol_req_detail : System.Web.UI.Page
             {
                 title = "Your correction has been send succesfully";
                 data = "<p>Your correction has been send  successfully.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-                message = "Avaya Translation Requests site";
+                message = "Avaya Translation Requests ";
             }
             else if (tipo_usuario == "traductor")
             {
                 title = "You have received a translation correction";
-                data = "<p>You have received a translation correction</p><p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For see the correction translation click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p>";
-                message = "Avaya Translation Requests site";
+                data = "<p>You have received a translation correction</p><p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For see the correction translation click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p>";
+                message = "Avaya Translation Requests ";
             }
         } else if (tipo_envio == "cancel") {
             title = "One translation request has been cancel";
-            data = "<p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p>";
-            message = "Avaya Translation Requests site";
+            data = "<p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p>";
+            message = "Avaya Translation Requests ";
         }
         else if (tipo_envio == "close") {
             title = "One translation request has been closed";
-            data = "<p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p>";
-            message = "Avaya Translation Requests site";
+            data = "<p>Translation name :  &nbsp;" + S_key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p>";
+            message = "Avaya Translation Requests ";
         }
 
 

@@ -24,7 +24,7 @@ var ST_correction;
 var ST_observations;
 var RT_review;
 var RT_observations;
-var RT_send_review; Register_r
+var RT_send_review; 
 var TR_format_translate;
 var RT_format_review
 var S_revisor;
@@ -686,7 +686,7 @@ function getRequest(id) {
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
                 } else if (estado == 7) {
-                    $("#menu_actions").html("<li><li><a href=\"#\">No Actions..</a></li></li>");
+                    $("#menu_actions").html("<li><a href=\"#\">No Actions..</a></li>");
                 }
                 S_document_type = getTypeDocument(item.S_document_type);
                 S_document_type2 = item.S_document_type;
@@ -1097,6 +1097,7 @@ function registrarInfoTranslate(formulario) {
                     T_send_review = 'YES';
                     estado = 7;
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    $("#menu_actions").html("<li>No Actions...</li>");
                     message("Sucess, Information send successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });

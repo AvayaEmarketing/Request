@@ -915,9 +915,12 @@ public partial class trad_req_detail : System.Web.UI.Page
         
         if (tipo_envio == "Feedback") {
            
-            title = "You have a new notification";
-            data = "<p>Your Request have a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-            message = "Avaya Translation Requests site";
+            title = "New notification";
+            data = "<p>Your Request have a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
 
@@ -931,33 +934,54 @@ public partial class trad_req_detail : System.Web.UI.Page
                 WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
             }
 
-            if (revision == "YES") {
-                title = "You have a new notification";
-                data = "<p>One translation Request requieres of you review. Please be attentive to a new communication</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-                message = "Avaya Translation Requests site";
-                //Revisor = getRevisor(S_original_language, S_translate_language);
+            //if (revision == "YES") {
+            //    title = "You have a new notification";
+            //    data = "<p>One translation Request requieres of you review. Please be attentive to a new communication</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            //    message = "Avaya Translation Requests";
+            //    //Revisor = getRevisor(S_original_language, S_translate_language);
                  
-                correo = getCorreo(revisor);
-                plantilla = getContenidoMail(title, data, message);
-                try
-                {
-                    rta_mail = SendMail(correo, "e-marketing@avaya.com", title, plantilla);
-                }
-                catch (Exception ex)
-                {
-                    rta_mail = "error" + ex;
-                    WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
-                }
+            //    correo = getCorreo(revisor);
+            //    plantilla = getContenidoMail(title, data, message);
+            //    try
+            //    {
+            //        rta_mail = SendMail(correo, "e-marketing@avaya.com", title, plantilla);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        rta_mail = "error" + ex;
+            //        WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
+            //    }
 
-            }
+            //}
 
         }
         else if (tipo_envio == "Review") {
-            title = "You have a new notification";
-            data = "<p>This request requires if your review</p><p>Translation name :  &nbsp;" + S_Key_name + "</p><br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-            message = "Avaya Translation Requests site";
+            title = "New notification";
+            data = "<p>This request requires of your review</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
             //Revisor = getRevisor(S_original_language, S_translate_language);
             correo = getCorreo(revisor);
+            plantilla = getContenidoMail(title, data, message);
+            try
+            {
+                rta_mail = SendMail(correo, "e-marketing@avaya.com", title, plantilla);
+            }
+            catch (Exception ex)
+            {
+                rta_mail = "error" + ex;
+                WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
+            }
+            title = "New notification status change";
+            data = "<p>Your request requires if your review</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
+            //Mandarle el correo al solicitante que se esta revisando la traduccion
+            correo = getCorreo(solicitante);
             plantilla = getContenidoMail(title, data, message);
             try
             {
@@ -971,8 +995,11 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
         else if (tipo_envio == "Translate") {
             title = "You have a new notification";
-            data = "<p>Your translation request has finished.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p><br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-            message = "Avaya Translation Requests site";
+            data = "<p>Your translation request has finished.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
             plantilla = getContenidoMail(title, data, message);
@@ -988,8 +1015,11 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
         else if (tipo_envio == "posponer") {
             title = "You have a new notification";
-            data = "<p>Your translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p><br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-            message = "Avaya Translation Requests site";
+            data = "<p>Your translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
             plantilla = getContenidoMail(title, data, message);
@@ -1007,8 +1037,11 @@ public partial class trad_req_detail : System.Web.UI.Page
         else if (tipo_envio == "cancel")
         {
             title = "You have a new notification";
-            data = "<p>Your translation has been rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p><br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
-            message = "Avaya Translation Requests site";
+            data = "<p>Your translation has been rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
+            data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
             plantilla = getContenidoMail(title, data, message);

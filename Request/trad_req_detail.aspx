@@ -158,7 +158,7 @@
                             <div class="control-group" id="copy" style="display: none;">
                                 <label class="control-label" for="copy_field">Copy:</label>
                                 <div class="controls">
-                                    <input id="copy_field" type="text" placeholder="Copy" />
+                                    <textarea id="copy_field" rows="6"></textarea>
                                 </div>
                             </div>
 
@@ -230,7 +230,7 @@
                             <div class="control-group" id="copy_c" style="display: none;">
                                 <label class="control-label" for="copy_field">Copy:</label>
                                 <div class="controls">
-                                    <input id="copy_c1" type="text" placeholder="Copy" />
+                                    <textarea id="copy_c1" rows="6"></textarea>
                                 </div>
                             </div>
 
@@ -576,7 +576,7 @@
                                 <input data-format="dd/MM/yyyy" type="text" id="date_rw" readonly="readonly" />
                             </div>
                         </div>
-                        <h3><span style="color: #cc0000;">To close the Review, Please click in Actions -> Close Review</span></h3>
+                        <%--<h3><span style="color: #cc0000;">To close the Review, Please click in Actions -> Close Review</span></h3>--%>
                     </div>
                 </div>
             </div>

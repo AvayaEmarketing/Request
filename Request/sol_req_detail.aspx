@@ -404,7 +404,7 @@
                             <div class="control-group" id="text_t" style="display: none;">
                                 <label class="control-label" for="copy_field">Copy:</label>
                                 <div class="controls">
-                                    <input id="texto_t" type="text" placeholder="Copy" />
+                                    <textarea id="texto_t" rows="6" cols="5"></textarea>
                                 </div>
                             </div>
 
@@ -414,7 +414,7 @@
                                 </div>
                             </div>
 
-                           <h3><span style="color: #cc0000;">To close the Request, Please click in Actions -> Close Request</span></h3>
+                           <%--<h3><span style="color: #cc0000;">To close the Request, Please click in Actions -> Close Request</span></h3>--%>
                            
                     </div>
                 </div>

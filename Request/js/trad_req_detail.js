@@ -453,7 +453,8 @@ function stranslate() {
                     $("#review").css({ "display": "none" });
                     $("#data_review").css({ "display": "none" });
                     $("#translate").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
                 } else {
                     message("This translation requires the review response", "Send Translate", "danger");
                 }
@@ -466,7 +467,8 @@ function stranslate() {
                     $("#review").css({ "display": "none" });
                     $("#data_review").css({ "display": "none" });
                     $("#translate").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
 
                 } else {
                     message("Attention, this translate can't send now, please contact with the administrator", "Send Translate", "danger");
@@ -678,9 +680,11 @@ function getRequest(id) {
                 } else if ((estado == 2)|| (estado == 12)) {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"s_Review\" onClick=\"review()\">Send for Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li><li><a href=\"#\" id=\"p_Translate\" onClick=\"p_translate()\">Postpone Translate</a></li>");
                 } else if (estado == 11) {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"s_Translate\" onClick=\"stranslate()\">Send Translate</a></li>");
                 } else if (estado == 7 && T_requiere_revision == "YES") {
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
                 } else if (estado == 7) {
                     $("#menu_actions").html("<li><li><a href=\"#\">No Actions..</a></li></li>");
                 }
@@ -1092,7 +1096,7 @@ function registrarInfoTranslate(formulario) {
                     limpiarCampos(formulario);
                     T_send_review = 'YES';
                     estado = 7;
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                     message("Sucess, Information send successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });

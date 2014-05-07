@@ -132,7 +132,7 @@
                             <div class="control-group" id="copy" style="display: none;">
                                 <label class="control-label" for="copy_field">Copy:</label>
                                 <div class="controls">
-                                    <input id="copy_field" type="text" placeholder="Copy" readonly="readonly"/>
+                                    <textarea id="copy_field" readonly="readonly" rows="6"></textarea>
                                 </div>
                             </div>
 

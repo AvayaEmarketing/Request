@@ -42,7 +42,13 @@ $(document).keypress(function (e) {
 
 $(document).ready(function () {
 
-        version = getInternetExplorerVersion();
+    version = getInternetExplorerVersion();
+
+    
+    if (version < 10) {
+        $("#BrowserOut").modal('show');
+    }
+    
 
         if (version > 8) {
             $("body").css("background-attachment", "local");

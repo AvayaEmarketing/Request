@@ -520,7 +520,8 @@ $(document).ready(function () {
                     } else if (estado == 3) {
                         $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"V_feedback();\">View FeedBack</a></li><li><a href=\"#\" id=\"s_Correction\" onClick=\"s_Correction();\">Send Correction</a></li><li><a href=\"#\" id=\"c_Request\" onClick=\"c_Request();\">Cancel Request</a></li>");
                     } else if (estado == 7) {
-                        $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"V_feedback();\">View FeedBack</a></li><li><a href=\"#\" id=\"v_Translate\" onClick=\"v_Translate();\">View Translate</a></li><li><a href=\"#\" id=\"s_close\" onClick=\"closeRequest();\">Close Request</a></li>");
+                        //$("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"V_feedback();\">View FeedBack</a></li><li><a href=\"#\" id=\"v_Translate\" onClick=\"v_Translate();\">View Translate</a></li><li><a href=\"#\" id=\"s_close\" onClick=\"closeRequest();\">Close Request</a></li>");
+                        $("#menu_actions").html("<li><a href=\"#\" id=\"s_Feedback\" onClick=\"V_feedback();\">View FeedBack</a></li><li><a href=\"#\" id=\"v_Translate\" onClick=\"v_Translate();\">View Translate</a></li>");
                     }
                     S_document_type = getTypeDocument(item.S_document_type);
                     S_document_type2 = item.S_document_type;

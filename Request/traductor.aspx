@@ -140,11 +140,11 @@
                                     <th class="sorting" width="10%">State</th>
                                     <th class="sorting" width="12%">Original Lang</th>
                                     <th class="sorting" width="12%">Translate Lang</th>
-                                    <th class="sorting" width="14%">Register Date</th>
-                                    <th class="sorting" width="14%">Desired Date</th>
-                                    <th class="sorting" width="14%">Estimated Date</th>
+                                    <th class="sorting" width="12%">Register Date</th>
+                                    <th class="sorting" width="12%">Desired Date</th>
+                                    <th class="sorting" width="12%">Estimated Date</th>
                                     <th class="sorting" width="8%">Priority</th>
-                                    <th class="sorting" width="7%">Details</th>
+                                    <th class="sorting" width="13%">Details</th>
 
 
                                 </tr>

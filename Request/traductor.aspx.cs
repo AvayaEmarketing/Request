@@ -174,7 +174,13 @@ public partial class traductor : System.Web.UI.Page
             string jsonarmado = "[";
             foreach (var root in values)
             {
-                jsonarmado += "{\"S_key_name\": \"" + root.S_key_name + "\", \"nombre\": \"" + root.nombre + "\",\"S_original_language\": \"" + root.S_original_language + "\",\"S_translate_language\": \"" + root.S_translate_language + "\",\"S_register_date\": \"" + root.S_register_date + "\",\"S_desired_date\": \"" + root.S_desired_date + "\",\"T_Fecha_Estimada\": \"" + root.T_Fecha_Estimada + "\",\"S_solicit_priority\": \"" + root.S_solicit_priority + "\",\"Edit\": \"<a href=\'#\' onClick=\'detailsTrad(" + root.solicit_id + ")\'><img title=\'Details\' src=\'images/edit.png\'/></a>\"},";
+                if (root.T_Fecha_Estimada == null)
+                {
+                    jsonarmado += "{\"S_key_name\": \"" + root.S_key_name + "\", \"nombre\": \"" + root.nombre + "\",\"S_original_language\": \"" + root.S_original_language + "\",\"S_translate_language\": \"" + root.S_translate_language + "\",\"S_register_date\": \"" + root.S_register_date + "\",\"S_desired_date\": \"" + root.S_desired_date + "\",\"T_Fecha_Estimada\": \"" + root.T_Fecha_Estimada + "\",\"S_solicit_priority\": \"" + root.S_solicit_priority + "\",\"Edit\": \"<a href=\'#\' onClick=\'detailsTrad(" + root.solicit_id + ")\'><img title=\'Details\' src=\'images/edit.png\'/></a>&nbsp;&nbsp;<img title=\'New\' src=\'images/new.png\'/>\"},";
+                }
+                else {
+                    jsonarmado += "{\"S_key_name\": \"" + root.S_key_name + "\", \"nombre\": \"" + root.nombre + "\",\"S_original_language\": \"" + root.S_original_language + "\",\"S_translate_language\": \"" + root.S_translate_language + "\",\"S_register_date\": \"" + root.S_register_date + "\",\"S_desired_date\": \"" + root.S_desired_date + "\",\"T_Fecha_Estimada\": \"" + root.T_Fecha_Estimada + "\",\"S_solicit_priority\": \"" + root.S_solicit_priority + "\",\"Edit\": \"<a href=\'#\' onClick=\'detailsTrad(" + root.solicit_id + ")\'><img title=\'Details\' src=\'images/edit.png\'/></a>\"},";
+                }
             }
 
             jsonarmado = jsonarmado.Substring(0, jsonarmado.Length - 1);

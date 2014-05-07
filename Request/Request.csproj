@@ -170,6 +170,7 @@
     <Content Include="images\prettyLoader.gif" />
     <Content Include="images\prettyLoader.png" />
     <Content Include="images\profile.jpg" />
+    <Content Include="images\new.png" />
     <Content Include="images\redes.png" />
     <Content Include="images\redes2.png" />
     <Content Include="images\slide-bg.png" />

@@ -211,7 +211,7 @@ $(document).ready(function () {
                     $("#name_document").text(this.value);
                 }
                 } else {
-                message("Please check the filetype, only accept ( PDF, DOC, DOCX, TXT )", "Error", "danger");
+                message("Please check the filetype, system accept PDF,DOC,DOCX,TXT.", "Error", "danger");
                 $("#fileToUpload").val("");
             }
         } else {
@@ -231,7 +231,7 @@ $(document).ready(function () {
             if (formulario.document_type == "1") {
                 var tamano = formulario.document_name.length;
                 if (tamano > 300) {
-                    message("Field Copy: " + tamano + " Characters,  The number of characters is more than 300", "Alert", "danger");
+                    message("Copy exceeds character’s limit. : " + tamano , "Alert", "danger");
                 }
                 else {
                     registrarInfo(formulario);
@@ -241,7 +241,7 @@ $(document).ready(function () {
             }
             
         } else {
-            message("Please check the Mandatory fields", "Register", "danger");
+            message("Mandatory fields incomplete, please check.", "Register", "danger");
         }
         return false;
     });
@@ -362,7 +362,7 @@ function registrarInfo(formulario) {
                     ajaxFileUpload(divs_id);
                 } else {
                     myApp.hidePleaseWait();
-                    message("The request is successfully created.  Redirecting... Please wait", "Solicit", "danger");
+                    message("Request created. Redirecting... Please wait", "Solicit", "danger");
                     setTimeout(function () {
                         document.location.href = "solicitante.aspx";
                     }, 2000);
@@ -370,7 +370,7 @@ function registrarInfo(formulario) {
                 
             } else {
                 myApp.hidePleaseWait();
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             }
         }
     });
@@ -442,7 +442,7 @@ function ajaxFileUpload(id) {
             success: function (data, status, response) {
                 if (typeof (data.error) != 'undefined') {
                     if (data.error === "file size exceeds the limit") {
-                        message("file size exceeds the limit, try with other file", "Alert", "danger");
+                        message("File exceeds size limits, try with another file. ", "Alert", "danger");
                         $("#name_document").html("");
                         $("#name_document").test("");
                     }

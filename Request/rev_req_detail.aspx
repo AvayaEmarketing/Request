@@ -74,7 +74,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="actions">Actions&nbsp;&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu" id="menu_actions">
-                                <li><a href="#">No Actions Yet..</a></li>
+                                <li><a href="#">No Actions..</a></li>
                             </ul>
                         </li>
                         <li style="width:300px;"><a href="rev_details.aspx" id="userName"></a></li>

@@ -914,9 +914,9 @@ public partial class trad_req_detail : System.Web.UI.Page
         
         
         if (tipo_envio == "Feedback") {
-           
-            title = "New notification";
-            data = "<p>Your Request have a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+
+            title = "Translation request feedback";
+            data = "<p>Your translation requested has a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
@@ -956,8 +956,8 @@ public partial class trad_req_detail : System.Web.UI.Page
 
         }
         else if (tipo_envio == "Review") {
-            title = "New notification";
-            data = "<p>This request requires of your review</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            title = "This translation requires of your review";
+            data = "<p>Translation Finished. This document requires of your review.</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
@@ -974,8 +974,8 @@ public partial class trad_req_detail : System.Web.UI.Page
                 rta_mail = "error" + ex;
                 WriteError(ex.Message, "trad_req_detail.aspx", "sendMails");
             }
-            title = "New notification status change";
-            data = "<p>Your request requires if your review</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            title = "Request translated, sent to Editor.";
+            data = "<p>Translation Finished. Document under Editor’s review.</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
@@ -994,8 +994,8 @@ public partial class trad_req_detail : System.Web.UI.Page
             }
         }
         else if (tipo_envio == "Translate") {
-            title = "You have a new notification";
-            data = "<p>Your translation request has finished.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p>";
+            title = "Translation finished";
+            data = "<p>Translation request Finished.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
@@ -1014,8 +1014,8 @@ public partial class trad_req_detail : System.Web.UI.Page
             }
         }
         else if (tipo_envio == "posponer") {
-            title = "You have a new notification";
-            data = "<p>Your translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
+            title = "Translation postponed";
+            data = "<p>our translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
@@ -1036,8 +1036,8 @@ public partial class trad_req_detail : System.Web.UI.Page
         //mensaje de notificacion de rechazo de solicitud
         else if (tipo_envio == "cancel")
         {
-            title = "You have a new notification";
-            data = "<p>Your translation has been rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
+            title = "Translation request rejected";
+            data = "<p>Translation rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
             data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
             data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";

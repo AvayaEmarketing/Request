@@ -113,7 +113,7 @@ function registrarInfo(formulario) {
         success: function (resultado) {
             myApp.hidePleaseWait();
             if (resultado.d !== "ok") {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 T_send_feedback = "Y";
                 var id = QueryString.id;
@@ -194,7 +194,7 @@ $(document).ready(function () {
         if (validado) {
             registrarInfoReview(formulario);
         } else {
-            message("Please check the Mandatory fields", "Register", "danger");
+            message("Mandatory fields incomplete, please check.", "Register", "danger");
         }
         return false;
     });
@@ -205,7 +205,7 @@ $(document).ready(function () {
         if (validado) {
             registrarInfoTranslate(formulario);
         } else {
-            message("Please check the Mandatory fields", "Register", "danger");
+            message("Mandatory fields incomplete, please check.", "Register", "danger");
         }
         return false;
     });
@@ -265,7 +265,7 @@ $(document).ready(function () {
         if ((fecha != "") && (observaciones != "")) {
             postpone_translate(fecha, observaciones);
         } else {
-            message("Please check the required files", "Alert", "danger");
+            message("Mandatory fields incomplete, please check.", "Alert", "danger");
         }
 
     });
@@ -333,14 +333,14 @@ $(document).ready(function () {
     $("#reject_request").click(function () {
         // var reject_observations = $("#reject_observations").val();
         //aqui colocar el codigo para que salga el popup con las obervaciones.
-        messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write observations here...'></textarea>", "Write the reasons for rejection", "danger");
+        messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write your comments here...'></textarea>", "Write the reasons for rejection here", "danger");
     });
 
     
 });
 
 function reject() {
-    messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write observations here...'></textarea>", "Write the reasons for rejection", "danger");
+    messageForm("<textarea class='form-control' style='width:95%' id='reject_reasons' placeholder='Write your comments here...'></textarea>", "Write the reasons for rejection here", "danger");
 }
 
 function cerrarSession() {
@@ -442,7 +442,7 @@ function stranslate() {
         message("Please send the Feedback first", "Send Translate", "danger");
     } else {
         if (estado == 7) {
-            message("This action has been sent previously", "Send Translate", "danger");
+            message("Translation already sent.", "Send Translate", "danger");
         } else {
             if (T_requiere_revision == "YES") {
                 if (estado == 11) {
@@ -456,7 +456,7 @@ function stranslate() {
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
                 } else {
-                    message("This translation requires the review response", "Send Translate", "danger");
+                    message("This translation requires Editor response. ", "Send Translate", "danger");
                 }
             } else {
                 if ((estado == 2) || (estado == 12)) {
@@ -471,7 +471,7 @@ function stranslate() {
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
 
                 } else {
-                    message("Attention, this translate can't send now, please contact with the administrator", "Send Translate", "danger");
+                    message("Data error, please try again", "Send Translate", "danger");
                 }
             }
         }
@@ -528,7 +528,7 @@ function feedback() {
         $("#data_review").css({ "display": "none" });
         $("#responder").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
     } else {
-        message("The Feedback has been sent previously", "Send Feedback", "danger");
+        message("Feedback previously sent ", "Send Feedback", "danger");
     }
 };
 
@@ -541,7 +541,7 @@ function review() {
             message("This translation don't requires review", "Send Review", "danger");
         } else {
             if (T_send_review == 'YES') {
-                message("This action has been sent previously", "Send Review", "danger");
+                message("Translation already sent to the editor.", "Send Review", "danger");
             } else {
                 getRequestData(id);
                 $("#postponer").css({ "display": "none" });
@@ -637,9 +637,9 @@ function postpone_translate(fecha,observaciones) {
             dataType: "json",
             success: function (resultado) {
                 if (resultado.d !== "ok") {
-                    message("Alert, please try again", "Register", "danger");
+                    message("Data error, please try again", "Register", "danger");
                 } else {
-                    message('The translation has successfully postponed', 'Postpone translation', 'danger');
+                    message('Translation Postponed', 'Postpone translation', 'danger');
                     getRequestData(solicit_id);
                     $("#detalles").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
                     $("#responder").css({ "display": "none" });
@@ -863,7 +863,7 @@ function traerRevisores(original, translate) {
         success: function (resultado) {
 
             if (resultado.d == "fail") {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 var jposts = resultado.d;
                 var item = $.parseJSON(jposts);
@@ -875,7 +875,7 @@ function traerRevisores(original, translate) {
             }
         },
         error: function () {
-            message("Alert, please try again", "Register", "danger");
+            message("Data error, please try again", "Register", "danger");
         }
     });
     return false;
@@ -969,7 +969,7 @@ function registrarInfoReview(formulario) {
             
             if (resultado.d !== "ok") {
                 myApp.hidePleaseWait();
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 if (formulario.type_send == "2") {
                     ajaxFileUpload('fileToUpload', solicit_id, formulario);
@@ -1051,7 +1051,7 @@ $("#fileToUpload2").change(function () {
                 $("#name_document2").text(this.value);
             }
         } else {
-            message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
+            message("Please check the filetype, system accept PDF,DOC,DOCX,TXT.", "Error", "danger");
             $("#fileToUpload2").val("");
         }
     } else {
@@ -1067,7 +1067,7 @@ $("#fileToUpload").change(function () {
                 $("#name_document").text(this.value);
             }
         } else {
-            message("Please check the filetype, only accept (PDF,DOC,DOCX,TXT)", "Error", "danger");
+            message("Please check the filetype, system accept PDF,DOC,DOCX,TXT.", "Error", "danger");
             $("#fileToUpload").val("");
         }
     } else {
@@ -1087,7 +1087,7 @@ function registrarInfoTranslate(formulario) {
         success: function (resultado) {
             
             if (resultado.d !== "ok") {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 if (formulario.type_send == "2") {
                     ajaxFileUpload('fileToUpload2', solicit_id, formulario);
@@ -1098,7 +1098,7 @@ function registrarInfoTranslate(formulario) {
                     estado = 7;
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                     $("#menu_actions").html("<li>No Actions...</li>");
-                    message("Sucess, Information send successfully", "Register", "danger");
+                    message("Information sent successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });
                     $("#translate").css({ "display": "none" });
@@ -1144,7 +1144,7 @@ function ajaxFileUpload(filename,id,formulario) {
                         myApp.hidePleaseWait();
                         limpiarCampos(formulario);
                         T_send_review = 'YES';
-                        message("Sucess, Information sent successfully", "Register", "danger");
+                        message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });
                         $("#translate").css({ "display": "none" });
@@ -1190,9 +1190,9 @@ function c_Request(reject_observations,formulario) {
         success: function (resultado) {
             myApp.hidePleaseWait();
             if (resultado.d !== "ok") {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
-                message("Sucess rejected.  Redirecting... Please wait", "Register", "danger");
+                message("Translation Rejected. Redirecting… Please wait. ", "Register", "danger");
                 setTimeout(function () {
                     document.location.href = "traductor.aspx";
                 }, 3000);

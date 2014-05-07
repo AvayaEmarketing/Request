@@ -398,7 +398,7 @@ public partial class solicitante : System.Web.UI.Page
         public static string sendMails(string translation_name, int solicitante, int traductor, int state, int document_type, string original_language, string translate_language, string prioridad, string priority_comment, string observations, DateTime datt, string desired_date, string document_name)
         {
             string result = "";
-            string title = "Avaya Requests - New Request";
+            string title = "Avaya Translation Requests";
             string correo = getCorreo(traductor);
             string correo2 = getCorreo(solicitante);
             string data = "<table width=\"500\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"left\" style=\"font-family: Arial, Helvetica, sans-serif; font-size: 12px;margin-top:14pt;margin-bottom:14pt;\"><tr><td style=\"color:#cc0000;\">Translation Name:</td><td>" + translation_name + "</td></tr><tr><td style=\"color:#cc0000;\">Original Language: </td><td>" + original_language + "</td></tr><tr><td style=\"color:#cc0000;\">Translate Language:</td><td>" + translate_language + "</td></tr><tr><td style=\"color:#cc0000;\"> Priority:</td><td>" + prioridad + "</td></tr><tr><td style=\"color:#cc0000;\"> Priority Comment:</td><td>" + priority_comment + "</td></tr><tr><td style=\"color:#cc0000;\"> Desired Date:</td><td>" + desired_date + "</td></tr></table>"; 

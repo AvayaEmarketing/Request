@@ -86,7 +86,7 @@ function registrarInfo(formulario) {
         success: function (resultado) {
             myApp.hidePleaseWait();
             if (resultado.d !== "ok") {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 T_send_feedback = "Y";
                 var id = QueryString.id;

@@ -14,7 +14,7 @@
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="css/messi.css" rel="stylesheet">
+    
     <link href="css/prettyLoader.css" rel="stylesheet">
        <!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
 	<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->

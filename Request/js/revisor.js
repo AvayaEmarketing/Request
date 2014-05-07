@@ -181,7 +181,7 @@ $(document).ready(function () {
         if (validado) {
             registrarInfo(formulario);
         } else {
-            message("Please check the Mandatory fields", "Register", "danger");
+            message("Mandatory fields incomplete, please check.", "Register", "danger");
         }
         return false;
     });
@@ -276,13 +276,13 @@ function registrarInfo(formulario) {
                     ajaxFileUpload(divs_id);
                 } else {
                     setTimeout(function () {
-                        message("The request is successfully created", "Solicit", "danger");
+                        message("Request created.", "Solicit", "danger");
                         document.location.href = "revisor.aspx";
                     }, 2000);
                 }
 
             } else {
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             }
         }
     });

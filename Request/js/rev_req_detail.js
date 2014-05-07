@@ -85,7 +85,7 @@ function registrarInfo(formulario) {
         success: function (resultado) {
             if (resultado.d !== "ok") {
                 myApp.hidePleaseWait();
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 myApp.hidePleaseWait();
                 T_send_feedback = "Y";
@@ -152,7 +152,7 @@ $(document).ready(function () {
         if (validado) {
             registrarInfoReview(formulario);
         } else {
-            message("Please check the Mandatory fields", "Register", "danger");
+            message("Mandatory fields incomplete, please check.", "Register", "danger");
         }
         return false;
     });
@@ -295,7 +295,7 @@ function registrarInfoReview(formulario) {
         success: function (resultado) {
             if (resultado.d !== "ok") {
                 myApp.hidePleaseWait();
-                message("Alert, please try again", "Register", "danger");
+                message("Data error, please try again", "Register", "danger");
             } else {
                 if (formulario.type_send == "2") {
                     ajaxFileUpload('fileToUpload', solicit_id, formulario);
@@ -304,7 +304,7 @@ function registrarInfoReview(formulario) {
                     limpiarCampos(formulario);
                     RT_send_review = 'YES';
                     estado = 11;
-                    $("#menu_actions").html("<li><a href=\"#\">No Actions yet..</a></li>");
+                    $("#menu_actions").html("<li><a href=\"#\">No Actions..</a></li>");
                     message("Information sent successfully", "Register", "danger");
                     $("#responder").css({ "display": "none" });
                     $("#review").css({ "display": "none" });
@@ -596,7 +596,7 @@ function ajaxFileUpload(filename, id, formulario) {
                         myApp.hidePleaseWait();
                         limpiarCampos(formulario);
                         RT_send_correction = 'YES';
-                        $("#menu_actions").html("<li><a href=\"#\">No Actions yet..</a></li>");
+                        $("#menu_actions").html("<li><a href=\"#\">No Actions..</a></li>");
                         message("Information sent successfully", "Register", "danger");
                         $("#responder").css({ "display": "none" });
                         $("#review").css({ "display": "none" });

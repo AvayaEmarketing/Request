@@ -62,7 +62,7 @@ function getInfo() {
 
         },
         error: function (error) {
-            message("Error en la peticion" + errror, "Attention", "danger");
+            message("Data error, please try again", "Attention", "danger");
         }
 
     });

@@ -17,7 +17,6 @@
     <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" />
     <link href="css/docs.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/messi.css" rel="stylesheet" />
     <link href="css/prettyLoader.css" rel="stylesheet" />
     <link href="css/DT_bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap-dialog.css" rel="stylesheet" type="text/css" />
@@ -82,7 +81,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="actions">Actions&nbsp;&nbsp;<b class="caret"></b></a>
                             <ul class="dropdown-menu" id="menu_actions">
-                                <li><a href="#">No Actions Yet..</a></li>
+                                <li><a href="#">No Actions..</a></li>
                             </ul>
                         </li>
                         <li style="width:300px;"><a href="sol_details.aspx" id="userName"></a></li>

@@ -6,28 +6,27 @@ function mensaje(texto, titulo, tipo) {
         cssClass: 'type-' + tipo
 
     })
-
 }
 
 function getInternetExplorerVersion() {
-            var rv = -1;
-            if (navigator.appName == 'Microsoft Internet Explorer') {
-                var ua = navigator.userAgent;
-                var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-                if (re.exec(ua) != null)
-                    rv = parseFloat(RegExp.$1);
-            }
-            else if (navigator.appName == 'Netscape') {
-                var ua = navigator.userAgent;
-                var re = new RegExp("Trident/.*rv:([0-9]{1,}[\.0-9]{0,})");
-                if (re.exec(ua) != null)
-                    rv = parseFloat(RegExp.$1);
-            }
-            return rv;
-        }
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var trident = ua.indexOf('Trident/');
 
-        
-	   
+    if (msie > 0) {
+        // Si es IE 10 o más viejo => retorna el número de versión
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    if (trident > 0) {
+        // Si es IE 11 o más nuevo => retorna el número de versión
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    // otro browser
+    return false;
+}
 
 
 $(document).keypress(function (e) {
@@ -41,24 +40,19 @@ $(document).keypress(function (e) {
 
 
 $(document).ready(function () {
-
     version = getInternetExplorerVersion();
-
-    
-    if (version < 10) {
+    if (version < 10 && version!==false) {
         $("#BrowserOut").modal('show');
     }
-    
-
-        if (version > 8) {
-            $("body").css("background-attachment", "local");
-            $("body").css("background-attachment", "local");
-            $("body").css("background-attachment", "local");
-        } else {
-            $("body").css("background-attachment", "fixed");
-            $("body").css("background-attachment", "fixed");
-            $("body").css("background-attachment", "fixed");
-       }
+    if (version > 8) {
+        $("body").css("background-attachment", "local");
+        $("body").css("background-attachment", "local");
+        $("body").css("background-attachment", "local");
+    } else {
+        $("body").css("background-attachment", "fixed");
+        $("body").css("background-attachment", "fixed");
+        $("body").css("background-attachment", "fixed");
+    }
     
     $("#login").click(function () {
         $.prettyLoader();

@@ -468,7 +468,7 @@ function stranslate() {
                     $("#data_review").css({ "display": "none" });
                     $("#translate").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
-                    $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
+                    //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
 
                 } else {
                     message("Data error, please try again", "Send Translate", "danger");
@@ -685,9 +685,9 @@ function getRequest(id) {
                 } else if (estado == 7 && T_requiere_revision == "YES") {
                     //$("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li><li><a href=\"#\" id=\"c_Review\" onClick=\"c_Review()\">Close Review</a></li>");
                     $("#menu_actions").html("<li><a href=\"#\" id=\"v_Review\" onClick=\"v_review()\">View Review</a></li>");
-                } else if (estado == 7) {
+                } else if (estado == 7  || estado == 6) {
                     $("#menu_actions").html("<li><a href=\"#\">No Actions..</a></li>");
-                }
+                } 
                 S_document_type = getTypeDocument(item.S_document_type);
                 S_document_type2 = item.S_document_type;
                 S_document_name = item.S_document_name;
@@ -1174,7 +1174,7 @@ function c_Request(reject_observations,formulario) {
     });
     myApp.showPleaseWait();
     var revisor;
-    if (formulario.revisor == "") {
+    if (formulario.revisor == "" || formulario.revisor == undefined) {
         revisor = 0;
     } else {
         revisor = formulario.revisor;

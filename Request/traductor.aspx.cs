@@ -27,6 +27,7 @@ public partial class traductor : System.Web.UI.Page
     public class Datos 
     {
         public string solicit_id { get; set; }
+        public string estado { get; set; }
         public string S_key_name {get;set;}
         public string nombre {get;set;}
         public string S_original_language {get;set;}
@@ -174,7 +175,7 @@ public partial class traductor : System.Web.UI.Page
             string jsonarmado = "[";
             foreach (var root in values)
             {
-                if (root.T_Fecha_Estimada == null)
+                if (root.T_Fecha_Estimada == null && root.estado == "1"  )
                 {
                     jsonarmado += "{\"state\": \"<img  title=\'New\' src=\'images/new.png\' style='height:32px!important; width:32px!important;'/>\",\"S_key_name\": \"" + root.S_key_name + "\", \"nombre\": \"" + root.nombre + "\",\"S_original_language\": \"" + root.S_original_language + "\",\"S_translate_language\": \"" + root.S_translate_language + "\",\"S_register_date\": \"" + root.S_register_date + "\",\"S_desired_date\": \"" + root.S_desired_date + "\",\"T_Fecha_Estimada\": \"" + root.T_Fecha_Estimada + "\",\"S_solicit_priority\": \"" + root.S_solicit_priority + "\",\"Edit\": \"<a href=\'#\' onClick=\'detailsTrad(" + root.solicit_id + ")\'><img title=\'Details\' src=\'images/edit.png\'/></a>\"},";
                 }
@@ -250,7 +251,7 @@ public partial class traductor : System.Web.UI.Page
         string responsable2 = sessionUsuario["id"].ToString();
         int responsable = Convert.ToInt32(responsable2);
         //string strSQL = "select sol.solicit_id, sol.S_key_name, sta.nombre, sol.S_original_language, sol.S_translate_language, sol.S_register_date, sol.S_desired_date, sol.S_solicit_priority from Translate_Solicits sol, Translate_State sta  where sol.responsable = @responsable and sol.estado = sta.id and S_register_date2 = (select max(S_register_date2) as fecha_registro from Translate_Solicits where responsable = @responsable)";
-        string strSQL = "select sol.solicit_id, sol.S_key_name, sta.nombre, sol.S_original_language, sol.S_translate_language, sol.S_register_date, sol.S_desired_date,sol.T_Fecha_Estimada, sol.S_solicit_priority from Translate_Solicits sol, Translate_State sta  where sol.responsable = @responsable and sol.estado = sta.id and S_visible = 'YES' order by S_register_date2";
+        string strSQL = "select sol.solicit_id, sol.estado, sol.S_key_name, sta.nombre, sol.S_original_language, sol.S_translate_language, sol.S_register_date, sol.S_desired_date,sol.T_Fecha_Estimada, sol.S_solicit_priority from Translate_Solicits sol, Translate_State sta  where sol.responsable = @responsable and sol.estado = sta.id and S_visible = 'YES' order by S_register_date2";
         SqlCommand cmd = new SqlCommand(strSQL, con);
         cmd.Parameters.Add("@responsable", SqlDbType.Int);
         cmd.Parameters["@responsable"].Value = responsable;

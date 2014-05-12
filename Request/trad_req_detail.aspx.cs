@@ -918,7 +918,7 @@ public partial class trad_req_detail : System.Web.UI.Page
             title = "Translation request feedback";
             data = "<p>Your translation requested has a Feedback</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
 
@@ -959,7 +959,7 @@ public partial class trad_req_detail : System.Web.UI.Page
             title = "This translation requires of your review";
             data = "<p>Translation Finished. This document requires of your review.</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
             //Revisor = getRevisor(S_original_language, S_translate_language);
@@ -977,7 +977,7 @@ public partial class trad_req_detail : System.Web.UI.Page
             title = "Request translated, sent to Editor.";
             data = "<p>Translation Finished. Document under Editor’s review.</p><p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
             data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
             //Mandarle el correo al solicitante que se esta revisando la traduccion
@@ -997,8 +997,8 @@ public partial class trad_req_detail : System.Web.UI.Page
             title = "Translation finished";
             data = "<p>Translation request Finished.</p> <p>Translation name :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
-            data += "<br/><p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
+            data += "<br/><p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
@@ -1015,10 +1015,10 @@ public partial class trad_req_detail : System.Web.UI.Page
         }
         else if (tipo_envio == "posponer") {
             title = "Translation postponed";
-            data = "<p>our translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
+            data = "<p>Your translation has been postponed.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
-            data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
+            data += "<p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests </a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);
@@ -1039,8 +1039,8 @@ public partial class trad_req_detail : System.Web.UI.Page
             title = "Translation request rejected";
             data = "<p>Translation rejected.</p> <p>Observations :  &nbsp;" + S_Key_name + "</p>";
             data += "<p>Original Language :  &nbsp;" + S_original_language + "</p>";
-            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p>";
-            data += "<p>to see the translation please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
+            data += "<p>Translation Language :  &nbsp;" + S_translate_language + "</p></br>";
+            data += "<p>For more information please click here <a href=\"http://www4.avaya.com/Requests\" target=\"_blank\" style=\"color: #CC0000; text-decoration: none;\">Avaya Translation Requests Site</a>.</p><p>Sincerely, </p><p><strong>The Avaya Americas Marketing Experience Team</strong></p></td>";
             message = "Avaya Translation Requests";
 
             correo = getCorreo(solicitante);

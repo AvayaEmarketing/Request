@@ -398,7 +398,7 @@
                             </tbody>
                         </table>
                         <br/><br/>
-                        <h2>View Translate</h2>
+                        <h2>View Translation</h2>
 
                             <div class="control-group" id="text_t" style="display: none;">
                                 <label class="control-label" for="copy_field">Copy:</label>

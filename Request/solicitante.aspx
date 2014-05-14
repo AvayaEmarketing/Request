@@ -88,6 +88,7 @@
                     <ul class="nav">
                         <li><a href="#" id="new_solicit">New Request</a></li>
                         <li><a href="#" id="my_solicits">My Requests</a></li>
+                        <li><a href="#" id="cola_traducciones">Translations Queue</a></li>
                         <li style="width:300px;"><a href="sol_details.aspx" id="userName"></a></li>
                         <li><a href="#" id="exit">Log Out</a></li>
                     </ul>

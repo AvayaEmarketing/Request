@@ -293,6 +293,7 @@ $(document).ready(function () {
         $("#new_solicit").css({"background-color": "#8e040a", "color": "#fff"});
         $("#my_solicits").css({ "background-color": "transparent", "color": "#a1aaaf" });
         $("#my_profile").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        $("#cola_traducciones").css({ "background-color": "transparent", "color": "#a1aaaf" });
         
     });
 
@@ -303,6 +304,8 @@ $(document).ready(function () {
         $("#my_solicits").css({ "background-color": "#8e040a", "color": "#fff" });
         $("#new_solicit").css({ "background-color": "transparent", "color": "#a1aaaf" });
         $("#my_profile").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        $("#cola_traducciones").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        
        
     });
 
@@ -310,7 +313,21 @@ $(document).ready(function () {
         $("#my_profile").css({ "background-color": "#8e040a", "color": "#fff" });
         $("#my_solicits").css({ "background-color": "transparent", "color": "#a1aaaf" });
         $("#new_solicit").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        $("#cola_traducciones").css({ "background-color": "transparent", "color": "#a1aaaf" });
     });
+
+    $("#cola_traducciones").click(function () {
+        $("#nueva_solicitud").css({ "display": "none" });
+        $("#dt_my_solicits").css({ "display": "block", "margin-right": "auto", "margin-left": "auto", "*zoom": "1", "position": "relative" });
+        $("#cola_traducciones").css({ "background-color": "#8e040a", "color": "#fff" });
+        $("#new_solicit").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        $("#my_profile").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        $("#my_solicits").css({ "background-color": "transparent", "color": "#a1aaaf" });
+        document.location.href = "Lista_Traducciones.aspx";
+
+    });
+
+    
 
     
 

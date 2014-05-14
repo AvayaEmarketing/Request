@@ -130,9 +130,12 @@
                         <h2></h2><br/>
                         <div class="form-horizontal">
                             <div class="control-group">
-                                <label class="control-label" for="traductores">Select Translator:</label>
+                                <label class="control-label" for="traductores">Select Language Translator:</label>
                                 <div class="controls">
                                     <select id="traductores">
+                                        <option value="" selected="selected"></option>
+                                        <option value="20">Spanish</option>
+                                        <option value="29">Portuguese</option>
 									</select>
                                 </div>
                             </div>
@@ -142,6 +145,48 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="container" id="dt_my_solicits">
+        <div class="row-fluid">
+            <div class="span9">
+                <hr style="margin-top: 0;">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h2>Translations Queue List</h2>
+                        
+                        <table id="datatables" cellpadding="0" cellspacing="0" border="0" style="width: 100%; text-align: center; visibility: hidden" class="table table-striped table-bordered">
+                            <thead id="thead">
+                                <tr>
+                                    <th class="sorting" width="15%">Translation Name</th>
+                                    <th class="sorting" width="10%">State</th>
+                                    <th class="sorting" width="10%">Original Lang</th>
+                                    <th class="sorting" width="10%">Translate Lang</th>
+                                    <th class="sorting" width="15%">Register Date</th>
+                                    <th class="sorting" width="15%">Desired Date</th>
+                                    <th class="sorting" width="16%">Estimated Date</th>
+                                    <th class="sorting" width="8%">Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -243,7 +288,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/prettyLoader.js"></script>
     <script type="text/javascript" src="js/ajaxfileupload.js"></script>
-
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/DT_bootstrap.js"></script>
    
     <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
   

@@ -23,6 +23,21 @@ public partial class Lista_Traducciones : System.Web.UI.Page
 
         }
 
+        public class Datos
+        {
+            public string solicit_id { get; set; }
+            public string estado { get; set; }
+            public string S_key_name { get; set; }
+            public string nombre { get; set; }
+            public string S_original_language { get; set; }
+            public string S_translate_language { get; set; }
+            public string S_register_date { get; set; }
+            public string S_desired_date { get; set; }
+            public string T_Fecha_Estimada { get; set; }
+            public string S_solicit_priority { get; set; }
+
+        }
+
         public class Calendar
         {
             public string id { get; set; }
@@ -214,4 +229,78 @@ public partial class Lista_Traducciones : System.Web.UI.Page
             }
             return result;
         }
+
+        [WebMethod]
+        public static string getDatosReg(int traductor)
+        {
+            string result = "";
+            if (validaSession() == "fail")
+            {
+                result = "fail";
+            }
+            else
+            {
+
+                string resultado = getDatosRequest(traductor);
+                var serializer = new JavaScriptSerializer();
+                List<Datos> values = serializer.Deserialize<List<Datos>>(resultado);
+
+                string jsonarmado = "[";
+                foreach (var root in values)
+                {
+                   
+                        jsonarmado += "{\"S_key_name\": \"" + root.S_key_name + "\", \"nombre\": \"" + root.nombre + "\",\"S_original_language\": \"" + root.S_original_language + "\",\"S_translate_language\": \"" + root.S_translate_language + "\",\"S_register_date\": \"" + root.S_register_date + "\",\"S_desired_date\": \"" + root.S_desired_date + "\",\"T_Fecha_Estimada\": \"" + root.T_Fecha_Estimada + "\",\"S_solicit_priority\": \"" + root.S_solicit_priority + "\"},";
+                    
+                }
+
+                jsonarmado = jsonarmado.Substring(0, jsonarmado.Length - 1);
+                if (jsonarmado == "")
+                {
+                    result = "[]";
+                }
+                else
+                {
+                    result = jsonarmado + "]";
+                }
+            }
+            return result;
+        }
+
+        [WebMethod(EnableSession = true)]
+        public static string getDatosRequest(int traductor)
+        {
+            string result;
+            SqlDataReader datos;
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["calawebConnectionString"].ToString();
+            string strSQL = "select sol.solicit_id, sol.estado, sol.S_key_name, sta.nombre, sol.S_original_language, sol.S_translate_language, sol.S_register_date, sol.S_desired_date,sol.T_Fecha_Estimada, sol.S_solicit_priority from Translate_Solicits sol, Translate_State sta  where sol.responsable = @responsable and sol.estado = sta.id and S_visible = 'YES' and estado not in (4,6,7,8,9,10,13) and T_Fecha_Estimada2 IS NOT NULL order by S_register_date2";
+            SqlCommand cmd = new SqlCommand(strSQL, con);
+            cmd.Parameters.Add("@responsable", SqlDbType.Int);
+            cmd.Parameters["@responsable"].Value = traductor;
+
+            try
+            {
+                con.Open();
+                datos = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(datos);
+                result = DataTableToJSON(dt);
+                //result = JsonConvert.SerializeObject(dt);
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                result = "fail";
+                WriteError(ex.Message, "Lista_Traducciones.aspx", "getDatosRequest");
+            }
+            finally
+            {
+                con.Close();
+            }
+            return result;
+
+        }
+
+
     }

@@ -1,4 +1,9 @@
-﻿//tipo de mensajes ->  default, info, primary, sucess, warning, danger
+﻿var oTable;
+var giRedraw = false;
+var dataTab;
+var aData;
+
+//tipo de mensajes ->  default, info, primary, sucess, warning, danger
 function message(texto, titulo, tipo) {
     BootstrapDialog.show({
         title: titulo,
@@ -7,6 +12,21 @@ function message(texto, titulo, tipo) {
     });
     return false;
 }
+
+var myApp;
+myApp = myApp || (function () {
+    var pleaseWaitDiv = $('<div class="modal hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false"><div class="modal-header"><h1>Processing...</h1></div><div class="modal-body"><div class="progress progress-striped active"><div class="bar" style="width: 100%;"></div></div></div></div>');
+
+    return {
+        showPleaseWait: function () {
+            pleaseWaitDiv.modal();
+        },
+        hidePleaseWait: function () {
+            pleaseWaitDiv.modal('hide');
+        },
+
+    };
+})();
 
 function datosCalendario(traductor) {
 
@@ -23,6 +43,7 @@ function datosCalendario(traductor) {
     }
     var ano = d.getFullYear();
     var fecha = ano + "-" + meses + "-" + dias;
+    
 
     var datae = { 'traductor': traductor  }
     $.ajax({
@@ -33,7 +54,7 @@ function datosCalendario(traductor) {
         dataType: "json",
         success: function (resultado) {
             if (resultado.d === "null" || resultado.d === "" || resultado.d === "[]") {
-                message("No data found", "Alert", "danger");
+                //message("No data found", "Alert", "danger");
                 $("#calendar").css("visibility", "hidden");
                 
             } else {
@@ -109,7 +130,7 @@ function datosCalendario(traductor) {
                 });
             }
         }, error: function () {
-            message("Data Error", "Alert", "danger");
+            //message("Data Error", "Alert", "danger");
             $("#calendar").css("visibility", "hidden");
         }
     });
@@ -172,8 +193,120 @@ function obtenerNombreUsuario() {
     return false;
 }
 
+//
+
+function cargarDatos(traductor) {
+    myApp.showPleaseWait();
+    var datae = { 'traductor': traductor }
+    
+    $.ajax({
+        type: "POST",
+        url: "Lista_Traducciones.aspx/getDatosReg",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(datae),
+        dataType: "json",
+        success: AjaxGetFieldDataSucceeded,
+        error: AjaxGetFieldDataFailed
+    });
+}
+
+function cargarDatos2(traductor) {
+    var datae = { 'traductor': traductor }
+    $.ajax({
+        type: "POST",
+        url: "Lista_Traducciones.aspx/getDatosReg",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(datae),
+        dataType: "json",
+        success: AjaxRefreshDataSucceeded,
+        error: AjaxRefreshDataFailed
+    });
+}
+
+function AjaxRefreshDataSucceeded(result) {
+    if (result.d != "[]") {
+        var jposts = result.d;
+        var mensaje;
+        var titulo;
+        dataTab = $.parseJSON(jposts);
+        oTable.fnClearTable();
+        oTable.fnAddData(dataTab);
+    } else {
+        oTable.fnClearTable();
+        message("No data found", "Alert", "danger");
+    }
+}
+
+function AjaxRefreshDataFailed(result) {
+    alert(result.status + ' ' + result.statusText);
+}
+
+function AjaxGetFieldDataFailed(result) {
+    alert(result.status + ' ' + result.statusText);
+}
+
+
+$(function () {
+    $('.datatable').each(function () {
+        var datatable = $(this);
+        // SEARCH - Add the placeholder for Search and Turn this into in-line formcontrol
+        var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+        search_input.attr('placeholder', 'Search')
+        search_input.addClass('form-control input-small')
+        search_input.css('width', '250px')
+
+        // SEARCH CLEAR - Use an Icon
+        var clear_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] a');
+        clear_input.html('<i class="icon-remove-circle icon-large"></i>')
+        clear_input.css('margin-left', '5px')
+
+        // LENGTH - Inline-Form control
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+        length_sel.addClass('form-control input-small')
+        length_sel.css('width', '75px')
+
+        // LENGTH - Info adjust location
+        var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_info]');
+        length_sel.css('margin-top', '18px')
+    });
+});
+
+
+function AjaxGetFieldDataSucceeded(result) {
+    if (result.d == "fail") {
+        document.location.href = "admin.aspx";
+    } else if (result.d != "[]") {
+        var jposts = result.d;
+        var mensaje;
+        var titulo;
+        try {
+            dataTab = $.parseJSON(jposts);
+        } catch (exception) {
+            dataTab = "error";
+        }
+        if (dataTab != "error") {
+            $("#datatables").css("visibility", "visible");
+            oTable = $('#datatables').dataTable({
+                "bProcessing": true,
+                "aaData": dataTab,
+                "aoColumns": [{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "S_desired_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }],
+                "sPaginationType": "bootstrap",
+                "aaSorting": [[6, "desc"]],
+                "bJQueryUI": true
+            });
+        };
+        myApp.hidePleaseWait();
+    } else {
+        myApp.hidePleaseWait();
+        message("No Requests found", "Information", "danger");
+
+    }
+
+}
+
 $(document).ready(function () {
     obtenerNombreUsuario();
+    
 
     jQuery('body')
 	  .delay(500)
@@ -183,13 +316,17 @@ $(document).ready(function () {
 	  	}
 	  );
 
-    traerTraductores();
+    //traerTraductores();
 
 
     $("#Register").click(function () {
         var traductor = $("#traductores").val();
+        if (oTable !== undefined) {
+            cargarDatos2(traductor);
+        } else {
+            cargarDatos(traductor);
+        }
         datosCalendario (traductor);
-
     });
 
 

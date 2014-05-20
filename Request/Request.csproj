@@ -73,6 +73,7 @@
     <Content Include="css\bootstrap_dt.css" />
     <Content Include="css\calendar.css" />
     <Content Include="css\colorbox.css" />
+    <Content Include="css\demos.css" />
     <Content Include="css\docs.css" />
     <Content Include="css\DT_bootstrap.css" />
     <Content Include="css\events.css" />
@@ -127,6 +128,8 @@
     <Content Include="css\thanks.css" />
     <Content Include="css\thanks.html" />
     <Content Include="css\theme.css" />
+    <Content Include="excanvas\EXCANVAS-LICENSE.txt" />
+    <Content Include="excanvas\excanvas.js" />
     <Content Include="Files\08_30_42-bdd_abm.txt" />
     <Content Include="Files\08_48_57-bdd_abm.txt" />
     <Content Include="Files\10_46_34-bdd_abm.txt" />
@@ -263,7 +266,51 @@
     <Content Include="js\traductor.js" />
     <Content Include="js\trad_details.js" />
     <Content Include="js\trad_req_detail.js" />
+    <Content Include="js\translationsByUser.js" />
     <Content Include="js\underscore-min.js" />
+    <Content Include="libraries\financial-data.js" />
+    <Content Include="libraries\jquery.min.js" />
+    <Content Include="libraries\RGraph.bar.js" />
+    <Content Include="libraries\RGraph.bipolar.js" />
+    <Content Include="libraries\RGraph.common.annotate.js" />
+    <Content Include="libraries\RGraph.common.context.js" />
+    <Content Include="libraries\RGraph.common.core.js" />
+    <Content Include="libraries\RGraph.common.csv.js" />
+    <Content Include="libraries\RGraph.common.dynamic.js" />
+    <Content Include="libraries\RGraph.common.effects.js" />
+    <Content Include="libraries\RGraph.common.key.js" />
+    <Content Include="libraries\RGraph.common.resizing.js" />
+    <Content Include="libraries\RGraph.common.tooltips.js" />
+    <Content Include="libraries\RGraph.common.zoom.js" />
+    <Content Include="libraries\RGraph.cornergauge.js" />
+    <Content Include="libraries\RGraph.drawing.circle.js" />
+    <Content Include="libraries\RGraph.drawing.image.js" />
+    <Content Include="libraries\RGraph.drawing.marker1.js" />
+    <Content Include="libraries\RGraph.drawing.marker2.js" />
+    <Content Include="libraries\RGraph.drawing.poly.js" />
+    <Content Include="libraries\RGraph.drawing.rect.js" />
+    <Content Include="libraries\RGraph.drawing.text.js" />
+    <Content Include="libraries\RGraph.drawing.xaxis.js" />
+    <Content Include="libraries\RGraph.drawing.yaxis.js" />
+    <Content Include="libraries\RGraph.fuel.js" />
+    <Content Include="libraries\RGraph.funnel.js" />
+    <Content Include="libraries\RGraph.gantt.js" />
+    <Content Include="libraries\RGraph.gauge.js" />
+    <Content Include="libraries\RGraph.hbar.js" />
+    <Content Include="libraries\RGraph.hprogress.js" />
+    <Content Include="libraries\RGraph.led.js" />
+    <Content Include="libraries\RGraph.line.js" />
+    <Content Include="libraries\RGraph.meter.js" />
+    <Content Include="libraries\RGraph.modaldialog.js" />
+    <Content Include="libraries\RGraph.odo.js" />
+    <Content Include="libraries\RGraph.pie.js" />
+    <Content Include="libraries\RGraph.radar.js" />
+    <Content Include="libraries\RGraph.rose.js" />
+    <Content Include="libraries\RGraph.rscatter.js" />
+    <Content Include="libraries\RGraph.scatter.js" />
+    <Content Include="libraries\RGraph.thermometer.js" />
+    <Content Include="libraries\RGraph.vprogress.js" />
+    <Content Include="libraries\RGraph.waterfall.js" />
     <Content Include="Lista_Traducciones.aspx" />
     <Content Include="mails\generic_mail.html" />
     <Content Include="mails\solicitante.html" />
@@ -292,6 +339,7 @@
     <Content Include="traductor.aspx" />
     <Content Include="trad_details.aspx" />
     <Content Include="trad_req_detail.aspx" />
+    <Content Include="translationsByUser.aspx" />
     <Content Include="Translations\08_32_17-estilos.css" />
     <Content Include="Translations\08_50_07-estilos.css" />
     <Content Include="Translations\10_47_28-estilos.css" />
@@ -371,6 +419,9 @@
       <DependentUpon>trad_req_detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="translationsByUser.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjaxFileUploader.ashx" />
@@ -434,6 +485,7 @@
     <Content Include="Translations\11_22_58-20140211034653Excel_File.xls" />
     <Content Include="Translations\12_36_52-20140211034653Excel_File.xls" />
     <Content Include="Translations\16_45_26-20140211034653Excel_File.xls" />
+    <Content Include="excanvas\HTACCESS-SAMPLE" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

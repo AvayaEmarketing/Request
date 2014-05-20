@@ -3,6 +3,7 @@ var giRedraw = false;
 var dataTab;
 var aData;
 var iframe;
+var datosfiltro;
 
 jQuery('body')
 	  .delay(500)
@@ -37,9 +38,37 @@ myApp = myApp || (function () {
     };
 })();
 
+function filterBySolicitante(solicitante) {
+    var datae = { 'user': solicitante, 'rol': 'solicitante' }
+    datosfiltro = "solicitante," + solicitante;
+    $.ajax({
+        type: "POST",
+        url: "report.aspx/getDatosReg2",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(datae),
+        dataType: "json",
+        success: AjaxRefreshDataSucceeded,
+        error: AjaxRefreshDataFailed
+    });
+}
+
+function filterByResponsable(responsable) {
+    var datae = { 'user': responsable, 'rol': 'responsable' }
+    datosfiltro = "responsable," + responsable;
+    $.ajax({
+        type: "POST",
+        url: "report.aspx/getDatosReg2",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(datae),
+        dataType: "json",
+        success: AjaxRefreshDataSucceeded,
+        error: AjaxRefreshDataFailed
+    });
+}
+
 function cargarDatos() {
     myApp.showPleaseWait();
-   
+    datosfiltro = "all";
     $.ajax({
         type: "POST",
         url: "report.aspx/getDatosReg",
@@ -52,7 +81,7 @@ function cargarDatos() {
 }
 
 function cargarDatos2() {
-
+    datosfiltro = "all";
     $.ajax({
         type: "POST",
         url: "report.aspx/getDatosReg",
@@ -100,7 +129,7 @@ function AjaxGetFieldDataSucceeded(result) {
                 "bProcessing": true,
                 "aaData": dataTab,
                 
-                "aoColumns": [{ "mDataProp": "solicit_id" }, { "mDataProp": "S_key_name" }, { "mDataProp": "solicitante" }, { "mDataProp": "original" }, { "mDataProp": "translate" }, { "mDataProp": "estado" }, { "mDataProp": "S_register_date2" }, { "mDataProp": "T_Fecha_Estimada2" }, { "mDataProp": "S_Fecha_modificacion" }, { "mDataProp": "InCharge" }, { "mDataProp": "duration" }],
+                "aoColumns": [{ "mDataProp": "solicit_id" }, { "mDataProp": "S_key_name" }, { "mDataProp": "solicitante" }, { "mDataProp": "original" }, { "mDataProp": "translate" }, { "mDataProp": "estado" }, { "mDataProp": "S_register_date2" }, { "mDataProp": "T_Fecha_Estimada2" }, { "mDataProp": "InCharge" }, { "mDataProp": "duration" }],
                 "sPaginationType": "bootstrap",
                 "aaSorting": [[8, "desc"]],
                 "bJQueryUI": true
@@ -146,6 +175,31 @@ $.extend($.fn.dataTableExt.oStdClasses, {
     "sWrapper": "dataTables_wrapper form-inline"
 });
 
+function validarAdmin() {
+    $.ajax({
+        type: "POST",
+        url: "translationsByUser.aspx/validaSession",
+        contentType: "application/json; charset=utf-8",
+        data: '{}',
+        dataType: "json",
+        success: function (resultado) {
+            if (resultado.d === "fail") {
+                document.location.href = "admin.aspx";
+            } else {
+                var datos = resultado.d;
+                var array = datos.split(",");
+                var nombre = array[0];
+                var foto = array[1];
+                $("#userName").html('Welcome: ' + nombre + '&nbsp;&nbsp;<img src="images/' + foto + '" style="width:50px;height:50px;"/>');
+            }
+        },
+        error: function (resultado) {
+            document.location.href = "admin.aspx";
+        }
+    });
+    return false;
+}
+
 
 $(document).ready(function () {
     jQuery('body')
@@ -155,6 +209,8 @@ $(document).ready(function () {
 	  	    jQuery(this).css('padding-right', '1px');
 	  	}
 	  );
+
+    validarAdmin();
 
     cargarDatos();
     
@@ -167,7 +223,7 @@ $(document).ready(function () {
                     $("#doc_content").css("display", "block");
                     $("#name_document").text(this.value);
                 }
-                } else {
+            } else {
                 message("Please check the filetype, system accept PDF,DOC,DOCX,TXT.", "Error", "danger");
                 $("#fileToUpload").val("");
             }
@@ -192,6 +248,15 @@ $(document).ready(function () {
         if (tds.value !== undefined) {
             var node = tds[0].childNodes[0];
             aData = node.data;
+        }
+    });
+
+    $("#showAll").click(function () {
+        if (oTable !== undefined) {
+            cargarDatos2();
+        }
+        else {
+            cargarDatos();
         }
     });
 
@@ -222,11 +287,18 @@ function cerrarSession() {
 
 //Descargar el Excel del listado de solicitudes
 function exportarTabla(formato) {
+    if (datosfiltro !== "all") {
+        var array = datosfiltro.split(",");
+         var datae = { 'user': array[1], 'rol': array[0] }
+    }
+    else {
+        var datae = { 'user': 0, 'rol': "all" }
+    }
   $.ajax({
         type: "POST",
-        url: "solicitante.aspx/Convertir",
+        url: "report.aspx/Convertir",
         contentType: "application/json; charset=utf-8",
-        data: '{}',
+        data: JSON.stringify(datae),
         dataType: "json",
         success: function (result) {
             var jposts = result.d;

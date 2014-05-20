@@ -289,7 +289,7 @@ function AjaxGetFieldDataSucceeded(result) {
             oTable = $('#datatables').dataTable({
                 "bProcessing": true,
                 "aaData": dataTab,
-                "aoColumns": [{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "S_desired_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }],
+                "aoColumns": [{ "mDataProp": "S_key_name" }, { "mDataProp": "nombre" }, { "mDataProp": "S_original_language" }, { "mDataProp": "S_translate_language" }, { "mDataProp": "S_register_date" }, { "mDataProp": "T_Fecha_Estimada" }, { "mDataProp": "S_solicit_priority" }],
                 "sPaginationType": "bootstrap",
                 "aaSorting": [[6, "desc"]],
                 "bJQueryUI": true
@@ -302,6 +302,20 @@ function AjaxGetFieldDataSucceeded(result) {
 
     }
 
+}
+
+function cerrarSession() {
+    $.ajax({
+        type: "POST",
+        url: "traductor.aspx/cerrarSession",
+        contentType: "application/json; charset=utf-8",
+        data: "{}",
+        dataType: "json",
+        success: function (resultado) {
+            document.location.href = "admin.aspx";
+        }
+    });
+    return false;
 }
 
 $(document).ready(function () {
@@ -329,7 +343,9 @@ $(document).ready(function () {
         datosCalendario (traductor);
     });
 
-
+    $("#exit").click(function () {
+        cerrarSession();
+    });
 
 
 });

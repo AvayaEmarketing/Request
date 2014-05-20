@@ -181,7 +181,6 @@ public partial class Lista_Traducciones : System.Web.UI.Page
         [WebMethod(EnableSession = true)]
         public static string getDatosCalendarioDetail(int traductor)
         {
-            
             string result = "";
             SqlDataReader datos;
             SqlConnection con = new SqlConnection();
@@ -195,11 +194,8 @@ public partial class Lista_Traducciones : System.Web.UI.Page
                 DataTable dt = new DataTable();
                 dt.Load(datos);
                 result = DataTableToJSON(dt);
-
-
                 con.Close();
-
-            }
+            }  
             catch (Exception ex)
             {
                 result = "fail";
@@ -211,7 +207,6 @@ public partial class Lista_Traducciones : System.Web.UI.Page
                 con.Close();
             }
             return result;
-
         }
 
         [WebMethod(EnableSession = true)]

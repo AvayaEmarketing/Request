@@ -75,7 +75,7 @@ $(document).ready(function () {
                 }  else if (resultado.d == "revisor"){
                     document.location.href = "revisor.aspx";
                 }  else if (resultado.d == "administrador") {
-                    document.location.href = "administrador.aspx";
+                    document.location.href = "report.aspx";
                 } else {
                     mensaje("Alert, please check your credentials", "Request Application", "danger");
                 }

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="report.aspx.cs" Inherits="report" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="translationsByUser.aspx.cs" Inherits="translationsByUser" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +43,24 @@
             cursor: inherit;
             display: block;
         }
+
+        .show-grid [class*="span"] {
+          background-color: #fff!important;
+        }
+
+        @media screen and (max-width: 480px){
+            #filtrar {
+                top: 0px!important;
+                position: relative;
+            }
+       }
+
+        @media (min-width: 1200px) {
+         .row-fluid {
+            width: 80%!important;
+            *zoom: 1;
+          }
+        }
     </style>
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -52,42 +70,20 @@
     <script type="text/javascript" src="js/holder/holder.js"></script>
     <script type="text/javascript" src="js/respond.src.js"></script>
     <script type="text/javascript" src="js/prettyLoader.js"></script>
-    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
-    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="js/DT_bootstrap.js"></script>
-    <script type="text/javascript" src="js/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="js/report.js"></script>
-
+    <script type="text/javascript" src="libraries/RGraph.common.core.js" ></script>
+    <script type="text/javascript" src="libraries/RGraph.common.effects.js" ></script>
+    <script type="text/javascript" src="libraries/RGraph.common.dynamic.js" ></script>
+    <script type="text/javascript" src="libraries/RGraph.common.tooltips.js" ></script>
+    <script type="text/javascript" src="libraries/RGraph.bar.js" ></script>
+    <script type="text/javascript" src="libraries/RGraph.pie.js" ></script>
+    <!--[if lt IE 9]><script src="excanvas/excanvas.js"></script><![endif]-->
+    <script type="text/javascript" src="js/translationsByUser.js"></script>
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <style>
-        /*@media all and (min-width:1200px)*/
-        .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-            width: 1400px!important;
-        }
-
-        .form-horizontal .control-label {
-          float: left;
-          width: 200px!important;
-          padding-top: 5px;
-          text-align: left!important;
-          color: #d52027;
-          cursor:default;
-        }
-
-        .form-horizontal .controls {
-          *display: inline-block;
-          *padding-left: 20px;
-          margin-left: 0px!important;
-          *margin-left: 0;
-        }
-
-
-    </style>
 </head>
 
 <body>
@@ -110,10 +106,12 @@
 
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="#" id="Reports">Report</a></li>
-                        <li><a href="translationsByUser.aspx">Requestor Translations</a></li>
+                        <li><a href="report.aspx">Report</a></li>
+                        <li><a href="#">Requestor Translations</a></li>
                         <li style="width:300px;"><a href="#" id="userName"></a></li>
                         <li><a href="#" id="exit">Log Out</a></li>
+
+                        
                     </ul>
                     
                 </div>
@@ -127,76 +125,67 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    
-
-    <div class="container" id="dt_my_solicits">
+    <div class="container">
         <div class="row-fluid">
-
-
             <div class="span9">
-
                 <hr style="margin-top: 0;">
-                
-                
-
                 <div class="row-fluid">
                     <div class="span12">
-                        <h2>Reports</h2>
-                        <p><strong>* You can filter your report by requestor by clicking on the requestor image.</strong></p>
-                        <p><strong>* You can filter your report by responsible by clicking on the responsible image.</strong></p>
-                        <div class="form-horizontal">
-                            <div class="control-group">
-                                <div class="controls">
-                                    <label class="control-label" for="priority_comment">To see all requests click here :</label>
-                                    <button style="top: 0 !important;" type="submit" class="btn btn-danger" id="showAll">Show All</button>
-                                </div>
+                        <h2>No. Requests by User</h2>
+                        <div class="bs-docs-grid">
+                            <div class="row-fluid show-grid">
+                              <div class="span4">
+                                  <div class="control-group">
+                                      <label class="control-label" for="selectbasic">Select Year</label>
+                                      <div class="controls">
+                                        <select id="anio" name="selectbasic" class="input-medium">
+                                          <option value="2014">2014</option>
+                                          <option value="2015">2015</option>
+                                          <option value="2016">2016</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                              </div>
+                              <div class="span4">
+                                  <div class="control-group">
+                                      <label class="control-label" for="selectbasic">Select Month</label>
+                                      <div class="controls">
+                                        <select id="mes" name="selectbasic" class="input-medium">
+                                          <option value="0" selected="selected"></option>
+                                          <option value="1">January</option>
+                                          <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                              </div>
+                              <div class="span4">
+                                  <div class="control-group">
+                                      <div class="controls">
+                                          <label class="control-label" for="singlebutton">&nbsp;</label>
+                                        <button id="filtrar" name="singlebutton" class="btn btn-danger">Accept</button>
+                                      </div>
+                                    </div>
+                              </div>
                             </div>
                         </div>
-        
-
-        <table id="datatables" cellpadding="0" cellspacing="0" border="0" style="width: 100%; text-align: center; visibility: hidden" class="table table-striped table-bordered">
-            <thead id="thead">
-                <tr>
-                    
-                    
-                    <th class="sorting" width="3%">ID</th>
-                    <th class="sorting" width="15%">Translation Name</th>
-                    <th class="sorting" width="6%">Requestor</th>
-                    <th class="sorting" width="6%">Original Lang</th>
-                    <th class="sorting" width="6%">Translate Lang</th>
-                    <th class="sorting" width="9%">Translation State</th>
-                    <th class="sorting" width="10%">Date of Requirement</th>
-                    <th class="sorting" width="10%">Estimated Date</th>
-                    <th class="sorting" width="6%">Responsible</th>
-                    <th class="sorting" width="6%">Duration / Days</th>
-                    
-
-                    
-                </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td>
-                       <div id="toExcel"><a href="#" id="btnDescargaExcel">
-                           <img src="images/xls.png" alt="to Excel" /></a>
-                       </div>
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    
-                    
-                </tr>
-            </tfoot>
-        </table>
-                         </div></div></div></div>
+                        <canvas id="cvs" width="800" height="400" style="display:none;">[No canvas support]</canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    
     <!-- /.container -->
 
     <!-- Progress bar -->

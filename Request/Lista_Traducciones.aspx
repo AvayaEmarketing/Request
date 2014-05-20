@@ -167,7 +167,6 @@
                                     <th class="sorting" width="10%">Original Lang</th>
                                     <th class="sorting" width="10%">Translate Lang</th>
                                     <th class="sorting" width="15%">Register Date</th>
-                                    <th class="sorting" width="15%">Desired Date</th>
                                     <th class="sorting" width="16%">Estimated Date</th>
                                     <th class="sorting" width="8%">Priority</th>
                                 </tr>
@@ -176,7 +175,6 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                     <td>&nbsp;</td>
